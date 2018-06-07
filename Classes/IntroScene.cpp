@@ -82,7 +82,7 @@ bool IntroScene::init()
 	background->setName("LoadingBackground");
 	this->addChild(background, -1);
 
-	Sprite* logo = Sprite::create("gameloft-logo.jpg");
+	Sprite* logo = Sprite::create("game-logo.jpg");
 	logo->setPosition(m_center);
 	logo->setName("logo");
 	this->addChild(logo, 0);
