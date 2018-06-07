@@ -1,0 +1,7 @@
+<SpriteInformation>
+		<Animation Key = "2000" Name = "DarkBall Icon" 			Path = "DarkBall Icon (%d).png" 	nFrames = "3" 	From = "1" 	To = "3" 	frameTime = "0.1" 	anchorPointX = "0" 					anchorPointY = "0"/>
+		<Animation Key = "2001" Name = "DarkBall Hit" 			Path = "DarkBall Hit (%d).png" 		nFrames = "10" 	From = "1" 	To = "10" 	frameTime = "0.09" 	anchorPointX = "0.502645502645503" 	anchorPointY = "0.497354497"/>
+		<Animation Key = "2002" Name = "DarkBall Bullet" 		Path = "DarkBall Bullet (%d).png" 	nFrames = "7" 	From = "1" 	To = "7" 	frameTime = "0.15" 	anchorPointX = "0.433179723502304" 	anchorPointY = "0.487179487"/>
+		<Animation Key = "2003" Name = "DarkBall Effect Start" 	Path = "DarkBall Effect (%d).png" 	nFrames = "16" 	From = "1" 	To = "11" 	frameTime = "0.09" 	anchorPointX = "0.745614035087719" 	anchorPointY = "0.379912664"/>
+		<Animation Key = "2004" Name = "DarkBall Effect End" 	Path = "DarkBall Effect (%d).png" 	nFrames = "16" 	From = "12" To = "16" 	frameTime = "0.09" 	anchorPointX = "0.745614035087719" 	anchorPointY = "0.379912664"/>	
+</SpriteInformation>

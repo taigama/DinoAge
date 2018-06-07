@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>frames</key>
+        <dict>
+            <key>twin_dragon (19).png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{740,558}</string>
+                <key>spriteSourceSize</key>
+                <string>{740,558}</string>
+                <key>textureRect</key>
+                <string>{{0,0},{740,558}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>twin_dragon (20).png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{740,558}</string>
+                <key>spriteSourceSize</key>
+                <string>{740,558}</string>
+                <key>textureRect</key>
+                <string>{{740,0},{740,558}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>twin_dragon (21).png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{740,558}</string>
+                <key>spriteSourceSize</key>
+                <string>{740,558}</string>
+                <key>textureRect</key>
+                <string>{{0,558},{740,558}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>twin_dragon (22).png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{740,558}</string>
+                <key>spriteSourceSize</key>
+                <string>{740,558}</string>
+                <key>textureRect</key>
+                <string>{{740,558},{740,558}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+        </dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>3</integer>
+            <key>pixelFormat</key>
+            <string>RGBA8888</string>
+            <key>premultiplyAlpha</key>
+            <false/>
+            <key>realTextureFileName</key>
+            <string>twin_dragon04.png</string>
+            <key>size</key>
+            <string>{1480,1116}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:b67061e39029bceb5d8efb631b597d18:3f9d5e7298efa401688bed14e7ad3960:ab37194743097f134e10d829e29a1d57$</string>
+            <key>textureFileName</key>
+            <string>twin_dragon04.png</string>
+        </dict>
+    </dict>
+</plist>
