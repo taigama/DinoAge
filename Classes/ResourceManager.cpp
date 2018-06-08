@@ -161,6 +161,7 @@ void ResourceManager::loadSounds()
 	AUDIO::preload("PointError.ogg");
 	AUDIO::preload("ST0E_U1_00001.ogg");
 	AUDIO::preload("ST01_00_00002.ogg");
+	AUDIO::preload("roar.ogg");
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
 	AUDIO::preload("the-only-friend.mp3");

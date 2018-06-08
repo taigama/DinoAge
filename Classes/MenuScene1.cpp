@@ -45,7 +45,7 @@
 
 #define DELAY_TIME_FOR_TITLE_UP 0.0f
 #define DELAY_TIME_FOR_TITLE_DOWN 0.5f
-#define DELAY_TIME_FOR_TITLE_IMAGE 0.5f
+#define DELAY_TIME_FOR_TITLE_IMAGE 1.0f
 #define DELAY_TIME_FOR_BUTTON 0.5f
 #define DELAY_TIME_FOR_BUTTON_LISTENERS 0.5f
 
@@ -119,7 +119,7 @@ bool MenuScene1::init()
 	auto visibleOrigin = Director::getInstance()->getVisibleOrigin();
 
 	auto center = visibleOrigin + Vec2(visibleSize.width / 2, visibleSize.height / 2);
-	auto titleAltitude = visibleOrigin + Vec2(visibleSize.width / 2, visibleSize.height - visibleSize.height / 5);
+	auto titleAltitude = visibleOrigin + Vec2(visibleSize.width / 2, visibleSize.height - visibleSize.height / 3.0f);
 	auto buttonAltitude = visibleOrigin + Vec2(visibleSize.width / 2, visibleSize.height * 0.3f);
 
 	auto scaleFactor = Director::getInstance()->getContentScaleFactor();
@@ -185,8 +185,8 @@ bool MenuScene1::init()
 	////////////////
 	// 3. Buttons
 
-	auto paddingX = visibleSize.width / 15;
-	auto paddingY = visibleSize.height / 30;
+	auto paddingX = visibleSize.width / 4.0f;
+	auto paddingY = visibleSize.height / 30.0f;
 
 	// -------------- Play button ---------------
 
@@ -194,9 +194,9 @@ bool MenuScene1::init()
 	auto playLabel = Label::createWithTTF("PLAY", "ArcadeClassic.ttf", BUTTON_TEXT_SIZE / scaleFactor);
 
 	playButton->setName("playButton");
-	playButton->setAnchorPoint(Vec2(1, 0));
+	playButton->setAnchorPoint(Vec2(0.5f, 0.5f));
 	playButton->setScale(SCALE_BUTTON);
-	playButton->setPosition(buttonAltitude + Vec2(-paddingX, paddingY));
+	playButton->setPosition(buttonAltitude + Vec2(-paddingX, 0));
 
 	playLabel->setName("playLabel");
 	playLabel->setAnchorPoint(Vec2(0.5, 0.5));
@@ -205,34 +205,15 @@ bool MenuScene1::init()
 	// Adds to the scene with "effects"
 	addButton(playButton, playLabel, DELAY_TIME_FOR_BUTTON);
 
-
-	// -------------- Levels button ---------------
-
-	auto levelsButton = ui::Button::create("button_active_template.png", "button_click_template.png", "button_disable_template.png");
-	auto levelsLabel = Label::createWithTTF("LEVELS", "ArcadeClassic.ttf", BUTTON_TEXT_SIZE / scaleFactor);
-
-	levelsButton->setName("levelsButton");
-	levelsButton->setAnchorPoint(Vec2(0, 0));
-	levelsButton->setScale(SCALE_BUTTON);
-	levelsButton->setPosition(buttonAltitude + Vec2(paddingX, paddingY));
-
-	levelsLabel->setName("levelsLabel");
-	levelsLabel->setAnchorPoint(Vec2(0.5, 0.5));
-	levelsLabel->setPosition(Vec2(levelsButton->getBoundingBox().getMidX(), levelsButton->getBoundingBox().getMidY()));
-
-	// Adds to the scene with "effects"
-	addButton(levelsButton, levelsLabel, DELAY_TIME_FOR_BUTTON);
-
-
 	// -------------- Setting button ----------------
 
 	auto skillsButton = ui::Button::create("button_active_template.png", "button_click_template.png", "button_disable_template.png");
 	auto skillsLabel = Label::createWithTTF("SKILLS", "ArcadeClassic.ttf", BUTTON_TEXT_SIZE / scaleFactor);
 
 	skillsButton->setName("skillsButton");
-	skillsButton->setAnchorPoint(Vec2(1, 1));
+	skillsButton->setAnchorPoint(Vec2(0.5f, 0.5f));
 	skillsButton->setScale(SCALE_BUTTON);
-	skillsButton->setPosition(buttonAltitude + Vec2(-paddingX, -paddingY));
+	skillsButton->setPosition(buttonAltitude + Vec2(0, 0));
 
 	skillsLabel->setName("skillsLabel");
 	skillsLabel->setAnchorPoint(Vec2(0.5, 0.5));
@@ -248,9 +229,9 @@ bool MenuScene1::init()
 	auto exitLabel = Label::createWithTTF("EXIT", "ArcadeClassic.ttf", BUTTON_TEXT_SIZE / scaleFactor);
 
 	exitButton->setName("exitButton");
-	exitButton->setAnchorPoint(Vec2(0, 1));
+	exitButton->setAnchorPoint(Vec2(0.5f, 0.5f));
 	exitButton->setScale(SCALE_BUTTON);
-	exitButton->setPosition(buttonAltitude + Vec2(paddingX, -paddingY));
+	exitButton->setPosition(buttonAltitude + Vec2(paddingX, 0));
 
 	exitLabel->setName("exitLabel");
 	exitLabel->setAnchorPoint(Vec2(0.5, 0.5));
@@ -285,12 +266,10 @@ bool MenuScene1::init()
 	scheduleOnce([&](float delta) {
 
 		auto play = dynamic_cast<ui::Button*>(getMainLayerBottom()->getChildByName("playButton"));
-		auto levels = dynamic_cast<ui::Button*>(getMainLayerBottom()->getChildByName("levelsButton"));
 		auto skills = dynamic_cast<ui::Button*>(getMainLayerBottom()->getChildByName("skillsButton"));
 		auto exit = dynamic_cast<ui::Button*>(getMainLayerBottom()->getChildByName("exitButton"));
 
 		play->addTouchEventListener(CC_CALLBACK_2(MenuScene1::onLevelsCallback, this));
-		levels->addTouchEventListener(CC_CALLBACK_2(MenuScene1::onLevelsCallback, this));
 		skills->addTouchEventListener(CC_CALLBACK_2(MenuScene1::onSkillsCallback, this));
 		exit->addTouchEventListener(CC_CALLBACK_2(MenuScene1::onExitCallback, this));
 
@@ -340,9 +319,9 @@ void MenuScene1::addTitle(Label*& title, const float delayTime)
 
 	// Actions for title
 	auto delay = DelayTime::create(delayTime);
-	auto rotate = RotateBy::create(1.4f, Vec3(0, 0, 540));
-	auto scale = ScaleBy::create(1.4f, 1.0f / 3.0f);
-	auto fadeIn = FadeIn::create(1.5f);
+	auto rotate = RotateBy::create(0.6f, Vec3(0, 0, 180));
+	auto scale = ScaleBy::create(0.6f, 1.0f / 3.0f);
+	auto fadeIn = FadeIn::create(0.7f);
 
 	auto easeOut = EaseOut::create(rotate->clone(), 0.5f);
 
@@ -383,10 +362,10 @@ void MenuScene1::addTitleImage(Sprite*& sprite, const float delayTime)
 	auto spawn = Spawn::create(fadeTo, scale, nullptr);
 
 	auto slam = CallFunc::create([]() {
-		AUDIO::play2d("ONPARE7_00002.ogg");
+		AUDIO::play2d("roar.ogg");
 	});
 
-	auto sequence = Sequence::create(delay, spawn, slam, nullptr);
+	auto sequence = Sequence::create(delay, slam, spawn, nullptr);
 
 	// Executes actions
 	sprite->runAction(sequence);
