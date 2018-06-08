@@ -12,11 +12,6 @@ MyPoolManager::MyPoolManager()
 
 MyPoolManager::~MyPoolManager()
 {
-	// may being leak memory
-	if (m_instance)
-		m_instance = nullptr;	
-	// but without the above function, may be get memory access violent
-
 	for (int i = 0; i < 4; i++)
 	{
 		for (auto iter = pools[i].begin(); iter != pools[i].end(); iter++)
@@ -26,6 +21,11 @@ MyPoolManager::~MyPoolManager()
 
 		pools[i].clear();
 	}
+
+	// may being leak memory
+	if (m_instance)
+		m_instance = nullptr;
+	// but without the above function, may be get memory access violent
 }
 
 MyPoolManager* MyPoolManager::getInstance()

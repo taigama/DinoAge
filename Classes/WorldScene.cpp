@@ -315,6 +315,17 @@ bool World::onContactSeparate(const cocos2d::PhysicsContact &contact)
 
 World::~World()
 {
+	auto children = this->getChildren();
+	GameObject* tmp;
+	for (auto iter = children.begin(); iter != children.end(); iter++) {
+		tmp = dynamic_cast<GameObject*>(*iter);
+		if (tmp != nullptr) {
+			if (tmp != m_mainPlayer) {
+				tmp->setActive(false);
+			}
+		}
+	}
+
 	zones.clear();
 
 	//delete ResourceManager::getInstance();

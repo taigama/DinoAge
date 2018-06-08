@@ -69,6 +69,7 @@ void CastLightningStrike::update(float delta)
 ### METHOD CALLED BY POOL ###*/
 void CastLightningStrike::reset(float params[10])
 {
+	m_camera = Camera::getDefaultCamera();
 	this->setActive(true);
 	scheduleUpdate();// because this object need to be updated
 

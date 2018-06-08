@@ -1,3 +1,6 @@
+#include "ResourceManager.h"
+#include "MenuScene1.h"
+
 #include "DarkPortal.h"
 
 #include "WorldScene.h"
@@ -192,6 +195,29 @@ void DarkPortal::onDie()
 	}, _dieTime, "DarkFXDie");
 
 	this->scheduleOnce([posExplode, this](float delay) {
-		this->setActive(false);
+		//this->setActive(false);
+		this->endGame();
 	}, _dieTime + 0.3f, "DarkDie");
+}
+
+void DarkPortal::endGame() {
+	this->scheduleOnce([this](float delay) {
+
+		AUDIO::setVolume(ResourceManager::getInstance()->backgroundSongID, 0.6f);
+
+
+		this->scheduleOnce([this](float delay) {
+
+			AUDIO::setVolume(ResourceManager::getInstance()->backgroundSongID, 0.3f);
+
+			// notify that "do not delete the res manager"
+			ResourceManager::getInstance()->readyDelete = false;
+
+			// Returns to Main Menu scene
+			Director::getInstance()->replaceScene(TransitionFade::create(0.5f, MenuScene1::createScene()));
+
+		}, 1.0f, "AfterDarkPortalDie");
+
+	}, 1.0f, "AfterDarkPortalDie");
+	
 }

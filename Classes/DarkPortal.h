@@ -35,6 +35,8 @@ protected:
 
 private:
 
+	void endGame();
+
 	// Timer to spawn Enemy (Feeder / Werewolf)
 	float m_timerSpawn;
 

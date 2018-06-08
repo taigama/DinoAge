@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="2017.07.25" orientation="orthogonal" renderorder="right-down" width="204" height="30" tilewidth="32" tileheight="32" nextobjectid="250">
+<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="204" height="30" tilewidth="32" tileheight="32" infinite="0" nextobjectid="250">
  <tileset firstgid="1" source="tileset_mapLv1.tsx"/>
  <tileset firstgid="1153" source="background.tsx"/>
  <layer name="Background" width="204" height="30" visible="0">
@@ -35,9 +35,6 @@
   </object>
   <object id="230" name="USE JUMP BUTTON TO JUMP OVER THE CLIFF" x="983.834" y="313.5" width="346.333" height="77">
    <text fontfamily="Times New Roman" pixelsize="24" wrap="1" bold="1" halign="center" valign="center">USE JUMP BUTTON TO JUMP OVER THE CLIFF</text>
-  </object>
-  <object id="244" name="+" x="2038" y="361" width="22.1665" height="29.1667">
-   <text fontfamily="Times New Roman" pixelsize="24" wrap="1" bold="1" halign="center" valign="center">+</text>
   </object>
   <object id="247" name="ENERGY ORB!!! WITH MORE ENERGY, YOU CAN USE MORE SKILLS LATER" x="5900.77" y="307.682" width="469" height="87">
    <text fontfamily="Times New Roman" pixelsize="24" wrap="1" bold="1" halign="center" valign="center">ENERGY ORB!!! WITH MORE ENERGY, YOU CAN USE MORE SKILLS LATER</text>
@@ -265,27 +262,27 @@
     <property name="path" value="physicalAttack.png"/>
    </properties>
   </object>
-  <object id="242" type="Illusion" x="2080" y="352" width="48" height="48">
+  <object id="242" type="Illusion" x="1914" y="454" width="48" height="48">
    <properties>
     <property name="path" value="jumpButton.png"/>
    </properties>
   </object>
-  <object id="241" type="Illusion" x="1968" y="352" width="48" height="48">
+  <object id="241" type="Illusion" x="1888" y="532" width="48" height="48">
    <properties>
     <property name="path" value="jumpButton.png"/>
    </properties>
   </object>
-  <object id="240" type="Illusion" x="1128" y="384" width="48" height="48">
+  <object id="240" type="Illusion" x="1027" y="533" width="48" height="48">
    <properties>
     <property name="path" value="jumpButton.png"/>
    </properties>
   </object>
-  <object id="248" type="Illusion" x="2536" y="512" width="48" height="48">
+  <object id="248" type="Illusion" x="2535" y="596" width="48" height="48">
    <properties>
     <property name="path" value="dangerous_water.png"/>
    </properties>
   </object>
-  <object id="249" type="Illusion" x="2920" y="512" width="48" height="48">
+  <object id="249" type="Illusion" x="2919" y="597" width="48" height="48">
    <properties>
     <property name="path" value="dangerous_lava.png"/>
    </properties>
