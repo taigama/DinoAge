@@ -102,7 +102,6 @@ public:
 	// Level selection layer
 	CC_SYNTHESIZE_READONLY(cocos2d::Layer*, _levelsLayerTop, LevelsLayerTop);
 	CC_SYNTHESIZE_READONLY(cocos2d::Layer*, _levelsLayerBottom, LevelsLayerBottom);
-	CC_SYNTHESIZE_READONLY(cocos2d::LayerColor*, _levelsLayerQuestion, LevelsLayerQuestion);
 
 	// Upgrade skill layers: top and bottom
 	CC_SYNTHESIZE_READONLY(cocos2d::Layer*, _skillsLayerTop, SkillsLayerTop);

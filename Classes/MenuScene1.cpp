@@ -77,8 +77,6 @@ MenuScene1::~MenuScene1()
 	{
 		resManager->readyDelete = true;
 	}
-
-	CC_SAFE_RELEASE_NULL(_levelsLayerQuestion);
 	CC_SAFE_RELEASE_NULL(_skillsLayerView);
 }
 
@@ -135,7 +133,6 @@ bool MenuScene1::init()
 
 	_levelsLayerTop = nullptr;
 	_levelsLayerBottom = nullptr;
-	_levelsLayerQuestion = nullptr;
 
 	_currentLegacy = UserDefault::getInstance()->getIntegerForKey("player_legacy", 0);
 	_redDinoSkillsPattern = UserDefault::getInstance()->getIntegerForKey("red_dino_skills_set", 24);		// default value = 0x11000
@@ -1380,216 +1377,34 @@ void MenuScene1::onLevelStageCallback(cocos2d::Ref* sender, cocos2d::ui::Widget:
 		return;
 	}
 
+	// Extract the selected map
+	auto mapTag = dynamic_cast<ui::Button*>(sender)->getTag();
 
-
-	// FIRST time
-	if (_levelsLayerQuestion == nullptr)
+	switch (mapTag)
 	{
-		auto visibleSize = Director::getInstance()->getVisibleSize();
-		auto visibleOrigin = Director::getInstance()->getVisibleOrigin();
-
-		auto paddingX = visibleSize.width / 20;
-		auto paddingY = visibleSize.height / 20;
-
-		auto scaleFactor = Director::getInstance()->getContentScaleFactor();
-
-
-		// Extract the selected map
-		auto mapTag = dynamic_cast<ui::Button*>(sender)->getTag();
-
-		switch (mapTag)
-		{
-		case PROLOGUE_TUTORIAL_TAG:
-			_selectedMap = "prologue_tutorial.tmx";
-			break;
-		case PROLOGUE_STAGE1_TAG:
-			_selectedMap = "prologue_stage1.tmx";
-			break;
-		case PROLOGUE_STAGE2_TAG:
-			_selectedMap = "prologue_stage2.tmx";
-			break;
-		case PROLOGUE_STAGE3_TAG:
-			_selectedMap = "prologue_stage3.tmx";
-			break;
-		default:
-			break;
-		}
-
-
-		// Cover layer
-		_levelsLayerQuestion = LayerColor::create(Color4B::BLACK);
-
-		_levelsLayerQuestion->setName("level_layer_question");
-		_levelsLayerQuestion->setOpacity(200);
-
-		this->addChild(_levelsLayerQuestion, LEVEL_QUESTION_LAYER_Z_ORDER);
-
-		_levelsLayerQuestion->setPosition(Vec2::ZERO);
-
-
-		// EventListener to swallow touches
-		auto listener = EventListenerTouchOneByOne::create();
-
-		listener->setSwallowTouches(true);
-		listener->onTouchBegan = [](Touch*, Event*)->bool {
-
-			return true;
-
-		};
-
-		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, _levelsLayerQuestion);
-
-
-		// Background box
-		auto boxSize = Size(visibleSize.width * 0.45f, visibleSize.height * 0.3f);
-		auto backgroundBox = Sprite::create("text_box1.png");
-
-		backgroundBox->setName("level_background_box");
-
-		backgroundBox->setScaleX(boxSize.width / backgroundBox->getContentSize().width);
-		backgroundBox->setScaleY(boxSize.height / backgroundBox->getContentSize().height);
-
-		backgroundBox->setAnchorPoint(Vec2(0.5, 0.5));
-		backgroundBox->setPosition(visibleOrigin.x + visibleSize.width / 2, visibleOrigin.y + visibleSize.height / 2);
-
-		_levelsLayerQuestion->addChild(backgroundBox, 1);		// on top of cover layer
-
-
-		// QUESTION LABEL
-
-		// Extract corresponding map's name
-		std::string question = "Moving to " + dynamic_cast<ui::Button*>(sender)->getName() + "?";
-
-		// Label
-		auto label = Label::createWithTTF(question, "6809 chargen.ttf", LEVEL_PANEL_QUESTION_FONT_SIZE / scaleFactor);
-
-		label->setName("level_question");
-
-		label->setMaxLineWidth(backgroundBox->getBoundingBox().size.width - paddingX);
-		label->enableWrap(true);
-		label->setTextColor(Color4B::BLACK);
-
-		label->setAnchorPoint(Vec2(0.5, 1));
-		label->setPosition(backgroundBox->getBoundingBox().getMidX(), backgroundBox->getBoundingBox().getMaxY() - paddingY);
-
-		_levelsLayerQuestion->addChild(label, 2);				// on top of background box
-
-
-		// BUTTONS: Move and Cancel
-
-		// Move button
-		auto moveButton = ui::Button::create("button_active_template.png", "button_click_template.png", "button_disable_template.png");
-
-		moveButton->setName("move_button");
-		moveButton->setScale(SCALE_LEVEL_QUESTION_BUTTON);
-		moveButton->setAnchorPoint(Vec2(0, 0));
-		moveButton->setPosition(Vec2(backgroundBox->getBoundingBox().getMinX() + paddingX * 1.5f, backgroundBox->getBoundingBox().getMinY() + paddingY));
-		moveButton->addTouchEventListener([&](Ref* sender, ui::Widget::TouchEventType type) {
-
-			// Triggered on BEGAN click only
-			if (type != ui::Widget::TouchEventType::ENDED)
-			{
-				return;
-			}
-
-
-			// Turns off visiblity; and removes from parent
-			_levelsLayerQuestion->setVisible(false);
-			this->removeChild(_levelsLayerQuestion, false);
-
-
-			// Moves to the selected map
-			auto nextScene = CharacterSelectionScene::createScene(_selectedMap);
-
-			// notify that "do not delete the res manager"
-			ResourceManager::getInstance()->readyDelete = false;
-
-			Director::getInstance()->replaceScene(TransitionFade::create(TRANSITION_TIME_LEVEL_STAGE_CALLBACK, nextScene));
-
-		});
-
-		_levelsLayerQuestion->addChild(moveButton, 2);			// on top of background box
-
-		auto moveLabel = Label::createWithTTF("MOVE", "6809 chargen.ttf", LEVEL_PANEL_QUESTION_FONT_SIZE / scaleFactor);
-
-		moveLabel->setName("move_label");
-		moveLabel->setAnchorPoint(Vec2(0.5, 0.5));
-		moveLabel->setPosition(moveButton->getBoundingBox().getMidX(), moveButton->getBoundingBox().getMidY());
-
-		_levelsLayerQuestion->addChild(moveLabel, 3);			// on top of button template
-
-
-
-		// Cancle button
-		auto cancelButton = ui::Button::create("red_button_active_template.png", "red_button_click_template.png", "button_disable_template.png");
-
-		cancelButton->setName("cancel_button");
-		cancelButton->setScale(SCALE_LEVEL_QUESTION_BUTTON);
-		cancelButton->setAnchorPoint(Vec2(1, 0));
-		cancelButton->setPosition(Vec2(backgroundBox->getBoundingBox().getMaxX() - paddingX * 1.5f, backgroundBox->getBoundingBox().getMinY() + paddingY));
-		cancelButton->addTouchEventListener([&](Ref* sender, ui::Widget::TouchEventType type) {
-
-			// Triggered on BEGAN click only
-			if (type != ui::Widget::TouchEventType::ENDED)
-			{
-				return;
-			}
-
-
-			// Turns off visiblity; and removes from parent
-			_levelsLayerQuestion->setVisible(false);
-			this->removeChild(_levelsLayerQuestion, false);
-
-		});
-
-		_levelsLayerQuestion->addChild(cancelButton, 2);			// on top of background box
-
-		auto cancelLabel = Label::createWithTTF("CANCEL", "6809 chargen.ttf", LEVEL_PANEL_QUESTION_FONT_SIZE / scaleFactor);
-
-		cancelLabel->setName("cancel_label");
-		cancelLabel->setAnchorPoint(Vec2(0.5, 0.5));
-		cancelLabel->setPosition(cancelButton->getBoundingBox().getMidX(), cancelButton->getBoundingBox().getMidY());
-
-		_levelsLayerQuestion->addChild(cancelLabel, 3);			// on top of button template
-
-
-
-		CC_SAFE_RETAIN(_levelsLayerQuestion);
+	case PROLOGUE_TUTORIAL_TAG:
+		_selectedMap = "prologue_tutorial.tmx";
+		break;
+	case PROLOGUE_STAGE1_TAG:
+		_selectedMap = "prologue_stage1.tmx";
+		break;
+	case PROLOGUE_STAGE2_TAG:
+		_selectedMap = "prologue_stage2.tmx";
+		break;
+	case PROLOGUE_STAGE3_TAG:
+		_selectedMap = "prologue_stage3.tmx";
+		break;
+	default:
+		break;
 	}
 
-	// SECOND time onward
-	else
-	{
-		// Turns on visibility and adds to current scene
-		_levelsLayerQuestion->setVisible(true);
-		this->addChild(_levelsLayerQuestion, LEVEL_QUESTION_LAYER_Z_ORDER);
+	// ============  Moves to the selected map  ================
+	auto nextScene = CharacterSelectionScene::createScene(_selectedMap);
 
+	// notify that "do not delete the res manager"
+	ResourceManager::getInstance()->readyDelete = false;
 
-		// Re-extracts the selected map
-		auto mapTag = dynamic_cast<ui::Button*>(sender)->getTag();
-
-		switch (mapTag)
-		{
-		case PROLOGUE_TUTORIAL_TAG:
-			_selectedMap = "prologue_tutorial.tmx";
-			break;
-		case PROLOGUE_STAGE1_TAG:
-			_selectedMap = "prologue_stage1.tmx";
-			break;
-		case PROLOGUE_STAGE2_TAG:
-			_selectedMap = "prologue_stage2.tmx";
-			break;
-		default:
-			break;
-		}
-
-
-		// Change question
-		std::string question = "Moving to " + dynamic_cast<ui::Button*>(sender)->getName() + "?";
-		
-		dynamic_cast<Label*>(_levelsLayerQuestion->getChildByName("level_question"))->setString(question);
-	}
-	
+	Director::getInstance()->replaceScene(TransitionFade::create(TRANSITION_TIME_LEVEL_STAGE_CALLBACK, nextScene));
 }
 
 // ----------------------------------------- END OF SECTION -----------------------------------------
