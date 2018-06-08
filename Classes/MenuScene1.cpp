@@ -45,22 +45,22 @@
 
 #define DELAY_TIME_FOR_TITLE_UP 0.0f
 #define DELAY_TIME_FOR_TITLE_DOWN 0.5f
-#define DELAY_TIME_FOR_TITLE_IMAGE 2.0f
-#define DELAY_TIME_FOR_BUTTON 3.5f
-#define DELAY_TIME_FOR_BUTTON_LISTENERS 4.5f
+#define DELAY_TIME_FOR_TITLE_IMAGE 0.5f
+#define DELAY_TIME_FOR_BUTTON 0.5f
+#define DELAY_TIME_FOR_BUTTON_LISTENERS 0.5f
 
-#define DELAY_TIME_HIDE_MAIN_LAYER 1.4f
-#define DELAY_TIME_SHOW_MAIN_LAYER 1.4f
-#define DELAY_TIME_HIDE_LEVELS_LAYER 0.8f
-#define DELAY_TIME_SHOW_LEVELS_LAYER 0.8f
-#define DELAY_TIME_SHOW_SKILLS_LAYER 1.4f
-#define DELAY_TIME_HIDE_SKILLS_LAYER 1.4f
+#define DELAY_TIME_HIDE_MAIN_LAYER 0.5f
+#define DELAY_TIME_SHOW_MAIN_LAYER 0.5f
+#define DELAY_TIME_HIDE_LEVELS_LAYER 0.4f
+#define DELAY_TIME_SHOW_LEVELS_LAYER 0.4f
+#define DELAY_TIME_SHOW_SKILLS_LAYER 0.5f
+#define DELAY_TIME_HIDE_SKILLS_LAYER 0.5f
 
-#define DELAY_TIME_SWIPE_LEFT 1.0f
-#define DELAY_TIME_SWIPE_RIGHT 1.0f
+#define DELAY_TIME_SWIPE_LEFT 0.5f
+#define DELAY_TIME_SWIPE_RIGHT 0.5f
 
 #define TRANSITION_TIME_PLAY_CALLBACK 0.5f
-#define TRANSITION_TIME_LEVEL_STAGE_CALLBACK 1.2f
+#define TRANSITION_TIME_LEVEL_STAGE_CALLBACK 0.6f
 
 #define NUMBER_OF_SKILLS 5
 
@@ -292,7 +292,7 @@ bool MenuScene1::init()
 		auto skills = dynamic_cast<ui::Button*>(getMainLayerBottom()->getChildByName("skillsButton"));
 		auto exit = dynamic_cast<ui::Button*>(getMainLayerBottom()->getChildByName("exitButton"));
 
-		play->addTouchEventListener(CC_CALLBACK_2(MenuScene1::onPlayCallback, this));
+		play->addTouchEventListener(CC_CALLBACK_2(MenuScene1::onLevelsCallback, this));
 		levels->addTouchEventListener(CC_CALLBACK_2(MenuScene1::onLevelsCallback, this));
 		skills->addTouchEventListener(CC_CALLBACK_2(MenuScene1::onSkillsCallback, this));
 		exit->addTouchEventListener(CC_CALLBACK_2(MenuScene1::onExitCallback, this));
@@ -380,8 +380,8 @@ void MenuScene1::addTitleImage(Sprite*& sprite, const float delayTime)
 
 	// Actions
 	auto delay = DelayTime::create(delayTime);
-	auto fadeTo = FadeTo::create(1.0f, 255);
-	auto scale = ScaleBy::create(1.0f, 1.0f / 6.0f);
+	auto fadeTo = FadeTo::create(0.5f, 255);
+	auto scale = ScaleBy::create(0.5f, 1.0f / 6.0f);
 
 	auto spawn = Spawn::create(fadeTo, scale, nullptr);
 
@@ -413,7 +413,7 @@ void MenuScene1::addButton(ui::Button*& button, Label*& label, const float delay
 
 	// Actions
 	auto delay = DelayTime::create(delayTime);
-	auto fadeTo = FadeTo::create(1.0f, 255);
+	auto fadeTo = FadeTo::create(0.5f, 255);
 
 	auto spawn = Spawn::create(fadeTo, nullptr);
 

@@ -87,9 +87,6 @@
     <ClCompile Include="..\Classes\Dummy.cpp">
       <Filter>src\Dummy</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Background.cpp">
-      <Filter>src\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\CameraHelper.cpp">
       <Filter>src\Supporter</Filter>
     </ClCompile>
@@ -161,9 +158,6 @@
     </ClCompile>
     <ClCompile Include="..\Classes\PushableBlock.cpp">
       <Filter>src\Block</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Classes\MenuScene1.cpp">
-      <Filter>src\Scene\UI</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\MovingBlock.cpp">
       <Filter>src\Block</Filter>
@@ -276,6 +270,12 @@
     <ClCompile Include="..\Classes\TextEffect.cpp">
       <Filter>src\Other</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\MenuScene1.cpp">
+      <Filter>src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Background.cpp">
+      <Filter>src\Scene\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -301,9 +301,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Dummy.h">
       <Filter>src\Dummy</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Background.h">
-      <Filter>src\Scene</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\CameraHelper.h">
       <Filter>src\Supporter</Filter>
@@ -376,9 +373,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\PushableBlock.h">
       <Filter>src\Block</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\MenuScene1.h">
-      <Filter>src\Scene\UI</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\MovingBlock.h">
       <Filter>src\Block</Filter>
@@ -490,6 +484,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\TextEffect.h">
       <Filter>src\Other</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MenuScene1.h">
+      <Filter>src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Background.h">
+      <Filter>src\Scene\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
