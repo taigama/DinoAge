@@ -254,16 +254,6 @@ Player* World::getPlayer()
 	return m_mainPlayer;
 }
 
-//World* World::getInstance()
-//{
-//	if (m_instance == nullptr)
-//	{
-//		MessageBox("NO WORLD INSTANCE!", "World::getInstance");
-//
-//		m_instance = (World*)World::createLayer();
-//	}
-//	return m_instance;
-//}
 
 World* World::getCurrent()
 {

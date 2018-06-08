@@ -512,7 +512,7 @@
   </object>
  </objectgroup>
  <objectgroup name="Init">
-  <object id="3" name="start_location" x="156" y="144">
+  <object id="3" name="start_location" x="156" y="350">
    <properties>
     <property name="bg" value="background_sdark.png"/>
     <property name="margin" type="float" value="64"/>

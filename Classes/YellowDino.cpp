@@ -96,7 +96,7 @@ bool YellowDino::init()
 
 	// offset for attacking
 	m_offsetMouth_bite = Vec2(this->getBoundingBox().size.width, 0);
-	m_offsetMouth_fire = Vec2((this->getBoundingBox().size.width) / 1.5f, - (this->getBoundingBox().size.height / 4.5f));
+	m_offsetMouth_fire = Vec2((this->getBoundingBox().size.width) / 1.5f, 0.0f);
 
 
 	castSkill[0] = (CastSkill)(&YellowDino::lightningStrike);
