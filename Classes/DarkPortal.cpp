@@ -196,6 +196,7 @@ void DarkPortal::onDie()
 
 	this->scheduleOnce([posExplode, this](float delay) {
 		//this->setActive(false);
+        this->removeChild(_sprite, true);
 		this->endGame();
 	}, _dieTime + 0.3f, "DarkDie");
 }
@@ -216,7 +217,7 @@ void DarkPortal::endGame() {
 			// Returns to Main Menu scene
 			Director::getInstance()->replaceScene(TransitionFade::create(0.5f, MenuScene1::createScene()));
 
-		}, 1.0f, "AfterDarkPortalDie");
+		}, 1.0f, "TheGameIsEndAfterDP");
 
 	}, 1.0f, "AfterDarkPortalDie");
 	
