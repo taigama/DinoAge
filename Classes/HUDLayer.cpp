@@ -21,7 +21,7 @@
 #define LEGACY_FONT_SIZE 18.0f
 #define NOTIFICATION_FONT_SIZE 20.0f
 
-#define SCALE_MOVEMENT_BUTTON 0.59f
+#define SCALE_MOVEMENT_BUTTON 0.5f
 #define SCALE_ACTION_BUTTON 2.00f
 #define SCALE_PAUSE_BUTTON 1.1f
 #define SCALE_RESUME_MENU_BUTTON 1.4f
@@ -101,7 +101,7 @@ bool HUDLayer::init()
 
 	_leftButton->setAnchorPoint(Vec2::ZERO);
 	_leftButton->setScale(SCALE_MOVEMENT_BUTTON);
-	_leftButton->setPosition(Vec2(visibleOrigin.x + padding / 2, visibleOrigin.y + padding / 3));
+	_leftButton->setPosition(Vec2(visibleOrigin.x + padding / 3.0f, visibleOrigin.y + padding / 3.0f));
 
 	// Adds event listener to button
 	_leftButton->addTouchEventListener([&](cocos2d::Ref*, cocos2d::ui::Widget::TouchEventType type) {
@@ -156,7 +156,7 @@ bool HUDLayer::init()
 
 	_rightButton->setAnchorPoint(Vec2::ZERO);
 	_rightButton->setScale(SCALE_MOVEMENT_BUTTON);
-	_rightButton->setPosition(Vec2(_leftButton->getBoundingBox().getMaxX() + padding, _leftButton->getBoundingBox().getMinY()));
+	_rightButton->setPosition(Vec2(_leftButton->getBoundingBox().getMaxX() + padding / 3.0f, _leftButton->getBoundingBox().getMinY()));
 
 	// Adds event listener to button
 	_rightButton->addTouchEventListener([&](cocos2d::Ref*, cocos2d::ui::Widget::TouchEventType type) {
@@ -211,7 +211,7 @@ bool HUDLayer::init()
 
 	_jumpButton->setAnchorPoint(Vec2(1, 0));
 	_jumpButton->setScale(SCALE_ACTION_BUTTON);
-	_jumpButton->setPosition(Vec2(visibleOrigin.x + visibleSize.width - padding / 3, visibleOrigin.y + padding / 4));
+	_jumpButton->setPosition(Vec2(visibleOrigin.x + visibleSize.width - padding / 2.0f, visibleOrigin.y + padding / 4));
 
 	// Adds event listener to button
 	_jumpButton->addTouchEventListener([&](cocos2d::Ref*, cocos2d::ui::Widget::TouchEventType type) {
@@ -259,9 +259,9 @@ bool HUDLayer::init()
 	// load image for button, and set callback function
 	_physicalAttackButton = ui::Button::create("physicalAttack.png", "physicalAttack_pressed.png");
 
-	_physicalAttackButton->setAnchorPoint(Vec2(1, 0.5));
+	_physicalAttackButton->setAnchorPoint(Vec2(1, 0.5f));
 	_physicalAttackButton->setScale(SCALE_ACTION_BUTTON);
-	_physicalAttackButton->setPosition(Vec2(_jumpButton->getBoundingBox().getMinX() - padding * 2.6f, _jumpButton->getBoundingBox().getMidY()));
+	_physicalAttackButton->setPosition(Vec2(_jumpButton->getBoundingBox().getMinX() - padding / 3.0f, _jumpButton->getBoundingBox().getMidY()));
 
 	// Adds event listener to button
 	_physicalAttackButton->addTouchEventListener([&](cocos2d::Ref*, cocos2d::ui::Widget::TouchEventType type) {
@@ -367,9 +367,9 @@ bool HUDLayer::init()
 	// load image for button, and set callback function
 	_projectileAttackButton = ui::Button::create("projectileAttack.png", "projectileAttack_pressed.png");
 
-	_projectileAttackButton->setAnchorPoint(Vec2(0.5, 0));
+	_projectileAttackButton->setAnchorPoint(Vec2(0.5f, 0));
 	_projectileAttackButton->setScale(SCALE_ACTION_BUTTON);
-	_projectileAttackButton->setPosition(Vec2(_jumpButton->getBoundingBox().getMinX() - padding * 1.3f, _jumpButton->getBoundingBox().getMaxY() - padding / 2));
+	_projectileAttackButton->setPosition(Vec2(_jumpButton->getBoundingBox().getMidX(), _jumpButton->getBoundingBox().getMaxY()));
 
 	// Adds event listener to button
 	_projectileAttackButton->addTouchEventListener([&](cocos2d::Ref*, cocos2d::ui::Widget::TouchEventType type) {
@@ -963,30 +963,31 @@ void HUDLayer::extractPlayer()
 	}
 
 
-	// Extracts Player's skills-unlock pattern
-	if (_player->getCharType() == Character::CHARACTER_TYPE::RED_DINOSAUR)
-	{
-		_unlockSkillPattern = UserDefault::getInstance()->getIntegerForKey("red_dino_skills_set");
-	}
-	else if (_player->getCharType() == Character::CHARACTER_TYPE::WHITE_DINOSAUR)
-	{
-		_unlockSkillPattern = UserDefault::getInstance()->getIntegerForKey("white_dino_skills_set");
-	}
-	else if (_player->getCharType() == Character::CHARACTER_TYPE::YELLOW_DINOSAUR)
-	{
-		_unlockSkillPattern = UserDefault::getInstance()->getIntegerForKey("yellow_dino_skills_set");
-	}
+	//// Extracts Player's skills-unlock pattern
+	//if (_player->getCharType() == Character::CHARACTER_TYPE::RED_DINOSAUR)
+	//{
+	//	_unlockSkillPattern = UserDefault::getInstance()->getIntegerForKey("red_dino_skills_set");
+	//}
+	//else if (_player->getCharType() == Character::CHARACTER_TYPE::WHITE_DINOSAUR)
+	//{
+	//	_unlockSkillPattern = UserDefault::getInstance()->getIntegerForKey("white_dino_skills_set");
+	//}
+	//else if (_player->getCharType() == Character::CHARACTER_TYPE::YELLOW_DINOSAUR)
+	//{
+	//	_unlockSkillPattern = UserDefault::getInstance()->getIntegerForKey("yellow_dino_skills_set");
+	//}
 }
 
 bool HUDLayer::isSkillUnlocked(int index)
 {
-	// Creates the accurate key
-	int key = 16;			// 0x10000
-	while (index-- > 0)
-	{
-		key = key >> 1;
-	}
+	return true; // unlock all
+	//// Creates the accurate key
+	//int key = 16;			// 0x10000
+	//while (index-- > 0)
+	//{
+	//	key = key >> 1;
+	//}
 
-	// Extracts the state of the skill
-	return (_unlockSkillPattern & key);
+	//// Extracts the state of the skill
+	//return (_unlockSkillPattern & key);
 }

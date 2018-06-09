@@ -144,15 +144,15 @@ bool AppDelegate::applicationDidFinishLaunching()
 
 
 
-	// Sets initial values for CHARACTER'S SKILLS
-	UserDefault::getInstance()->setIntegerForKey("red_dino_skills_set", 24);			// value = 0x11000
-	UserDefault::getInstance()->setIntegerForKey("white_dino_skills_set", 24);			// value = 0x11000
-	UserDefault::getInstance()->setIntegerForKey("yellow_dino_skills_set", 24);			// value = 0x11000
+	//// Sets initial values for CHARACTER'S SKILLS
+	//UserDefault::getInstance()->setIntegerForKey("red_dino_skills_set", 31);			// value = 0x11000
+	//UserDefault::getInstance()->setIntegerForKey("white_dino_skills_set", 31);			// value = 0x11000
+	//UserDefault::getInstance()->setIntegerForKey("yellow_dino_skills_set", 31);			// value = 0x11000
 
-	// Sets initial values for PLAYER'S LEGACY
-	UserDefault::getInstance()->setIntegerForKey("player_legacy", 8000);
+	//// Sets initial values for PLAYER'S LEGACY
+	//UserDefault::getInstance()->setIntegerForKey("player_legacy", 0);
 
-	UserDefault::getInstance()->flush();		// saves values
+	//UserDefault::getInstance()->flush();		// saves values
 
 
     // create a scene. it's an autorelease object

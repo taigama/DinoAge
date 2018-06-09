@@ -29,8 +29,6 @@ public:
 
 	// For ui::Button
 	void onPlayCallback(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
-	void onLevelsCallback(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
-	void onSkillsCallback(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
 	void onExitCallback(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);
 
 	void onLevelsReturnCallback(cocos2d::Ref* sender, cocos2d::ui::Widget::TouchEventType type);

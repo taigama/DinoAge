@@ -406,7 +406,7 @@ bool CharacterSelectionScene::init()
 	this->addChild(skillSet);
 
 	// Retrieves the state of skill set of the user (as pattern - e.g. 0x11000)
-	auto skillPattern = UserDefault::getInstance()->getIntegerForKey("red_dino_skills_set", 24);	// default value = 0x11000
+	auto skillPattern = UserDefault::getInstance()->getIntegerForKey("red_dino_skills_set", 31);	// default value = 0x11000
 	auto key = 16;			// 0x10000
 
 	// Default selected character = RED_DINOSAUR => Default skillset = FIRE skills
@@ -759,7 +759,7 @@ void CharacterSelectionScene::changeSkillSet()
 	if (_playerSelection == SELECTION::RED_DINO)
 	{
 		// Retrieves pattern for skill set
-		auto skillPattern = UserDefault::getInstance()->getIntegerForKey("red_dino_skills_set", 24);	// default value = 0x11000
+		auto skillPattern = UserDefault::getInstance()->getIntegerForKey("red_dino_skills_set", 31);	// default value = 0x11000
 
 		// Retrieves skillset
 		auto skillSet = dynamic_cast<ui::RadioButtonGroup*>(this->getChildByName("skill_set"));
@@ -794,7 +794,7 @@ void CharacterSelectionScene::changeSkillSet()
 	else if (_playerSelection == SELECTION::WHITE_DINO)
 	{
 		// Retrieves pattern for skill set
-		auto skillPattern = UserDefault::getInstance()->getIntegerForKey("white_dino_skills_set", 24);		// default value = 0x11000
+		auto skillPattern = UserDefault::getInstance()->getIntegerForKey("white_dino_skills_set", 31);		// default value = 0x11000
 
 		// Retrieves skillset
 		auto skillSet = dynamic_cast<ui::RadioButtonGroup*>(this->getChildByName("skill_set"));
@@ -829,7 +829,7 @@ void CharacterSelectionScene::changeSkillSet()
 	else if (_playerSelection == SELECTION::YELLOW_DINO)
 	{
 		// Retrieves pattern for skill set
-		auto skillPattern = UserDefault::getInstance()->getIntegerForKey("yellow_dino_skills_set", 24);		// default value = 0x11000
+		auto skillPattern = UserDefault::getInstance()->getIntegerForKey("yellow_dino_skills_set", 31);		// default value = 0x11000
 
 		// Retrieves skillset
 		auto skillSet = dynamic_cast<ui::RadioButtonGroup*>(this->getChildByName("skill_set"));
