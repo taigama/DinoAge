@@ -132,6 +132,9 @@ bool AppDelegate::applicationDidFinishLaunching()
 	FileUtils::getInstance()->addSearchPath("res/sounds/fx/strong");
 	FileUtils::getInstance()->addSearchPath("res/sounds/fx/UI");
 
+	// Search path for Speech(s)
+	FileUtils::getInstance()->addSearchPath("res/speechs");
+	
 
 	// Keeps the scale...
 	//director->setContentScaleFactor(1.0f);

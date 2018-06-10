@@ -2,7 +2,7 @@
 #define _RESOURCEMANAGER_H_
 
 #include "cocos2d.h"
-
+#include "SpeechModel.h"
 
 /** A Singleton class
  * Handles resource management
@@ -41,6 +41,10 @@ public:
 
 	bool readyDelete;
 
+	std::map<std::string, std::vector<SpeechModel*>*> speechDatas;
+	void loadSpeechDatas(std::string fileName);
+	bool isSpeechDatasContainKey(std::string key);
+	void clearSpeechDatas();
 private:
 	static ResourceManager* instance;
 
@@ -57,5 +61,7 @@ private:
 	void loadIllusions(cocos2d::Node*);
 
 	void loadText(cocos2d::Node*);
+
+	void parseSpeechDatas(std::vector<std::string>* lineDatas, std::string& fileName);
 };
 #endif // !_RESOURCEMANAGER_H_

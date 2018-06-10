@@ -41,6 +41,8 @@ ResourceManager::ResourceManager()
 	readyDelete = true;
 
 	MyPoolManager::getInstance();
+
+	
 }
 
 ResourceManager::~ResourceManager()
@@ -55,6 +57,8 @@ ResourceManager::~ResourceManager()
 	//AUDIO::end();
 
 	delete MyPoolManager::getInstance();
+
+	clearSpeechDatas();
 }
 
 
@@ -825,4 +829,75 @@ TMXTiledMap* ResourceManager::getMap()
 Rect ResourceManager::getArea()
 {
 	return m_rect_map;
+}
+
+void ResourceManager::loadSpeechDatas(std::string fileName)
+{
+	if (isSpeechDatasContainKey(fileName))
+		return;
+
+	std::vector<std::string>* lineDatas = new std::vector<std::string>();
+	
+	Data data = FileUtils::getInstance()->getDataFromFile(fileName);
+	char* pBuffer = (char*)data.getBytes();
+	std::stringstream ss(pBuffer);
+	std::string line;
+	while (std::getline(ss, line, '\n'))
+	{
+		lineDatas->push_back(line);
+	}
+
+
+	parseSpeechDatas(lineDatas, fileName);
+	
+	delete lineDatas;
+}
+
+void ResourceManager::parseSpeechDatas(std::vector<std::string>* lineDatas, std::string& fileName)
+{
+	if (lineDatas->size() == 0)
+		return;
+
+	std::vector<SpeechModel*>* result = new std::vector<SpeechModel*>();
+
+	for (auto iter = lineDatas->begin(); iter != lineDatas->end(); iter++)
+	{
+		result->push_back(new SpeechModel(*iter));
+	}
+
+	speechDatas[fileName] = result;
+}
+
+bool ResourceManager::isSpeechDatasContainKey(std::string key)
+{
+	if (speechDatas.size() == 0)
+		return false;
+	for (auto iter = speechDatas.begin(); iter != speechDatas.end(); iter++)
+	{
+		if (iter->first == key)
+			return true;
+	}
+	return false;
+}
+
+void ResourceManager::clearSpeechDatas()
+{
+	if (speechDatas.size() == 0)
+		return;
+
+	std::vector<SpeechModel*>* tmp;
+
+	for (auto iter = speechDatas.begin(); iter != speechDatas.end(); iter++)
+	{
+		tmp = iter->second;
+		if (tmp->size() != 0)
+		{
+			for (auto i = tmp->begin(); i != tmp->end(); i++)
+			{
+				delete (*i);
+			}
+			delete tmp;
+		}
+	}
+	speechDatas.clear();
 }

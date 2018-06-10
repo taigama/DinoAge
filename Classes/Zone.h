@@ -22,7 +22,8 @@ public:
 		//   Trigger moving block when all Enemy dies
 		TRIGGERBLOCK = 5,
 
-		NEXTSTAGE = 6
+		NEXTSTAGE = 6,
+		SPEECH = 7
 	};
 
 	virtual ~Zone();

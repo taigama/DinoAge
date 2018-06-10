@@ -5,6 +5,7 @@
 #include "TriggerBlockZone.h"
 #include "NextStageZone.h"
 
+#include "SpeechZone.h"
 USING_NS_CC;
 
 
@@ -65,6 +66,11 @@ Zone* Zone::createZone(ZONE_TYPE type
 	case ZONE_TYPE::NEXTSTAGE:
 	{
 		result = NextStageZone::create();
+	}
+	break;
+	case ZONE_TYPE::SPEECH:
+	{
+		result = SpeechZone::create();
 	}
 	default:
 		break;

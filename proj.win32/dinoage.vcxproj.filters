@@ -276,6 +276,15 @@
     <ClCompile Include="..\Classes\Background.cpp">
       <Filter>src\Scene\UI</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Speecher.cpp">
+      <Filter>src\Scene\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SpeechZone.cpp">
+      <Filter>src\Zone</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SpeechModel.cpp">
+      <Filter>src\Scene\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -490,6 +499,15 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Background.h">
       <Filter>src\Scene\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Speecher.h">
+      <Filter>src\Scene\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SpeechModel.h">
+      <Filter>src\Scene\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SpeechZone.h">
+      <Filter>src\Zone</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

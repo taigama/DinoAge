@@ -206,6 +206,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\ResourceManager.cpp" />
     <ClCompile Include="..\Classes\RollAttack.cpp" />
     <ClCompile Include="..\Classes\SelfExplode.cpp" />
+    <ClCompile Include="..\Classes\Speecher.cpp" />
+    <ClCompile Include="..\Classes\SpeechModel.cpp" />
+    <ClCompile Include="..\Classes\SpeechZone.cpp" />
     <ClCompile Include="..\Classes\Spike.cpp" />
     <ClCompile Include="..\Classes\Teleporter.cpp" />
     <ClCompile Include="..\Classes\TextEffect.cpp" />
@@ -279,6 +282,9 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\ResourceManager.h" />
     <ClInclude Include="..\Classes\RollAttack.h" />
     <ClInclude Include="..\Classes\SelfExplode.h" />
+    <ClInclude Include="..\Classes\Speecher.h" />
+    <ClInclude Include="..\Classes\SpeechModel.h" />
+    <ClInclude Include="..\Classes\SpeechZone.h" />
     <ClInclude Include="..\Classes\Spike.h" />
     <ClInclude Include="..\Classes\Teleporter.h" />
     <ClInclude Include="..\Classes\TextEffect.h" />
