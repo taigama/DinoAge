@@ -86,6 +86,7 @@ public:
 	// implement the "static create()" method manually
 	CREATE_FUNC(PlayScene);
 
+	HUDLayer* getHUD() { return _hud; };
 protected:
 
 	// Callback function

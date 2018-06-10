@@ -1,7 +1,8 @@
 #include "ResourceManager.h"
 #include "MenuScene1.h"
-
+#include "PlayScene.h"
 #include "DarkPortal.h"
+
 
 #include "WorldScene.h"
 #include "MyPoolManager.h"
@@ -204,23 +205,23 @@ void DarkPortal::onDie()
 void DarkPortal::endGame() {
 	this->scheduleOnce([this](float delay) {
 
-		AUDIO::setVolume(ResourceManager::getInstance()->backgroundSongID, 0.8f);
+		AUDIO::setVolume(ResourceManager::getInstance()->backgroundSongID, 0.9f);
 
 		this->scheduleOnce([this](float delay) {
 
-			AUDIO::setVolume(ResourceManager::getInstance()->backgroundSongID, 0.6f);
+			AUDIO::setVolume(ResourceManager::getInstance()->backgroundSongID, 0.75f);
 
 		}, 1.0f, "DP_down_volume_1");
 
 		this->scheduleOnce([this](float delay) {
 
-			AUDIO::setVolume(ResourceManager::getInstance()->backgroundSongID, 0.4f);
+			AUDIO::setVolume(ResourceManager::getInstance()->backgroundSongID, 0.6f);
 
 		}, 2.0f, "DP_down_volume_2");
 
 		this->scheduleOnce([this](float delay) {
 
-			AUDIO::setVolume(ResourceManager::getInstance()->backgroundSongID, 0.2f);
+			AUDIO::setVolume(ResourceManager::getInstance()->backgroundSongID, 0.4f);
 
 		}, 3.0f, "DP_down_volume_3");
 
@@ -254,6 +255,19 @@ void DarkPortal::endGame() {
 		// Animation FADE IN
 		auto fadeIn = FadeIn::create(5);
 		loadingScreen->runAction(fadeIn->clone());
+
+
+		// Pauses the game
+		auto world = World::getCurrent();
+		//PlayScene::pauseRecursive(world);
+		//Director::getInstance()->getRunningScene()->getPhysicsWorld()->setSpeed(0.0f);
+
+		HUDLayer* hud = ((PlayScene*)world->getParent())->getHUD();
+		
+		if (hud != nullptr)
+		{
+			hud->hideHUDLayer();
+		}
 
 	}, 1.0f, "AfterDarkPortalDie");	
 }
