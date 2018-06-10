@@ -204,12 +204,29 @@ void DarkPortal::onDie()
 void DarkPortal::endGame() {
 	this->scheduleOnce([this](float delay) {
 
-		AUDIO::setVolume(ResourceManager::getInstance()->backgroundSongID, 0.6f);
-
+		AUDIO::setVolume(ResourceManager::getInstance()->backgroundSongID, 0.8f);
 
 		this->scheduleOnce([this](float delay) {
 
-			AUDIO::setVolume(ResourceManager::getInstance()->backgroundSongID, 0.3f);
+			AUDIO::setVolume(ResourceManager::getInstance()->backgroundSongID, 0.6f);
+
+		}, 1.0f, "DP_down_volume_1");
+
+		this->scheduleOnce([this](float delay) {
+
+			AUDIO::setVolume(ResourceManager::getInstance()->backgroundSongID, 0.4f);
+
+		}, 2.0f, "DP_down_volume_2");
+
+		this->scheduleOnce([this](float delay) {
+
+			AUDIO::setVolume(ResourceManager::getInstance()->backgroundSongID, 0.2f);
+
+		}, 3.0f, "DP_down_volume_3");
+
+		this->scheduleOnce([this](float delay) {
+
+			AUDIO::setVolume(ResourceManager::getInstance()->backgroundSongID, 0.0f);
 
 			// notify that "do not delete the res manager"
 			ResourceManager::getInstance()->readyDelete = false;
@@ -217,8 +234,26 @@ void DarkPortal::endGame() {
 			// Returns to Main Menu scene
 			Director::getInstance()->replaceScene(TransitionFade::create(0.5f, MenuScene1::createScene()));
 
-		}, 1.0f, "TheGameIsEndAfterDP");
+		}, 5.0f, "TheGameIsEndAfterDP");
 
-	}, 1.0f, "AfterDarkPortalDie");
-	
+		// Extract the actual size of whole map
+		auto map = ResourceManager::getInstance()->getMap();
+		auto mapSize = Size(map->getMapSize().width * map->getTileSize().width, map->getMapSize().height * map->getTileSize().height);
+
+
+		// Adds LOADING SCREEN with animation fade in/out
+		auto loadingScreen = LayerColor::create(Color4B::BLACK, mapSize.width, mapSize.height);
+
+		loadingScreen->setName("loading_screen");
+		loadingScreen->setOpacity(0);
+		loadingScreen->setAnchorPoint(Vec2::ZERO);
+		loadingScreen->setPosition(Director::getInstance()->getVisibleOrigin());
+
+		World::getCurrent()->addChild(loadingScreen, 8);
+
+		// Animation FADE IN
+		auto fadeIn = FadeIn::create(5);
+		loadingScreen->runAction(fadeIn->clone());
+
+	}, 1.0f, "AfterDarkPortalDie");	
 }
