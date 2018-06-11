@@ -41,14 +41,30 @@ public:
 	void loadModels();
 
 
-protected:
+	bool onTouch(cocos2d::Touch *touch, cocos2d::Event *event);
 
 
 private:
 	
-	std::vector<SpeechModel*>* m_currentModel;
+	std::vector<SpeechModel*>* m_currentModels;
+	std::vector<SpeechModel*>::iterator m_currentIter;
 	cocos2d::Camera* m_camera;
 
+	void showComponent();
+	void hideComponent();
+
+	cocos2d::LayerColor* m_background;
+	cocos2d::Sprite* m_avaLeft;
+	cocos2d::Sprite* m_avaRight;
+	cocos2d::Label* m_lbNameLeft;
+	cocos2d::Label* m_lbNameRight;
+	cocos2d::Label* m_txtLeft;
+	cocos2d::Label* m_txtRight;
+
+	void addTouchListener();
+	void next();
+
+	float m_duration;
 };
 
 #endif // !__SPEECHER_H__

@@ -8,6 +8,7 @@ class SpeechModel
 {
 public:
 	std::string pathImg;
+	std::string name;
 	std::string text;
 	float duration;
 	bool isLeft;

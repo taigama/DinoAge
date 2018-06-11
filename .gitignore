@@ -78,6 +78,8 @@ proj.win32/*.sdf
 proj.win32/*.opensdf
 proj.win32/Debug.*/
 proj.win32/Release.*/
+cocos2d/external/bullet/proj.win32/Debug.win32/
+cocos2d/external/bullet/proj.win32/Release.win32/
 
 # others
 Classes/PersonalDef.h

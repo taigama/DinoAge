@@ -104,10 +104,10 @@ i:\zzz\cocos\dinoage\cocos2d\external\bullet\bulletdynamics\constraintsolver\btc
 i:\zzz\cocos\dinoage\cocos2d\external\bullet\bulletdynamics\constraintsolver\btconetwistconstraint.cpp(911): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 i:\zzz\cocos\dinoage\cocos2d\external\bullet\bulletdynamics\constraintsolver\btconetwistconstraint.cpp(971): warning C4244: '=': conversion from 'double' to 'btScalar', possible loss of data
 i:\zzz\cocos\dinoage\cocos2d\external\bullet\bulletdynamics\constraintsolver\btconetwistconstraint.cpp(973): warning C4244: '=': conversion from 'double' to 'btScalar', possible loss of data
-  btHingeConstraint.cpp
 i:\zzz\cocos\dinoage\cocos2d\external\bullet\bulletdynamics\constraintsolver\btcontactconstraint.h(25): warning C4359: 'btContactConstraint': Alignment specifier is less than actual alignment (128), and will be ignored. (compiling source file ..\BulletDynamics\ConstraintSolver\btContactConstraint.cpp)
 i:\zzz\cocos\dinoage\cocos2d\external\bullet\bulletdynamics\character\btkinematiccharactercontroller.cpp(137): warning C4305: '=': truncation from 'double' to 'btScalar'
 i:\zzz\cocos\dinoage\cocos2d\external\bullet\bulletdynamics\character\btkinematiccharactercontroller.cpp(148): warning C4305: '=': truncation from 'double' to 'btScalar'
+  btHingeConstraint.cpp
   btPoint2PointConstraint.cpp
   btSequentialImpulseConstraintSolver.cpp
   btSliderConstraint.cpp
@@ -122,18 +122,18 @@ i:\zzz\cocos\dinoage\cocos2d\external\bullet\bulletdynamics\character\btkinemati
   btMultiBodyConstraint.cpp
   btMultiBodyConstraintSolver.cpp
   btMultiBodyDynamicsWorld.cpp
+i:\zzz\cocos\dinoage\cocos2d\external\bullet\bulletdynamics\constraintsolver\btcontactconstraint.h(25): warning C4359: 'btContactConstraint': Alignment specifier is less than actual alignment (128), and will be ignored. (compiling source file ..\BulletDynamics\Dynamics\btDiscreteDynamicsWorld.cpp)
   btMultiBodyJointLimitConstraint.cpp
   btMultiBodyJointMotor.cpp
   btMultiBodyPoint2Point.cpp
   btDantzigLCP.cpp
-i:\zzz\cocos\dinoage\cocos2d\external\bullet\bulletdynamics\constraintsolver\btcontactconstraint.h(25): warning C4359: 'btContactConstraint': Alignment specifier is less than actual alignment (128), and will be ignored. (compiling source file ..\BulletDynamics\Dynamics\btDiscreteDynamicsWorld.cpp)
   btMLCPSolver.cpp
-i:\zzz\cocos\dinoage\cocos2d\external\bullet\bulletdynamics\mlcpsolvers\btdantziglcp.cpp(1567): warning C4473: 'printf' : not enough arguments passed for format string
-  i:\zzz\cocos\dinoage\cocos2d\external\bullet\bulletdynamics\mlcpsolvers\btdantziglcp.cpp(1567): note: placeholders and their parameters expect 2 variadic arguments, but 1 were provided
-  i:\zzz\cocos\dinoage\cocos2d\external\bullet\bulletdynamics\mlcpsolvers\btdantziglcp.cpp(1567): note: the missing variadic argument 2 is required by format string '% s'
   btRaycastVehicle.cpp
   btWheelInfo.cpp
   btGpu3DGridBroadphase.cpp
+i:\zzz\cocos\dinoage\cocos2d\external\bullet\bulletdynamics\mlcpsolvers\btdantziglcp.cpp(1567): warning C4473: 'printf' : not enough arguments passed for format string
+  i:\zzz\cocos\dinoage\cocos2d\external\bullet\bulletdynamics\mlcpsolvers\btdantziglcp.cpp(1567): note: placeholders and their parameters expect 2 variadic arguments, but 1 were provided
+  i:\zzz\cocos\dinoage\cocos2d\external\bullet\bulletdynamics\mlcpsolvers\btdantziglcp.cpp(1567): note: the missing variadic argument 2 is required by format string '% s'
   btParallelConstraintSolver.cpp
   btThreadSupportInterface.cpp
   PosixThreadSupport.cpp
@@ -144,9 +144,9 @@ i:\zzz\cocos\dinoage\cocos2d\external\bullet\bulletdynamics\constraintsolver\btc
   SpuContactManifoldCollisionAlgorithm.cpp
   SpuFakeDma.cpp
   SpuGatheringCollisionDispatcher.cpp
+  SpuLibspe2Support.cpp
 i:\zzz\cocos\dinoage\cocos2d\external\bullet\bulletmultithreaded\btparallelconstraintsolver.cpp(1141): warning C4316: 'btConstraintSolverIO': object allocated on the heap may not be aligned 16
 i:\zzz\cocos\dinoage\cocos2d\external\bullet\bulletmultithreaded\btparallelconstraintsolver.cpp(1484): warning C4305: 'initializing': truncation from 'double' to 'float'
-  SpuLibspe2Support.cpp
   boxBoxDistance.cpp
 i:\zzz\cocos\dinoage\cocos2d\external\bullet\bulletmultithreaded\sequentialthreadsupport.cpp(180): warning C4316: 'btDummyCriticalSection': object allocated on the heap may not be aligned 16
   SpuCollisionShapes.cpp
@@ -160,9 +160,9 @@ i:\zzz\cocos\dinoage\cocos2d\external\bullet\bulletmultithreaded\sequentialthrea
   btConvexHull.cpp
 i:\zzz\cocos\dinoage\cocos2d\external\bullet\bulletmultithreaded\spusampletask\spusampletask.cpp(226): warning C4316: 'SampleTask_LocalStoreMemory': object allocated on the heap may not be aligned 16
   btConvexHullComputer.cpp
-i:\zzz\cocos\dinoage\cocos2d\external\bullet\bulletmultithreaded\spunarrowphasecollisiontask\spugatheringcollisiontask.cpp(130): warning C4359: 'CollisionTask_LocalStoreMemory': Alignment specifier is less than actual alignment (128), and will be ignored.
   btGeometryUtil.cpp
   btPolarDecomposition.cpp
+i:\zzz\cocos\dinoage\cocos2d\external\bullet\bulletmultithreaded\spunarrowphasecollisiontask\spugatheringcollisiontask.cpp(130): warning C4359: 'CollisionTask_LocalStoreMemory': Alignment specifier is less than actual alignment (128), and will be ignored.
   btQuickprof.cpp
   btSerializer.cpp
   btVector3.cpp

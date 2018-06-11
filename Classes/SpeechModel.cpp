@@ -9,6 +9,9 @@ SpeechModel::SpeechModel(std::string& input)
 	this->pathImg = substr;
 
 	getline(ss, substr, ';');
+	this->name = substr;
+
+	getline(ss, substr, ';');
 	this->text = substr;
 
 	getline(ss, substr, ';');

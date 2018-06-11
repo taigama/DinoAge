@@ -7,8 +7,6 @@
 #include "PlayScene.h"
 #include "ResourceManager.h"
 
-#include "Speecher.h"
-
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
 		#include "ui/CocosGUI.h"
@@ -37,7 +35,6 @@
 
 #define PLAYER_STATUS_Z_ORDER 2
 #define BUTTON_Z_ORDER 4
-#define SPEECH_Z_ORDER 5
 #define PAUSE_COMPONENT_Z_ORDER 6
 
 USING_NS_CC;
@@ -594,10 +591,6 @@ bool HUDLayer::init()
 
 
 
-	///////////////////////////////////////////////////
-	// 12. Speecher
-	_speecher = Speecher::create();
-	this->addChild(_speecher, SPEECH_Z_ORDER);
 
 
 

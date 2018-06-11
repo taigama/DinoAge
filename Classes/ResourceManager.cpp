@@ -470,10 +470,13 @@ void ResourceManager::loadZones(Node* layer)
 
 		if (zoneType == (int)Zone::ZONE_TYPE::NEXTSTAGE)
 		{
-
 			tmpZone->message(valueMap["next_map"].asString());
 			((NextStageZone*)tmpZone)->setLevelTitle(valueMap["level_title"].asString());
 			((NextStageZone*)tmpZone)->setStageTitle(valueMap["stage_title"].asString());
+		}
+		else if (zoneType == (int)Zone::ZONE_TYPE::SPEECH)
+		{
+			tmpZone->message(valueMap["file_name"].asString());
 		}
 
 		// add to list zone triggerer
@@ -831,7 +834,7 @@ Rect ResourceManager::getArea()
 	return m_rect_map;
 }
 
-void ResourceManager::loadSpeechDatas(std::string fileName)
+void ResourceManager::loadSpeechDatas(const std::string& fileName)
 {
 	if (isSpeechDatasContainKey(fileName))
 		return;
@@ -853,7 +856,7 @@ void ResourceManager::loadSpeechDatas(std::string fileName)
 	delete lineDatas;
 }
 
-void ResourceManager::parseSpeechDatas(std::vector<std::string>* lineDatas, std::string& fileName)
+void ResourceManager::parseSpeechDatas(std::vector<std::string>* lineDatas, const std::string& fileName)
 {
 	if (lineDatas->size() == 0)
 		return;
@@ -863,12 +866,14 @@ void ResourceManager::parseSpeechDatas(std::vector<std::string>* lineDatas, std:
 	for (auto iter = lineDatas->begin(); iter != lineDatas->end(); iter++)
 	{
 		result->push_back(new SpeechModel(*iter));
+		this->loadSpriteByImageFile(result->back()->pathImg);
 	}
+
 
 	speechDatas[fileName] = result;
 }
 
-bool ResourceManager::isSpeechDatasContainKey(std::string key)
+bool ResourceManager::isSpeechDatasContainKey(const std::string& key)
 {
 	if (speechDatas.size() == 0)
 		return false;
@@ -900,4 +905,49 @@ void ResourceManager::clearSpeechDatas()
 		}
 	}
 	speechDatas.clear();
+}
+
+void ResourceManager::loadSpriteByImageFile(const std::string& fileName)
+{
+	if (fileName == "PLAYER")
+	{
+		std::string name = "tyro_status_normal.png";
+		auto it = spriteMyCache.find(name);
+		if (it == spriteMyCache.end())// no loaded yet
+		{
+			spriteMyCache.insert(name, Sprite::createWithSpriteFrameName(name));
+		}
+
+		name = "trino_status_normal.png";
+		it = spriteMyCache.find(name);
+		if (it == spriteMyCache.end())// no loaded yet
+		{
+			spriteMyCache.insert(name, Sprite::createWithSpriteFrameName(name));
+		}
+
+		name = "ptero_status_normal.png";
+		it = spriteMyCache.find(name);
+		if (it == spriteMyCache.end())// no loaded yet
+		{
+			spriteMyCache.insert(name, Sprite::createWithSpriteFrameName(name));
+		}
+
+		return;
+	}
+
+	auto it = spriteMyCache.find(fileName);
+	if (it == spriteMyCache.end())// no loaded yet
+	{
+		spriteMyCache.insert(fileName, Sprite::create(fileName));
+	}
+}
+
+cocos2d::Sprite* ResourceManager::getSprite(const std::string& name)
+{
+	auto it = spriteMyCache.find(name);
+	if (it != spriteMyCache.end())// no loaded yet
+	{
+		return it->second;
+	}
+	return nullptr;
 }

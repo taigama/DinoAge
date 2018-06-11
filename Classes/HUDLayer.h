@@ -15,7 +15,6 @@
 #define PLAYER_HEALTH_THRESHOLD_HURT 0.5f
 #define PLAYER_HEALTH_THRESHOLD_SERIOUS_HURT 0.2f
 
-class Speecher;
 
 
 class HUDLayer : public cocos2d::Layer
@@ -90,7 +89,6 @@ public:
 	// Counter to help activate ultimate skill
 	CC_SYNTHESIZE_READONLY(int, _counterClick, CounterClick);
 
-	CC_SYNTHESIZE_READONLY(Speecher*, _speecher, Speecher);
 
 	// Implements the "static create()" method manually
 	CREATE_FUNC(HUDLayer);

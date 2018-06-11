@@ -7,6 +7,8 @@
 #include "HUDLayer.h"
 #include "CharacterSelectionScene.h"
 
+class Speecher;
+
 class PlayScene : cocos2d::Layer
 {
 public:
@@ -85,6 +87,8 @@ public:
 
 	// implement the "static create()" method manually
 	CREATE_FUNC(PlayScene);
+
+	CC_SYNTHESIZE_READONLY(Speecher*, _speecher, Speecher);
 
 	HUDLayer* getHUD() { return _hud; };
 protected:

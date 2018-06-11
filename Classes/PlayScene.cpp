@@ -3,6 +3,7 @@
 //#include "SimpleAudioEngine.h"
 #include "MenuScene1.h"
 #include "ResourceManager.h"
+#include "Speecher.h"
 
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
 		#include "ui/CocosGUI.h"
@@ -16,6 +17,7 @@ USING_NS_CC;
 
 #define WORLD_Z_ORDER 1
 #define HUD_Z_ORDER 2
+#define SPEECH_Z_ORDER 3
 
 #define GAME_OVER_FONT_SIZE 40.0f
 #define GAME_OVER_LAYER_Z_ORDER 3
@@ -137,6 +139,11 @@ void PlayScene::onEnterTransitionDidFinish()
 	_hud = dynamic_cast<HUDLayer*>(HUDLayer::createLayer());
 	CC_SAFE_RETAIN(_hud);
 
+
+	///////////////////////////////////////////////////
+	// Speecher
+	_speecher = Speecher::create();
+	this->addChild(_speecher, SPEECH_Z_ORDER);
 
 	// Starts map
 	startMap();

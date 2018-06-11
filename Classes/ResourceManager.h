@@ -42,9 +42,13 @@ public:
 	bool readyDelete;
 
 	std::map<std::string, std::vector<SpeechModel*>*> speechDatas;
-	void loadSpeechDatas(std::string fileName);
-	bool isSpeechDatasContainKey(std::string key);
+	void loadSpeechDatas(const std::string& fileName);
+	bool isSpeechDatasContainKey(const std::string& key);
 	void clearSpeechDatas();
+
+	cocos2d::Map<std::string, cocos2d::Sprite*> spriteMyCache;
+	void loadSpriteByImageFile(const std::string& fileName);
+	cocos2d::Sprite* getSprite(const std::string& name);
 private:
 	static ResourceManager* instance;
 
@@ -62,6 +66,6 @@ private:
 
 	void loadText(cocos2d::Node*);
 
-	void parseSpeechDatas(std::vector<std::string>* lineDatas, std::string& fileName);
+	void parseSpeechDatas(std::vector<std::string>* lineDatas, const std::string& fileName);
 };
 #endif // !_RESOURCEMANAGER_H_

@@ -5,6 +5,8 @@
 #include "PlayScene.h"
 #include "Speecher.h"
 
+#include "ResourceManager.h"
+
 // the time for playing animation, before the screen be faded out
 #define TIME_REMAIN 1.0f
 
@@ -32,7 +34,7 @@ void SpeechZone::onPlayerEntered(Character* target)
 	}
 
 	PlayScene* playScene = (PlayScene*)World::getCurrent()->getParent();
-	playScene->getHUD()->getSpeecher()->activeSpeech(m_fileName);
+	playScene->getSpeecher()->activeSpeech(m_fileName);
 }
 
 void SpeechZone::message(std::string your_message)
@@ -44,4 +46,6 @@ void SpeechZone::message(std::string your_message)
 	}
 
 	m_fileName = your_message;
+
+	ResourceManager::getInstance()->loadSpeechDatas(m_fileName);
 }
