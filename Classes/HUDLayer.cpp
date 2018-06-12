@@ -472,7 +472,6 @@ void HUDLayer::onTouchPhysical(cocos2d::ui::Widget::TouchEventType type)
 
 		break;
 	case ui::Widget::TouchEventType::ENDED:
-	case ui::Widget::TouchEventType::CANCELED:
 		if (isSkillUnlocked(2) && getAdvancedSkill01())
 		{
 			auto energyBar = dynamic_cast<EnergyBar*>(this->getChildByName("energy_bar"));
@@ -509,6 +508,9 @@ void HUDLayer::onTouchPhysical(cocos2d::ui::Widget::TouchEventType type)
 			setAdvancedSkill01(true);
 		}
 		break;
+	case ui::Widget::TouchEventType::CANCELED:
+		_player->stopCharge();
+		break;
 	default:
 		break;
 	}
@@ -540,7 +542,6 @@ void HUDLayer::onTouchProjectile(cocos2d::ui::Widget::TouchEventType type)
 
 		break;
 	case ui::Widget::TouchEventType::ENDED:
-	case ui::Widget::TouchEventType::CANCELED:
 		if (isSkillUnlocked(3) && getAdvancedSkill02())
 		{
 			auto energyBar = dynamic_cast<EnergyBar*>(this->getChildByName("energy_bar"));
@@ -575,6 +576,9 @@ void HUDLayer::onTouchProjectile(cocos2d::ui::Widget::TouchEventType type)
 			// Resets flag
 			setAdvancedSkill02(true);
 		}
+		break;
+	case ui::Widget::TouchEventType::CANCELED:
+		_player->stopCharge();
 		break;
 	default:
 		break;
@@ -926,10 +930,13 @@ void HUDLayer::pauseAllEventListener()
 	_eventDispatcher->pauseEventListenersForTarget(_leftButton, false);
 	_rightButton->onTouchCancelled(nullptr, nullptr);
 	_eventDispatcher->pauseEventListenersForTarget(_rightButton, false);
+	_jumpButton->onTouchCancelled(nullptr, nullptr);
 	_eventDispatcher->pauseEventListenersForTarget(_jumpButton, false);
 
 	// ATTACK Buttons
+	_physicalAttackButton->onTouchCancelled(nullptr, nullptr);
 	_eventDispatcher->pauseEventListenersForTarget(_physicalAttackButton, false);
+	_projectileAttackButton->onTouchCancelled(nullptr, nullptr);
 	_eventDispatcher->pauseEventListenersForTarget(_projectileAttackButton, false);
 }
 
