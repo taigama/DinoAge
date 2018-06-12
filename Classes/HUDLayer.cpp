@@ -103,43 +103,7 @@ bool HUDLayer::init()
 
 	// Adds event listener to button
 	_leftButton->addTouchEventListener([&](cocos2d::Ref*, cocos2d::ui::Widget::TouchEventType type) {
-
-		// Retrieves Player
-		extractPlayer();
-
-		// Checks type of touch -> carries out corresponding operation
-		switch (type)
-		{
-		case ui::Widget::TouchEventType::BEGAN:
-			_player->move(Character::DIRECTION::LEFT);
-			setPlayerMovingState(true);
-			break;
-		case ui::Widget::TouchEventType::ENDED:
-		case ui::Widget::TouchEventType::CANCELED:
-			if (getPlayerMovingState() && (_player)->getMoveDirect() == (int)Character::DIRECTION::LEFT)
-			{
-				_player->move(Character::DIRECTION::RIGHT);		// to stop Player
-				setPlayerMovingState(false);
-			}
-			break;
-		case ui::Widget::TouchEventType::MOVED:
-			
-			// IF Player moves touch out of Button => STOPS
-			if (!_leftButton->getBoundingBox().containsPoint(_leftButton->getTouchMovePosition()))
-			{
-				if (getPlayerMovingState() && (_player)->getMoveDirect() == (int)Character::DIRECTION::LEFT)
-				{
-					_player->move(Character::DIRECTION::RIGHT);		// to stop Player
-					setPlayerMovingState(false);
-				}
-					
-			}
-
-			break;
-		default:
-			break;
-		}
-
+		this->onTouchMoveLeft(type);
 	});
 
 	// Adds to HUD layer
@@ -157,44 +121,8 @@ bool HUDLayer::init()
 	_rightButton->setPosition(Vec2(_leftButton->getBoundingBox().getMaxX() + padding / 3.0f, _leftButton->getBoundingBox().getMinY()));
 
 	// Adds event listener to button
-	_rightButton->addTouchEventListener([&](cocos2d::Ref*, cocos2d::ui::Widget::TouchEventType type) {
-
-		// Retrieves Player
-		extractPlayer();
-
-		// Checks type of touch -> carries out corresponding operation
-		switch (type)
-		{
-		case ui::Widget::TouchEventType::BEGAN:
-			_player->move(Character::DIRECTION::RIGHT);
-			setPlayerMovingState(true);
-			break;
-		case ui::Widget::TouchEventType::ENDED:
-		case ui::Widget::TouchEventType::CANCELED:
-			if (getPlayerMovingState() && (_player)->getMoveDirect() == (int)Character::DIRECTION::RIGHT)
-			{
-				_player->move(Character::DIRECTION::LEFT);		// to stop Player
-				setPlayerMovingState(false);
-			}
-			break;
-		case ui::Widget::TouchEventType::MOVED:
-
-			// IF Player moves touch out of Button => STOPS
-			if (!_rightButton->getBoundingBox().containsPoint(_rightButton->getTouchMovePosition()))
-			{
-				if (getPlayerMovingState() && (_player)->getMoveDirect() == (int)Character::DIRECTION::RIGHT)
-				{
-					_player->move(Character::DIRECTION::LEFT);		// to stop Player
-					setPlayerMovingState(false);
-				}
-
-			}
-
-			break;
-		default:
-			break;
-		}
-
+	_rightButton->addTouchEventListener([=](cocos2d::Ref*, cocos2d::ui::Widget::TouchEventType type) {
+		this->onTouchMoveRight(type);
 	});
 
 	// Adds to HUD layer
@@ -213,38 +141,7 @@ bool HUDLayer::init()
 
 	// Adds event listener to button
 	_jumpButton->addTouchEventListener([&](cocos2d::Ref*, cocos2d::ui::Widget::TouchEventType type) {
-
-		// Retrieves Player
-		extractPlayer();
-
-		// Checks type of touch -> carries out corresponding operation
-		switch (type)
-		{
-		case ui::Widget::TouchEventType::BEGAN:
-			_player->jump();
-
-			// Setup needed to activate ultimate skill (only if it had already been unlocked)
-			if (isSkillUnlocked(4))
-			{
-				// Increases counter (=> help activate ultimate)
-				increaseCounterClick();
-
-				// Schedules to reset counter (for ultimate) if exceeds specified time
-				if (getCounterClick() == 1)
-				{
-					scheduleOnce([&](float delta) {
-
-						this->resetCounterClick();
-
-					}, DELAY_TIME_ACTIVATE_ULTIMATE_SKILL, "reset_counter_ultimate_scheduler");
-				}
-			}
-
-			break;
-		default:
-			break;
-		}
-
+		this->onTouchJump(type);
 	});
 
 	// Adds to HUD layer
@@ -262,97 +159,8 @@ bool HUDLayer::init()
 	_physicalAttackButton->setPosition(Vec2(_jumpButton->getBoundingBox().getMinX() - padding / 3.0f, _jumpButton->getBoundingBox().getMidY()));
 
 	// Adds event listener to button
-	_physicalAttackButton->addTouchEventListener([&](cocos2d::Ref*, cocos2d::ui::Widget::TouchEventType type) {
-
-		// Retrieves Player
-		extractPlayer();
-
-		// Checks type of touch -> carries out corresponding operation
-		switch (type)
-		{
-		case ui::Widget::TouchEventType::BEGAN:
-			
-			// FOR ultimate skill
-			if (isSkillUnlocked(4) && this->getCounterClick() == 2)
-			{
-				auto energyBar = dynamic_cast<EnergyBar*>(this->getChildByName("energy_bar"));
-
-				// Executes ultimate skill
-				if (energyBar->activateUltimateSkill())
-				{
-					CAST_SKILL(_player, 2);
-				}
-				else
-				{
-					this->showNotification("NOT ENOUGH ENERGY");
-					_player->attackPhysical();
-				}
-
-				unschedule("reset_counter_ultimate_scheduler");
-			}
-			else
-			{
-				_player->attackPhysical();
-			}
-			resetCounterClick();		// reset counter (for ultimate) at the end of combo (regarless of failure or success)
-
-
-			// FOR Advanced skill (only if had already been UNLOCKED)
-			if (isSkillUnlocked(2))
-			{
-				setAdvancedSkill01(false);			// set activate_state to false initially
-				scheduleOnce([&](float delta) {
-
-					setAdvancedSkill01(true);		// button being held long enough -> set to true
-
-					_player->startCharge();		// charging effect
-
-				}, DELAY_TIME_ACTIVATE_ADVANCED_SKILL, "activate_advanced_skill01_scheduler");
-			}
-
-			break;
-		case ui::Widget::TouchEventType::ENDED:
-		case ui::Widget::TouchEventType::CANCELED:
-			if (isSkillUnlocked(2) && getAdvancedSkill01())
-			{
-				auto energyBar = dynamic_cast<EnergyBar*>(this->getChildByName("energy_bar"));
-
-				// Executes advanced skill 01
-				if (_player->isReadys[2] && energyBar->activateAdvancedSkill())
-				{
-					CAST_SKILL(_player, 0);
-				}
-				else
-				{
-					// ON cooldown
-					if (!_player->isReadys[2])
-					{
-						this->showNotification("ON COOLDOWN");
-					}
-
-					// NOT enough energy
-					else
-					{
-						this->showNotification("NOT ENOUGH ENERGY");
-					}
-
-					// Stops charging effect
-					_player->stopCharge();
-				}
-				
-			}
-			else								// button is released too soon
-			{
-				unschedule("activate_advanced_skill01_scheduler");
-
-				// Resets flag
-				setAdvancedSkill01(true);
-			}
-			break;
-		default:
-			break;
-		}
-
+	_physicalAttackButton->addTouchEventListener([=](cocos2d::Ref*, cocos2d::ui::Widget::TouchEventType type) {
+		this->onTouchPhysical(type);
 	});
 
 	// Adds to HUD layer
@@ -370,72 +178,8 @@ bool HUDLayer::init()
 	_projectileAttackButton->setPosition(Vec2(_jumpButton->getBoundingBox().getMidX(), _jumpButton->getBoundingBox().getMaxY()));
 
 	// Adds event listener to button
-	_projectileAttackButton->addTouchEventListener([&](cocos2d::Ref*, cocos2d::ui::Widget::TouchEventType type) {
-
-		// Retrieves Player
-		extractPlayer();
-
-		// Checks type of touch -> carries out corresponding operation
-		switch (type)
-		{
-		case ui::Widget::TouchEventType::BEGAN:
-			_player->attackProjectile();
-			
-			// FOR advanced skill 02 (only if it had already been unlocked)
-			if (isSkillUnlocked(3))
-			{
-				setAdvancedSkill02(false);			// set activate_state to false initially
-				scheduleOnce([&](float delta) {
-
-					setAdvancedSkill02(true);		// button being held long enough -> set to true
-
-					_player->startCharge();		// charing effects
-
-				}, DELAY_TIME_ACTIVATE_ADVANCED_SKILL, "activate_advanced_skill02_scheduler");
-			}
-
-			break;
-		case ui::Widget::TouchEventType::ENDED:
-		case ui::Widget::TouchEventType::CANCELED:
-			if (isSkillUnlocked(3) && getAdvancedSkill02())
-			{
-				auto energyBar = dynamic_cast<EnergyBar*>(this->getChildByName("energy_bar"));
-
-				// Executes advanced skill 02
-				if (_player->isReadys[3] && energyBar->activateAdvancedSkill())
-				{
-					CAST_SKILL(_player, 1);
-				}
-				else
-				{
-					// ON cooldown
-					if (!_player->isReadys[3])
-					{
-						this->showNotification("ON COOLDOWN");
-					}
-
-					// NOT enough energy
-					else
-					{
-						this->showNotification("NOT ENOUGH ENERGY");
-					}
-
-					// Stops charging effect
-					_player->stopCharge();
-				}
-			}
-			else								// button is released too soon
-			{
-				unschedule("activate_advanced_skill02_scheduler");
-
-				// Resets flag
-				setAdvancedSkill02(true);
-			}
-			break;
-		default:
-			break;
-		}
-
+	_projectileAttackButton->addTouchEventListener([=](cocos2d::Ref*, cocos2d::ui::Widget::TouchEventType type) {
+		this->onTouchProjectile(type);
 	});
 
 	// Adds to HUD layer
@@ -596,6 +340,279 @@ bool HUDLayer::init()
 
 
 	return true;
+}
+
+void HUDLayer::onTouchMoveLeft(cocos2d::ui::Widget::TouchEventType type)
+{
+	// Retrieves Player
+	extractPlayer();
+
+	// Checks type of touch -> carries out corresponding operation
+	switch (type)
+	{
+	case ui::Widget::TouchEventType::BEGAN:
+		_player->move(Character::DIRECTION::LEFT);
+		setPlayerMovingState(true);
+		break;
+	case ui::Widget::TouchEventType::ENDED:
+	case ui::Widget::TouchEventType::CANCELED:
+		if (getPlayerMovingState() && (_player)->getMoveDirect() == (int)Character::DIRECTION::LEFT)
+		{
+			_player->move(Character::DIRECTION::RIGHT);		// to stop Player
+			setPlayerMovingState(false);
+		}
+		break;
+	case ui::Widget::TouchEventType::MOVED:
+
+		// IF Player moves touch out of Button => STOPS
+		if (!_leftButton->getBoundingBox().containsPoint(_leftButton->getTouchMovePosition()))
+		{
+			if (getPlayerMovingState() && (_player)->getMoveDirect() == (int)Character::DIRECTION::LEFT)
+			{
+				_player->move(Character::DIRECTION::RIGHT);		// to stop Player
+				setPlayerMovingState(false);
+			}
+
+		}
+
+		break;
+	default:
+		break;
+	}
+}
+
+void HUDLayer::onTouchMoveRight(cocos2d::ui::Widget::TouchEventType type)
+{
+	// Retrieves Player
+	extractPlayer();
+
+	// Checks type of touch -> carries out corresponding operation
+	switch (type)
+	{
+	case ui::Widget::TouchEventType::BEGAN:
+		_player->move(Character::DIRECTION::RIGHT);
+		setPlayerMovingState(true);
+		break;
+	case ui::Widget::TouchEventType::ENDED:
+	case ui::Widget::TouchEventType::CANCELED:
+		if (getPlayerMovingState() && (_player)->getMoveDirect() == (int)Character::DIRECTION::RIGHT)
+		{
+			_player->move(Character::DIRECTION::LEFT);		// to stop Player
+			setPlayerMovingState(false);
+		}
+		break;
+	case ui::Widget::TouchEventType::MOVED:
+
+		// IF Player moves touch out of Button => STOPS
+		if (!_rightButton->getBoundingBox().containsPoint(_rightButton->getTouchMovePosition()))
+		{
+			if (getPlayerMovingState() && (_player)->getMoveDirect() == (int)Character::DIRECTION::RIGHT)
+			{
+				_player->move(Character::DIRECTION::LEFT);		// to stop Player
+				setPlayerMovingState(false);
+			}
+
+		}
+
+		break;
+	default:
+		break;
+	}
+
+}
+
+void HUDLayer::onTouchPhysical(cocos2d::ui::Widget::TouchEventType type)
+{
+
+	// Retrieves Player
+	extractPlayer();
+
+	// Checks type of touch -> carries out corresponding operation
+	switch (type)
+	{
+	case ui::Widget::TouchEventType::BEGAN:
+
+		// FOR ultimate skill
+		if (isSkillUnlocked(4) && this->getCounterClick() == 2)
+		{
+			auto energyBar = dynamic_cast<EnergyBar*>(this->getChildByName("energy_bar"));
+
+			// Executes ultimate skill
+			if (energyBar->activateUltimateSkill())
+			{
+				CAST_SKILL(_player, 2);
+			}
+			else
+			{
+				this->showNotification("NOT ENOUGH ENERGY");
+				_player->attackPhysical();
+			}
+
+			unschedule("reset_counter_ultimate_scheduler");
+		}
+		else
+		{
+			_player->attackPhysical();
+		}
+		resetCounterClick();		// reset counter (for ultimate) at the end of combo (regarless of failure or success)
+
+
+									// FOR Advanced skill (only if had already been UNLOCKED)
+		if (isSkillUnlocked(2))
+		{
+			setAdvancedSkill01(false);			// set activate_state to false initially
+			scheduleOnce([&](float delta) {
+
+				setAdvancedSkill01(true);		// button being held long enough -> set to true
+
+				_player->startCharge();		// charging effect
+
+			}, DELAY_TIME_ACTIVATE_ADVANCED_SKILL, "activate_advanced_skill01_scheduler");
+		}
+
+		break;
+	case ui::Widget::TouchEventType::ENDED:
+	case ui::Widget::TouchEventType::CANCELED:
+		if (isSkillUnlocked(2) && getAdvancedSkill01())
+		{
+			auto energyBar = dynamic_cast<EnergyBar*>(this->getChildByName("energy_bar"));
+
+			// Executes advanced skill 01
+			if (_player->isReadys[2] && energyBar->activateAdvancedSkill())
+			{
+				CAST_SKILL(_player, 0);
+			}
+			else
+			{
+				// ON cooldown
+				if (!_player->isReadys[2])
+				{
+					this->showNotification("ON COOLDOWN");
+				}
+
+				// NOT enough energy
+				else
+				{
+					this->showNotification("NOT ENOUGH ENERGY");
+				}
+
+				// Stops charging effect
+				_player->stopCharge();
+			}
+
+		}
+		else								// button is released too soon
+		{
+			unschedule("activate_advanced_skill01_scheduler");
+
+			// Resets flag
+			setAdvancedSkill01(true);
+		}
+		break;
+	default:
+		break;
+	}
+}
+
+void HUDLayer::onTouchProjectile(cocos2d::ui::Widget::TouchEventType type)
+{
+	// Retrieves Player
+	extractPlayer();
+
+	// Checks type of touch -> carries out corresponding operation
+	switch (type)
+	{
+	case ui::Widget::TouchEventType::BEGAN:
+		_player->attackProjectile();
+
+		// FOR advanced skill 02 (only if it had already been unlocked)
+		if (isSkillUnlocked(3))
+		{
+			setAdvancedSkill02(false);			// set activate_state to false initially
+			scheduleOnce([&](float delta) {
+
+				setAdvancedSkill02(true);		// button being held long enough -> set to true
+
+				_player->startCharge();		// charing effects
+
+			}, DELAY_TIME_ACTIVATE_ADVANCED_SKILL, "activate_advanced_skill02_scheduler");
+		}
+
+		break;
+	case ui::Widget::TouchEventType::ENDED:
+	case ui::Widget::TouchEventType::CANCELED:
+		if (isSkillUnlocked(3) && getAdvancedSkill02())
+		{
+			auto energyBar = dynamic_cast<EnergyBar*>(this->getChildByName("energy_bar"));
+
+			// Executes advanced skill 02
+			if (_player->isReadys[3] && energyBar->activateAdvancedSkill())
+			{
+				CAST_SKILL(_player, 1);
+			}
+			else
+			{
+				// ON cooldown
+				if (!_player->isReadys[3])
+				{
+					this->showNotification("ON COOLDOWN");
+				}
+
+				// NOT enough energy
+				else
+				{
+					this->showNotification("NOT ENOUGH ENERGY");
+				}
+
+				// Stops charging effect
+				_player->stopCharge();
+			}
+		}
+		else								// button is released too soon
+		{
+			unschedule("activate_advanced_skill02_scheduler");
+
+			// Resets flag
+			setAdvancedSkill02(true);
+		}
+		break;
+	default:
+		break;
+	}
+}
+
+void HUDLayer::onTouchJump(cocos2d::ui::Widget::TouchEventType type)
+{
+	// Retrieves Player
+	extractPlayer();
+
+	// Checks type of touch -> carries out corresponding operation
+	switch (type)
+	{
+	case ui::Widget::TouchEventType::BEGAN:
+		_player->jump();
+
+		// Setup needed to activate ultimate skill (only if it had already been unlocked)
+		if (isSkillUnlocked(4))
+		{
+			// Increases counter (=> help activate ultimate)
+			increaseCounterClick();
+
+			// Schedules to reset counter (for ultimate) if exceeds specified time
+			if (getCounterClick() == 1)
+			{
+				scheduleOnce([&](float delta) {
+
+					this->resetCounterClick();
+
+				}, DELAY_TIME_ACTIVATE_ULTIMATE_SKILL, "reset_counter_ultimate_scheduler");
+			}
+		}
+
+		break;
+	default:
+		break;
+	}
 }
 
 void HUDLayer::update(float delta)
@@ -908,7 +925,9 @@ void HUDLayer::pauseAllEventListener()
 	_eventDispatcher->pauseEventListenersForTarget(_pauseButton, false);
 
 	// MOVEMENT Buttons
+	_rightButton->onTouchCancelled(nullptr, nullptr);
 	_eventDispatcher->pauseEventListenersForTarget(_leftButton, false);
+	_rightButton->onTouchCancelled(nullptr, nullptr);
 	_eventDispatcher->pauseEventListenersForTarget(_rightButton, false);
 	_eventDispatcher->pauseEventListenersForTarget(_jumpButton, false);
 

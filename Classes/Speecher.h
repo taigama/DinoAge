@@ -50,6 +50,8 @@ private:
 	std::vector<SpeechModel*>* m_currentModels;
 	std::vector<SpeechModel*>::iterator m_currentIter;
 	cocos2d::Camera* m_camera;
+	cocos2d::Vec2 m_visibleOrigin;
+	cocos2d::Size m_visibleSize;
 
 	void showComponent();
 	void hideComponent();

@@ -28,6 +28,14 @@ public:
 	// Called in "create()" function
 	virtual bool init();
 
+	// click on the hud
+	void onTouchMoveLeft(cocos2d::ui::Widget::TouchEventType type);
+	void onTouchMoveRight(cocos2d::ui::Widget::TouchEventType type);
+	void onTouchPhysical(cocos2d::ui::Widget::TouchEventType type);
+	void onTouchProjectile(cocos2d::ui::Widget::TouchEventType type);
+	void onTouchJump(cocos2d::ui::Widget::TouchEventType type);
+
+
 	// ------------------------------- Selector Callbacks -------------------------------------
 
 	// For Keyboard EventListener

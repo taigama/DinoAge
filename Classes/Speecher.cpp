@@ -55,8 +55,8 @@ bool Speecher::init()
 	// 1. Necessary variables
 	m_resManager = ResourceManager::getInstance();
 
-	auto visibleSize = _director->getVisibleSize();
-	auto visibleOrigin = _director->getVisibleOrigin();
+	m_visibleSize = _director->getVisibleSize();
+	m_visibleOrigin = _director->getVisibleOrigin();
 	auto scaleFactor = _director->getContentScaleFactor();
 
 	///////////////////////////
@@ -64,8 +64,8 @@ bool Speecher::init()
 	auto paddingBackground = LEFT_AVA_PADDING / 2.0f / scaleFactor;
 	m_background = LayerColor::create(Color4B::BLACK);
 	m_background->setOpacity(200);
-	m_background->setContentSize(Size(visibleSize.width - paddingBackground * 2, (BACKGROUND_HEIGHT / 100.0f) *visibleSize.height));
-	m_background->setPosition(Vec2(visibleOrigin.x + paddingBackground, visibleSize.height + visibleOrigin.y - (BACKGROUND_HEIGHT / 100.0f) *visibleSize.height - paddingBackground));
+	m_background->setContentSize(Size(m_visibleSize.width - paddingBackground * 2, (BACKGROUND_HEIGHT / 100.0f) *m_visibleSize.height));
+	m_background->setPosition(Vec2(m_visibleOrigin.x + paddingBackground, m_visibleSize.height + m_visibleOrigin.y - (BACKGROUND_HEIGHT / 100.0f) *m_visibleSize.height - paddingBackground));
 	this->addChild(m_background, 1);
 	m_background->setVisible(false);
 
@@ -80,8 +80,8 @@ bool Speecher::init()
 	m_avaLeft->setScale(scaleAvaX, scaleAvaX);
 	//m_avaLeft->setContentSize(Size(AVA_SIZE / scaleFactor, AVA_SIZE / scaleFactor));
 	m_avaLeft->setAnchorPoint(Vec2(0, 1));
-	Vec2 vecPos = Vec2(LEFT_AVA_PADDING / scaleFactor, visibleSize.height - LEFT_AVA_PADDING / scaleFactor);
-	m_avaLeft->setPosition(vecPos + visibleOrigin);
+	Vec2 vecPos = Vec2(LEFT_AVA_PADDING / scaleFactor, m_visibleSize.height - LEFT_AVA_PADDING / scaleFactor);
+	m_avaLeft->setPosition(vecPos + m_visibleOrigin);
 	this->addChild(m_avaLeft, 2);
 	m_avaLeft->setVisible(false);
 
@@ -92,9 +92,9 @@ bool Speecher::init()
 	m_lbNameLeft->setTextColor(Color4B::BLACK);
 	m_lbNameLeft->enableOutline(Color4B::WHITE, 2);
 	vecPos.x += AVA_SIZE / scaleFactor + LEFT_AVA_PADDING / scaleFactor;
-	m_lbNameLeft->setPosition(visibleOrigin + vecPos);
+	m_lbNameLeft->setPosition(m_visibleOrigin + vecPos);
 	m_lbNameLeft->enableWrap(true);
-	auto maxLineWidth = visibleSize.width - vecPos.x - RIGHT_AVA_PADDING / scaleFactor;
+	auto maxLineWidth = m_visibleSize.width - vecPos.x - RIGHT_AVA_PADDING / scaleFactor;
 	m_lbNameLeft->setMaxLineWidth(maxLineWidth);
 
 	this->addChild(m_lbNameLeft, 2);
@@ -105,7 +105,7 @@ bool Speecher::init()
 	m_txtLeft->setAnchorPoint(Vec2(0, 1));
 	m_txtLeft->setScaleX(TEXT_CONTENT_SCALE_X);
 	vecPos.y -= TEXT_NAME_HEIGHT / scaleFactor;
-	m_txtLeft->setPosition(visibleOrigin + vecPos);
+	m_txtLeft->setPosition(m_visibleOrigin + vecPos);
 	m_txtLeft->enableWrap(true);
 	m_txtLeft->setMaxLineWidth(maxLineWidth);
 
@@ -122,8 +122,8 @@ bool Speecher::init()
 	m_avaRight->setScale(scaleAvaX, scaleAvaX);
 	//m_avaRight->setContentSize(Size(AVA_SIZE / scaleFactor, AVA_SIZE / scaleFactor));
 	m_avaRight->setAnchorPoint(Vec2(1, 1));
-	vecPos = Vec2(visibleSize.width - RIGHT_AVA_PADDING / scaleFactor, visibleSize.height - RIGHT_AVA_PADDING / scaleFactor);
-	m_avaRight->setPosition(vecPos + visibleOrigin);
+	vecPos = Vec2(m_visibleSize.width - RIGHT_AVA_PADDING / scaleFactor, m_visibleSize.height - RIGHT_AVA_PADDING / scaleFactor);
+	m_avaRight->setPosition(vecPos + m_visibleOrigin);
 	this->addChild(m_avaRight, 2);
 	m_avaRight->setVisible(false);
 
@@ -134,7 +134,7 @@ bool Speecher::init()
 	m_lbNameRight->setTextColor(Color4B::BLACK);
 	m_lbNameRight->enableOutline(Color4B::WHITE, 2);
 	vecPos.x -= AVA_SIZE / scaleFactor + RIGHT_AVA_PADDING / scaleFactor;
-	m_lbNameRight->setPosition(visibleOrigin + vecPos);
+	m_lbNameRight->setPosition(m_visibleOrigin + vecPos);
 	m_lbNameRight->enableWrap(true);
 	m_lbNameRight->setMaxLineWidth(maxLineWidth);
 
@@ -146,7 +146,7 @@ bool Speecher::init()
 	m_txtRight->setAnchorPoint(Vec2(1, 1));
 	m_txtRight->setScaleX(TEXT_CONTENT_SCALE_X);
 	vecPos.y -= TEXT_NAME_HEIGHT / scaleFactor;
-	m_txtRight->setPosition(visibleOrigin + vecPos);
+	m_txtRight->setPosition(m_visibleOrigin + vecPos);
 	m_txtRight->enableWrap(true);
 	m_txtRight->setMaxLineWidth(maxLineWidth);
 
@@ -164,6 +164,13 @@ bool Speecher::init()
 
 void Speecher::update(float delta)
 {	
+	// Calculate the "new" origin position for HUD layer in respect of the Camera's position
+	auto myPos = m_camera->getPosition() - m_visibleOrigin;
+	myPos.x -= m_visibleSize.width / 2;
+	myPos.y -= m_visibleSize.height / 2;
+	// Sets the position of HUD layer
+	this->setPosition(myPos);
+
 	m_duration -= delta;
 	if (m_duration <= 0)
 	{
@@ -182,8 +189,8 @@ void Speecher::update(float delta)
 
 void Speecher::hideSpeecher()
 {	
-	PlayScene::resumeRecursive(World::getCurrent());
-	_director->getRunningScene()->getPhysicsWorld()->setSpeed(1.0f);
+	//PlayScene::resumeRecursive(World::getCurrent());
+	//_director->getRunningScene()->getPhysicsWorld()->setSpeed(1.0f);
 	((PlayScene*)this->getParent())->getHUD()->unhideHUDLayer();
 
 	hideComponent();
@@ -191,8 +198,8 @@ void Speecher::hideSpeecher()
 
 void Speecher::showSpeecher()
 {
-	PlayScene::pauseRecursive(World::getCurrent());
-	_director->getRunningScene()->getPhysicsWorld()->setSpeed(0.0f);
+	//PlayScene::pauseRecursive(World::getCurrent());
+	//_director->getRunningScene()->getPhysicsWorld()->setSpeed(0.0f);
 	((PlayScene*)this->getParent())->getHUD()->hideHUDLayer();
 
 	showComponent();
@@ -202,19 +209,6 @@ void Speecher::showComponent()
 {
 	m_camera = Camera::getDefaultCamera();
 
-	auto visibleOrigin = _director->getVisibleOrigin();
-	auto visibleSize = _director->getVisibleSize();
-	// Gets the current Camera
-	if (m_camera == nullptr)
-	{
-		m_camera = Camera::getDefaultCamera();
-	}
-	// Calculate the "new" origin position for HUD layer in respect of the Camera's position
-	auto myPos = m_camera->getPosition() - visibleOrigin;
-	myPos.x -= visibleSize.width / 2;
-	myPos.y -= visibleSize.height / 2;
-	// Sets the position of HUD layer
-	this->setPosition(myPos);
 	m_background->setVisible(true);
 
 
