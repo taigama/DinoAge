@@ -38,16 +38,6 @@ USING_NS_CC;
 
 CharacterSelectionScene::~CharacterSelectionScene()
 {
-	// Releases
-	auto resManager = ResourceManager::getInstance();
-	if (resManager->readyDelete)
-	{
-		delete resManager;
-	}
-	else
-	{
-		resManager->readyDelete = true;
-	}
 
 	//CC_SAFE_RELEASE_NULL(_background00);
 	//CC_SAFE_RELEASE_NULL(_background01);
@@ -613,8 +603,6 @@ void CharacterSelectionScene::onStartCallback(cocos2d::Touch* touch, cocos2d::Ev
 	{
 		return;
 	}
-
-	ResourceManager::getInstance()->readyDelete = false;
 	AUDIO::play2d("ST0E_U1_00001.ogg");
 
 	movingScene = true;
@@ -649,8 +637,6 @@ void CharacterSelectionScene::onStartCallback(cocos2d::Touch* touch, cocos2d::Ev
 		movingScene = false;
 
 
-		// notify that "do not delete the res manager"
-		ResourceManager::getInstance()->readyDelete = false;
 
 		auto playScene = PlayScene::createScene(_playerSelection, _startMap, _startLevel, _startStage);
 		Director::getInstance()->replaceScene(TransitionFade::create(1.0f, playScene));
@@ -669,7 +655,6 @@ void CharacterSelectionScene::onMenuCallback(cocos2d::Ref* sender, cocos2d::ui::
 		return;
 	}
 
-	ResourceManager::getInstance()->readyDelete = false;
 	AUDIO::play2d("challenge.ogg");
 
 	movingScene = true;
@@ -682,8 +667,6 @@ void CharacterSelectionScene::onMenuCallback(cocos2d::Ref* sender, cocos2d::ui::
 		// Resets
 		movingScene = false;
 
-		// notify that "do not delete the res manager"
-		ResourceManager::getInstance()->readyDelete = false;
 
 		auto menuScene = MenuScene1::createScene();
 		Director::getInstance()->replaceScene(TransitionFade::create(0.5f, menuScene));

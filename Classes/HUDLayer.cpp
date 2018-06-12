@@ -866,9 +866,6 @@ void HUDLayer::onMenuCallback(cocos2d::Ref*, cocos2d::ui::Widget::TouchEventType
 	AUDIO::setVolume(ResourceManager::getInstance()->backgroundSongID, 0.5f);
 
 
-	// notify that "do not delete the res manager"
-	ResourceManager::getInstance()->readyDelete = false;
-
 	// Brings user back to Main Menu scene
 	Director::getInstance()->replaceScene(TransitionFade::create(TIME_TRANSITION_MAIN_MENU, MenuScene1::createScene()));
 }

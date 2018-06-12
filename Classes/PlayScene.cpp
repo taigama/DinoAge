@@ -49,17 +49,6 @@ PlayScene::~PlayScene()
 	World::setCurrent(nullptr);
 
 	CC_SAFE_RELEASE_NULL(_hud);
-
-	//AUDIO::end();
-	auto resManager = ResourceManager::getInstance();
-	if (resManager->readyDelete)
-	{
-		delete resManager;
-	}
-	else
-	{
-		resManager->readyDelete = true;
-	}
 }
 
 Scene* PlayScene::createScene()
@@ -244,8 +233,6 @@ void PlayScene::onMenuCallback(cocos2d::Ref*, cocos2d::ui::Widget::TouchEventTyp
 	_hud->resumeAllEventListener();
 
 
-	// notify that "do not delete the res manager"
-	ResourceManager::getInstance()->readyDelete = false;
 
 	// Returns to Main Menu scene
 	Director::getInstance()->replaceScene(TransitionFade::create(TIME_TRANSITION_MAIN_MENU, MenuScene1::createScene()));

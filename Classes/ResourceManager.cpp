@@ -38,7 +38,6 @@ ResourceManager::ResourceManager()
 	m_rect_map = Rect::ZERO;
 
 	backgroundSongID = AUDIO::INVALID_AUDIO_ID;
-	readyDelete = true;
 
 	MyPoolManager::getInstance();
 

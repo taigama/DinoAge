@@ -38,15 +38,6 @@ USING_NS_CC;
 
 IntroScene::~IntroScene()
 {
-	auto resManager = ResourceManager::getInstance();
-	if (resManager->readyDelete)
-	{
-		delete resManager;
-	}
-	else
-	{
-		resManager->readyDelete = true;
-	}
 }
 
 Scene* IntroScene::createScene()
@@ -239,8 +230,6 @@ void IntroScene::onSkipCallback(Ref* sender, cocos2d::ui::Widget::TouchEventType
 
 void IntroScene::changeScene()
 {
-	// notify that "do not delete the res manager"
-	ResourceManager::getInstance()->readyDelete = false;
 	AUDIO::stop(m_soundID);
 
 	// change to menu scene	

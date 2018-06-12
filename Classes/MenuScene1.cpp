@@ -68,15 +68,6 @@ USING_NS_CC;
 
 MenuScene1::~MenuScene1()
 {
-	auto resManager = ResourceManager::getInstance();
-	if (resManager->readyDelete)
-	{
-		delete resManager;
-	}
-	else
-	{
-		resManager->readyDelete = true;
-	}
 	CC_SAFE_RELEASE_NULL(_skillsLayerView);
 }
 
@@ -903,8 +894,6 @@ void MenuScene1::onLevelStageCallback(cocos2d::Ref* sender, cocos2d::ui::Widget:
 	// ============  Moves to the selected map  ================
 	auto nextScene = CharacterSelectionScene::createScene(_selectedMap);
 
-	// notify that "do not delete the res manager"
-	ResourceManager::getInstance()->readyDelete = false;
 
 	Director::getInstance()->replaceScene(TransitionFade::create(TRANSITION_TIME_LEVEL_STAGE_CALLBACK, nextScene));
 }

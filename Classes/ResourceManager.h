@@ -39,8 +39,6 @@ public:
 
 	int backgroundSongID;
 
-	bool readyDelete;
-
 	std::map<std::string, std::vector<SpeechModel*>*> speechDatas;
 	void loadSpeechDatas(const std::string& fileName);
 	bool isSpeechDatasContainKey(const std::string& key);

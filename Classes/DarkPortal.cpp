@@ -229,9 +229,6 @@ void DarkPortal::endGame() {
 
 			AUDIO::setVolume(ResourceManager::getInstance()->backgroundSongID, 0.0f);
 
-			// notify that "do not delete the res manager"
-			ResourceManager::getInstance()->readyDelete = false;
-
 			// Returns to Main Menu scene
 			Director::getInstance()->replaceScene(TransitionFade::create(0.5f, MenuScene1::createScene()));
 
