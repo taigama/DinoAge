@@ -33,8 +33,11 @@ void SpeechZone::onPlayerEntered(Character* target)
 		return;
 	}
 
-	PlayScene* playScene = (PlayScene*)World::getCurrent()->getParent();
-	playScene->getSpeecher()->activeSpeech(m_fileName);
+	scheduleOnce([=](float delay) {
+		PlayScene* playScene = (PlayScene*)World::getCurrent()->getParent();
+		playScene->getSpeecher()->activeSpeech(m_fileName);
+		this->setActive(false);
+	} , 0, "zone_active_speech");
 }
 
 void SpeechZone::message(std::string your_message)

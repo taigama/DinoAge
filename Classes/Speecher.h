@@ -15,6 +15,7 @@
 #define PLAYER_HEALTH_THRESHOLD_SERIOUS_HURT 0.2f
 
 class SpeechModel;
+class ResourceManager;
 
 class Speecher : public cocos2d::Node
 {
@@ -65,6 +66,8 @@ private:
 	void next();
 
 	float m_duration;
+	ResourceManager* m_resManager;
+	cocos2d::EventListenerTouchOneByOne* m_listener;
 };
 
 #endif // !__SPEECHER_H__

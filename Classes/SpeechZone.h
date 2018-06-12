@@ -14,7 +14,6 @@ public:
 
 	virtual void message(std::string your_message) override;
 
-
 protected:
 	
 	// when player enter the zone
@@ -24,7 +23,7 @@ protected:
 	//virtual void reset(float params[10]) override;
 private:
 
-	// name of the map that you will load next
+	// name of the speech file that you will load next
 	std::string m_fileName;
 };
 #endif // !__SPEECH_ZONE_H__

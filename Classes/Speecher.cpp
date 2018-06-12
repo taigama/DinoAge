@@ -17,16 +17,17 @@
 #define BACKGROUND_HEIGHT 30 // by percent (%)
 
 //
-#define LEFT_AVA_PADDING 10// by pixel
-#define RIGHT_AVA_PADDING 10// by pixel
+#define LEFT_AVA_PADDING 20// by pixel
+#define RIGHT_AVA_PADDING 20// by pixel
 
-#define AVA_SIZE 50// by pixel
+#define AVA_SIZE 80// by pixel
 
 
 //
 #define TEXT_NAME_SCALE_X 1.1f
+#define TEXT_CONTENT_SCALE_X 1.0f
 
-#define TEXT_NAME_SIZE 20
+#define TEXT_NAME_SIZE 18
 #define TEXT_CONTENT_SIZE 18
 #define TEXT_NAME_HEIGHT 30
 
@@ -52,15 +53,19 @@ bool Speecher::init()
 
 	///////////////////////////
 	// 1. Necessary variables
-	auto visibleSize = Director::getInstance()->getVisibleSize();
-	auto visibleOrigin = Director::getInstance()->getVisibleOrigin();
-	auto scaleFactor = Director::getInstance()->getContentScaleFactor();
+	m_resManager = ResourceManager::getInstance();
+
+	auto visibleSize = _director->getVisibleSize();
+	auto visibleOrigin = _director->getVisibleOrigin();
+	auto scaleFactor = _director->getContentScaleFactor();
 
 	///////////////////////////
 	// 2. Back ground
-	m_background = LayerColor::create(Color4B(255, 255, 255, BACKGROUND_ALPHA), visibleSize.width, (BACKGROUND_HEIGHT/100.0f) *visibleSize.height);
-	m_background->setAnchorPoint(Vec2(0.5f, 1.0f));
-	m_background->setPosition(Vec2(visibleSize.width / 2.0f, visibleSize.height) + visibleOrigin);
+	auto paddingBackground = LEFT_AVA_PADDING / 2.0f / scaleFactor;
+	m_background = LayerColor::create(Color4B::BLACK);
+	m_background->setOpacity(200);
+	m_background->setContentSize(Size(visibleSize.width - paddingBackground * 2, (BACKGROUND_HEIGHT / 100.0f) *visibleSize.height));
+	m_background->setPosition(Vec2(visibleOrigin.x + paddingBackground, visibleSize.height + visibleOrigin.y - (BACKGROUND_HEIGHT / 100.0f) *visibleSize.height - paddingBackground));
 	this->addChild(m_background, 1);
 	m_background->setVisible(false);
 
@@ -68,7 +73,12 @@ bool Speecher::init()
 	// 3. left
 
 	// ----- ava --------
-	m_avaLeft = Sprite::create();
+	m_avaLeft = Sprite::create("fire_voxtex_1.png");
+	auto contentAvaSize = m_avaLeft->getContentSize();
+	auto scaleAvaX = (AVA_SIZE / scaleFactor) / contentAvaSize.width;
+	auto scaleAvaY = (AVA_SIZE / scaleFactor) / contentAvaSize.height;
+	m_avaLeft->setScale(scaleAvaX, scaleAvaX);
+	//m_avaLeft->setContentSize(Size(AVA_SIZE / scaleFactor, AVA_SIZE / scaleFactor));
 	m_avaLeft->setAnchorPoint(Vec2(0, 1));
 	Vec2 vecPos = Vec2(LEFT_AVA_PADDING / scaleFactor, visibleSize.height - LEFT_AVA_PADDING / scaleFactor);
 	m_avaLeft->setPosition(vecPos + visibleOrigin);
@@ -79,7 +89,9 @@ bool Speecher::init()
 	m_lbNameLeft = Label::create("", FONT_FILE, TEXT_NAME_SIZE);
 	m_lbNameLeft->setAnchorPoint(Vec2(0, 1));
 	m_lbNameLeft->setScaleX(TEXT_NAME_SCALE_X);
-	vecPos.x += AVA_SIZE / scaleFactor;
+	m_lbNameLeft->setTextColor(Color4B::BLACK);
+	m_lbNameLeft->enableOutline(Color4B::WHITE, 2);
+	vecPos.x += AVA_SIZE / scaleFactor + LEFT_AVA_PADDING / scaleFactor;
 	m_lbNameLeft->setPosition(visibleOrigin + vecPos);
 	m_lbNameLeft->enableWrap(true);
 	auto maxLineWidth = visibleSize.width - vecPos.x - RIGHT_AVA_PADDING / scaleFactor;
@@ -91,6 +103,7 @@ bool Speecher::init()
 	// ---- content -----
 	m_txtLeft = Label::create("", FONT_FILE, TEXT_CONTENT_SIZE);
 	m_txtLeft->setAnchorPoint(Vec2(0, 1));
+	m_txtLeft->setScaleX(TEXT_CONTENT_SCALE_X);
 	vecPos.y -= TEXT_NAME_HEIGHT / scaleFactor;
 	m_txtLeft->setPosition(visibleOrigin + vecPos);
 	m_txtLeft->enableWrap(true);
@@ -105,7 +118,9 @@ bool Speecher::init()
 	// 4. right
 
 	// ----- ava --------
-	m_avaRight = Sprite::create();
+	m_avaRight = Sprite::create("fire_voxtex_1.png");
+	m_avaRight->setScale(scaleAvaX, scaleAvaX);
+	//m_avaRight->setContentSize(Size(AVA_SIZE / scaleFactor, AVA_SIZE / scaleFactor));
 	m_avaRight->setAnchorPoint(Vec2(1, 1));
 	vecPos = Vec2(visibleSize.width - RIGHT_AVA_PADDING / scaleFactor, visibleSize.height - RIGHT_AVA_PADDING / scaleFactor);
 	m_avaRight->setPosition(vecPos + visibleOrigin);
@@ -116,7 +131,9 @@ bool Speecher::init()
 	m_lbNameRight = Label::create("", FONT_FILE, TEXT_NAME_SIZE);
 	m_lbNameRight->setAnchorPoint(Vec2(1, 1));
 	m_lbNameRight->setScaleX(TEXT_NAME_SCALE_X);
-	vecPos.x -= AVA_SIZE / scaleFactor;
+	m_lbNameRight->setTextColor(Color4B::BLACK);
+	m_lbNameRight->enableOutline(Color4B::WHITE, 2);
+	vecPos.x -= AVA_SIZE / scaleFactor + RIGHT_AVA_PADDING / scaleFactor;
 	m_lbNameRight->setPosition(visibleOrigin + vecPos);
 	m_lbNameRight->enableWrap(true);
 	m_lbNameRight->setMaxLineWidth(maxLineWidth);
@@ -127,6 +144,7 @@ bool Speecher::init()
 	// ---- content -----
 	m_txtRight = Label::create("", FONT_FILE, TEXT_CONTENT_SIZE);
 	m_txtRight->setAnchorPoint(Vec2(1, 1));
+	m_txtRight->setScaleX(TEXT_CONTENT_SCALE_X);
 	vecPos.y -= TEXT_NAME_HEIGHT / scaleFactor;
 	m_txtRight->setPosition(visibleOrigin + vecPos);
 	m_txtRight->enableWrap(true);
@@ -149,6 +167,14 @@ void Speecher::update(float delta)
 	m_duration -= delta;
 	if (m_duration <= 0)
 	{
+		if (m_currentIter == m_currentModels->end())
+		{
+			scheduleOnce([&](float delay) {
+				this->hideSpeecher();
+			}, 0, "hideSpeecher");
+			return;
+		}
+
 		next();
 	}
 }
@@ -157,7 +183,7 @@ void Speecher::update(float delta)
 void Speecher::hideSpeecher()
 {	
 	PlayScene::resumeRecursive(World::getCurrent());
-	Director::getInstance()->getRunningScene()->getPhysicsWorld()->setSpeed(1.0f);
+	_director->getRunningScene()->getPhysicsWorld()->setSpeed(1.0f);
 	((PlayScene*)this->getParent())->getHUD()->unhideHUDLayer();
 
 	hideComponent();
@@ -166,7 +192,7 @@ void Speecher::hideSpeecher()
 void Speecher::showSpeecher()
 {
 	PlayScene::pauseRecursive(World::getCurrent());
-	Director::getInstance()->getRunningScene()->getPhysicsWorld()->setSpeed(0.0f);
+	_director->getRunningScene()->getPhysicsWorld()->setSpeed(0.0f);
 	((PlayScene*)this->getParent())->getHUD()->hideHUDLayer();
 
 	showComponent();
@@ -176,8 +202,8 @@ void Speecher::showComponent()
 {
 	m_camera = Camera::getDefaultCamera();
 
-	auto visibleOrigin = Director::getInstance()->getVisibleOrigin();
-	auto visibleSize = Director::getInstance()->getVisibleSize();
+	auto visibleOrigin = _director->getVisibleOrigin();
+	auto visibleSize = _director->getVisibleSize();
 	// Gets the current Camera
 	if (m_camera == nullptr)
 	{
@@ -189,13 +215,18 @@ void Speecher::showComponent()
 	myPos.y -= visibleSize.height / 2;
 	// Sets the position of HUD layer
 	this->setPosition(myPos);
+	m_background->setVisible(true);
 
 
 
 
-	this->next();
+
+
+	((PlayScene*)this->getParent())->getHUD()->pauseAllEventListener();
+	m_listener->setEnabled(true);
+
 	this->scheduleUpdate();
-	//_eventDispatcher->resumeEventListenersForTarget(this);
+	this->next();
 }
 
 void Speecher::hideComponent()
@@ -211,18 +242,19 @@ void Speecher::hideComponent()
 	m_background->setVisible(false);
 
 	this->unscheduleUpdate();
-	//_eventDispatcher->pauseEventListenersForTarget(this);
+
+	((PlayScene*)this->getParent())->getHUD()->resumeAllEventListener();
+	m_listener->setEnabled(false);
 }
 
 void Speecher::activeSpeech(const std::string& fileName)
 {
-	ResourceManager* resManager = ResourceManager::getInstance();
-	if (!resManager->isSpeechDatasContainKey(fileName))
+	if (!m_resManager->isSpeechDatasContainKey(fileName))
 	{
 		return;
 	}
 
-	m_currentModels = resManager->speechDatas[fileName];
+	m_currentModels = m_resManager->speechDatas[fileName];
 	m_currentIter = m_currentModels->begin();
 	showSpeecher();
 }
@@ -234,15 +266,23 @@ void Speecher::loadModels()
 
 void Speecher::addTouchListener()
 {
-	EventListenerTouchOneByOne* listener = EventListenerTouchOneByOne::create();
-	listener->setSwallowTouches(true);
-	listener->onTouchBegan = CC_CALLBACK_2(Speecher::onTouch, this);
-	//_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this);
-	//_eventDispatcher->pauseEventListenersForTarget(this);
+	m_listener = EventListenerTouchOneByOne::create();
+	m_listener->setSwallowTouches(true);
+	m_listener->onTouchBegan = CC_CALLBACK_2(Speecher::onTouch, this);
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(m_listener, this);
+	m_listener->setEnabled(false);
 }
 
 bool Speecher::onTouch(cocos2d::Touch *touch, cocos2d::Event *event)
 {
+	if (m_currentIter == m_currentModels->end())
+	{
+		scheduleOnce([&](float delay) {
+			this->hideSpeecher();
+		}, 0, "hideSpeecher");
+		return true;
+	}
+
 	next();
 	return true;// swallow
 }
@@ -277,18 +317,28 @@ void Speecher::next()
 			break;
 		}
 	}
+
+	Sprite* currentAva;
 	if (model->isLeft) // is left?
 	{
 		m_lbNameLeft->setString(model->name);
-		m_avaLeft->setTexture(ResourceManager::getInstance()->getSprite(imgName)->getTexture());
+		currentAva = m_avaLeft;
 		m_txtLeft->setString(model->text);
 	}
 	else // or right
 	{
 		m_lbNameRight->setString(model->name);
-		m_avaRight->setTexture(ResourceManager::getInstance()->getSprite(imgName)->getTexture());
+		currentAva = m_avaRight;
 		m_txtRight->setString(model->text);
 	}
+
+
+	currentAva->setSpriteFrame(m_resManager->getSprite(imgName)->getSpriteFrame());
+	auto contentAvaSize = currentAva->getContentSize();
+	auto scaleFactor = _director->getContentScaleFactor();
+	auto scaleAvaX = (AVA_SIZE / scaleFactor) / contentAvaSize.width;
+	auto scaleAvaY = (AVA_SIZE / scaleFactor) / contentAvaSize.height;
+	currentAva->setScale(scaleAvaX, scaleAvaY);
 
 	m_lbNameRight->setVisible(!model->isLeft);
 	m_avaRight->setVisible(!model->isLeft);
@@ -302,12 +352,4 @@ void Speecher::next()
 
 
 	m_currentIter++;
-	if (m_currentIter == m_currentModels->end())
-	{
-		m_duration += 10;// sure, it will never be iter++ before this speecher hide
-		scheduleOnce([&](float delay) {
-			this->hideSpeecher();
-		}, model->duration, "hideSpeecher");
-		return;
-	}
 }
