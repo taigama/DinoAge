@@ -240,10 +240,10 @@ void EnemyFeeder::move(Character::DIRECTION direction)
 
 void EnemyFeeder::onDie()
 {
-	_body->setContactTestBitmask(0);
+	//_body->setContactTestBitmask(0);
 
 	// Sets exploding state
-	//setExplodingState(true);
+	setExplodingState(true);
 
 	// Stops
 	move(DIRECTION::NONE);
@@ -339,6 +339,9 @@ void EnemyFeeder::update(float delta)
 // On contact with Player -> SELF EXPLODES
 bool EnemyFeeder::onContactBegin(const cocos2d::PhysicsContact &contact)
 {
+	if (_isExploding)
+		return false;
+
 	// Super
 	if (!Enemy::onContactBegin(contact))
 	{

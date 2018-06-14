@@ -1,13 +1,13 @@
 #include "SpeechModel.h"
 
-std::stringstream SpeechModel::processStream;
+//std::stringstream SpeechModel::processStream;
 //std::stringstream SpeechModel::tmpStream;
 std::string SpeechModel::tmpString;
 //int SpeechModel::tmpI = 0;
 
 SpeechModel::SpeechModel(std::string& input)
 {
-	processStream.str(input);	
+	std::stringstream processStream(input);
 
 	getline(processStream, tmpString, ';');
 	this->pathImg = tmpString;

@@ -285,6 +285,9 @@
     <ClCompile Include="..\Classes\SpeechModel.cpp">
       <Filter>src\Scene\UI</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\EnemyHopper.cpp">
+      <Filter>src\Character\Enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -508,6 +511,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\SpeechZone.h">
       <Filter>src\Zone</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EnemyHopper.h">
+      <Filter>src\Character\Enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

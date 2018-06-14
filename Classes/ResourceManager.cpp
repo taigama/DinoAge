@@ -673,6 +673,10 @@ void ResourceManager::loadEnemies()
 		{
 			enemy->setPosition(startPosition);
 		}
+		else if ((Character::CHARACTER_TYPE)type == Character::CHARACTER_TYPE::ENEMY_HOPPER)
+		{
+			enemy->setPosition(startPosition);
+		}
 		else
 		{
 			CCLOG("INVALID ENEMY TYPE");

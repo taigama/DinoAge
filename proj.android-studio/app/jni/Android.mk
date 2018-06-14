@@ -84,7 +84,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
                    ../../../Classes/Zone.cpp \
                    ../../../Classes/Speecher.cpp \
                    ../../../Classes/SpeechModel.cpp \
-                   ../../../Classes/SpeechZone.cpp
+                   ../../../Classes/SpeechZone.cpp \
+                   ../../../Classes/EnemyHopper.cpp
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../../Classes
 
