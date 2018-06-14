@@ -7,6 +7,11 @@
 class SpeechModel
 {
 public:
+	static std::stringstream processStream;
+	//static std::stringstream tmpStream;
+	static std::string tmpString;
+	//static int tmpI;
+
 	std::string pathImg;
 	std::string name;
 	std::string text;

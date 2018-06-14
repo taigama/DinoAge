@@ -263,6 +263,7 @@ void DarkPortal::endGame() {
 		
 		if (hud != nullptr)
 		{
+			hud->pauseAllEventListener();
 			hud->hideHUDLayer();
 		}
 

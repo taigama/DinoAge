@@ -243,7 +243,7 @@ void EnemyFeeder::onDie()
 	_body->setContactTestBitmask(0);
 
 	// Sets exploding state
-	setExplodingState(true);
+	//setExplodingState(true);
 
 	// Stops
 	move(DIRECTION::NONE);
@@ -310,14 +310,14 @@ void EnemyFeeder::startAction()
 
 void EnemyFeeder::update(float delta)
 {
-	// IF explodes
-	if (_isExploding)
-	{
-		explode();
-		this->setExplodingState(false);		// avoids calling explode() multiple time
-		
-		return;
-	}
+	//// IF explodes
+	//if (_isExploding)
+	//{
+	//	explode();
+	//	this->setExplodingState(false);		// avoids calling explode() multiple time
+	//	
+	//	return;
+	//}
 
 
 	// IF collides with Block (horizontally)
@@ -363,7 +363,9 @@ bool EnemyFeeder::onContactBegin(const cocos2d::PhysicsContact &contact)
 		// NOT same team
 		if (character->getTeam() != _team)
 		{
-			onDie();			// EnemyFeeder dies -> SELF EXPLODES
+			//onDie();			// EnemyFeeder dies -> SELF EXPLODES
+			// no longer die. Now, it's stopped
+			setBlockCollision(true);
 		}
 	}
 

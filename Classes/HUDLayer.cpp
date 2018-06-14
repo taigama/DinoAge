@@ -347,6 +347,9 @@ void HUDLayer::onTouchMoveLeft(cocos2d::ui::Widget::TouchEventType type)
 	// Retrieves Player
 	extractPlayer();
 
+	if (!_player)
+		return;
+
 	// Checks type of touch -> carries out corresponding operation
 	switch (type)
 	{
@@ -385,6 +388,9 @@ void HUDLayer::onTouchMoveRight(cocos2d::ui::Widget::TouchEventType type)
 {
 	// Retrieves Player
 	extractPlayer();
+
+	if (!_player)
+		return;
 
 	// Checks type of touch -> carries out corresponding operation
 	switch (type)
@@ -426,6 +432,8 @@ void HUDLayer::onTouchPhysical(cocos2d::ui::Widget::TouchEventType type)
 
 	// Retrieves Player
 	extractPlayer();
+	if (!_player)
+		return;
 
 	// Checks type of touch -> carries out corresponding operation
 	switch (type)
@@ -520,6 +528,8 @@ void HUDLayer::onTouchProjectile(cocos2d::ui::Widget::TouchEventType type)
 {
 	// Retrieves Player
 	extractPlayer();
+	if (!_player)
+		return;
 
 	// Checks type of touch -> carries out corresponding operation
 	switch (type)
@@ -589,6 +599,8 @@ void HUDLayer::onTouchJump(cocos2d::ui::Widget::TouchEventType type)
 {
 	// Retrieves Player
 	extractPlayer();
+	if (!_player)
+		return;
 
 	// Checks type of touch -> carries out corresponding operation
 	switch (type)
@@ -991,7 +1003,8 @@ void HUDLayer::extractPlayer()
 	{
 		auto playScene = Director::getInstance()->getRunningScene()->getChildByName("play_scene");
 		auto worldLayer = dynamic_cast<World*>(playScene->getChildByName("world_layer"));
-		_player = worldLayer->getPlayer();
+		if(worldLayer != nullptr)
+			_player = worldLayer->getPlayer();		
 	}
 
 

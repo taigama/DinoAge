@@ -2,7 +2,7 @@
 <map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="204" height="30" tilewidth="32" tileheight="32" infinite="0" nextobjectid="252">
  <tileset firstgid="1" source="tileset_mapLv1.tsx"/>
  <tileset firstgid="1153" source="background.tsx"/>
- <layer name="Background" width="204" height="30" visible="0">
+ <layer name="Background" width="204" height="30">
   <data encoding="base64" compression="zlib">
    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
   </data>
@@ -17,29 +17,7 @@
    eJztl8lOVEEUhjv3xhnnAVpwRhHojaAow8bEjaKJW4QXAHkBh43oxmEjuFHYKL6AwgsgvIDDCwi+gMMD+LkzJ4ZK3epuTsf/S77Fn5y+darSVakqlYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEKksDMrlbbjDtyTbXQ3QvimzB45jK3Ypv0iGow/5/0u3F2n876TMbqwGyvaL6LBOMJ/9igew+N1+P/2M8YADuKQ9ouIZNtf9/mmLD4/xif4FJ8V+L0971P7CeUHzHkKH+KjyPlfwXLOfQ5bsQ0vB+r34j7cjwey9eurnWP79ZZv/qP/1Hwjcv0s9j4fm1/iK5zFuQK/t+d9aj+h/Jw5T+MMvigw/07WvAu7sZKH60/gSTyF7XWYX2q/3rLtPzXHjm+x53tsfs033uA8vi3wPXvep/ZT6377WfMBHMShPFx/DnuwF8/XYD7V7tdbtv2n5tjxLfZ8j83v+MZ7XMDFAt+z531qP7Xu9yprfg2H8Xoert+Em3ELbq3BfKrdr7ds+0/NseNblvADLuOKcjDb9Q/V2/3ivV9vudr7JXZ8y0f8hJ/xi3Iwj7Dmt3AUx/Jw/UH2yCFsxpbMf7/esu0/NceOb/mKq7iG35SDeZw1n8DbOJmH60+zR85gB57N/PfrLdv+U3Ps+Jbv+AN/4i/lYL7Dmt/Fe3g/D9dfYI/04UW8lPnv11u2/afm2PEtG30/bbSs94veL57uq96z3i96v3i6r3rPer/o/eLpvuo96/3yf75ffgMGO2lA
   </data>
  </layer>
- <objectgroup name="TutorialText">
-  <object id="227" name="USE MOVEMENT BUTTONS TO MOVE" x="113.167" y="310.833" width="452.333" height="97">
-   <text fontfamily="Times New Roman" pixelsize="24" wrap="1" bold="1" halign="center" valign="center">USE MOVEMENT BUTTONS TO MOVE</text>
-  </object>
-  <object id="235" name="NOW LET'S TRY TO KILL ALL THESE MONSTERS BY YOUR OWN" x="4453.83" y="311.5" width="430.333" height="87">
-   <text fontfamily="Times New Roman" pixelsize="24" wrap="1" bold="1" halign="center" valign="center">NOW TRY TO KILL ALL THESE MONSTERS BY YOUR OWN</text>
-  </object>
-  <object id="234" name="WANT TO BE SAFE? USE PROJECTILE TO ATTACK AT A DISTANCE" x="3557.5" y="281.167" width="436.333" height="125">
-   <text fontfamily="Times New Roman" pixelsize="24" wrap="1" bold="1" halign="center" valign="center">WANT TO BE SAFE? USE PROJECTILE TO ATTACK AT A DISTANCE</text>
-  </object>
-  <object id="233" name="NOW TRY TO ATTACK MONSTER PHYSICALLY" x="2936.83" y="315.5" width="330.333" height="67">
-   <text fontfamily="Times New Roman" pixelsize="24" wrap="1" bold="1" halign="center" valign="center">NOW TRY TO ATTACK MONSTER PHYSICALLY</text>
-  </object>
-  <object id="231" name="PRESS JUMP BUTTON WHILE IN MID AIR TO PERFORM  DOUBLE-JUMP" x="1811.83" y="266.5" width="484.333" height="101">
-   <text fontfamily="Times New Roman" pixelsize="24" wrap="1" bold="1" halign="center" valign="center">PRESS JUMP BUTTON WHILE IN MID AIR TO PERFORM  DOUBLE-JUMP</text>
-  </object>
-  <object id="230" name="USE JUMP BUTTON TO JUMP OVER THE CLIFF" x="983.834" y="313.5" width="346.333" height="77">
-   <text fontfamily="Times New Roman" pixelsize="24" wrap="1" bold="1" halign="center" valign="center">USE JUMP BUTTON TO JUMP OVER THE CLIFF</text>
-  </object>
-  <object id="247" name="ENERGY ORB!!! WITH MORE ENERGY, YOU CAN USE MORE SKILLS LATER" x="5900.77" y="307.682" width="469" height="87">
-   <text fontfamily="Times New Roman" pixelsize="24" wrap="1" bold="1" halign="center" valign="center">ENERGY ORB!!! WITH MORE ENERGY, YOU CAN USE MORE SKILLS LATER</text>
-  </object>
- </objectgroup>
+ <objectgroup name="TutorialText"/>
  <objectgroup name="Zones">
   <object id="44" type="Zone" x="2496" y="596" width="128" height="108">
    <properties>
@@ -247,51 +225,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Illusion">
-  <object id="238" type="Illusion" x="256" y="384" width="48" height="48">
-   <properties>
-    <property name="path" value="leftButton.png"/>
-   </properties>
-  </object>
-  <object id="239" type="Illusion" x="352" y="384" width="48" height="48">
-   <properties>
-    <property name="path" value="rightButton.png"/>
-   </properties>
-  </object>
-  <object id="246" type="Illusion" x="3744" y="384" width="48" height="48">
-   <properties>
-    <property name="path" value="projectileAttack.png"/>
-   </properties>
-  </object>
-  <object id="245" type="Illusion" x="3072" y="384" width="48" height="48">
-   <properties>
-    <property name="path" value="physicalAttack.png"/>
-   </properties>
-  </object>
-  <object id="242" type="Illusion" x="1914" y="454" width="48" height="48">
-   <properties>
-    <property name="path" value="jumpButton.png"/>
-   </properties>
-  </object>
-  <object id="241" type="Illusion" x="1888" y="532" width="48" height="48">
-   <properties>
-    <property name="path" value="jumpButton.png"/>
-   </properties>
-  </object>
-  <object id="240" type="Illusion" x="1027" y="533" width="48" height="48">
-   <properties>
-    <property name="path" value="jumpButton.png"/>
-   </properties>
-  </object>
-  <object id="248" type="Illusion" x="2535" y="596" width="48" height="48">
-   <properties>
-    <property name="path" value="dangerous_water.png"/>
-   </properties>
-  </object>
-  <object id="249" type="Illusion" x="2919" y="597" width="48" height="48">
-   <properties>
-    <property name="path" value="dangerous_lava.png"/>
-   </properties>
-  </object>
- </objectgroup>
+ <objectgroup name="Illusion"/>
 </map>
