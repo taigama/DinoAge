@@ -1,5 +1,5 @@
-#ifndef __ENEMY_HOPPER_H__
-#define __ENEMY_HOPPER_H__
+#ifndef __ENEMY_MUSHROOM_H__
+#define __ENEMY_MUSHROOM_H__
 
 #include "Enemy.h"
 
@@ -10,51 +10,44 @@
  *
  * Default anchor point: Vec2(0.5, 0)
  */
-class EnemyHopper : public Enemy
+class EnemyMushroom : public Enemy
 {
 public:
 
-	~EnemyHopper();
+	~EnemyMushroom();
+
+	void setScaleMushroom(float scale);
 
 	// init() function
 	bool init();
-
-	// update() function
-	void update(float delta) override;
 
 	// Overrides
 	bool onContactBegin(const cocos2d::PhysicsContact &contact) override;
 
 
-
-	void jump() override;
-
 	// -----------------------------------------------------------------------
-
+	void onHit(float dmg, DIRECTION dir, float force) override;
 
 	// EnemyFeeder is exploding or not
 	CC_SYNTHESIZE(bool, _isExploding, ExplodingState);
 
-	CC_SYNTHESIZE_READONLY(cocos2d::Vec2, _vecMove, VecMove);
-
 	void onDie() override;
 
-	CREATE_FUNC(EnemyHopper);
+	CREATE_FUNC(EnemyMushroom);
 
 protected:
 
 	// Helper init() init fuctions
 	void initSprites() override;
 	void initPhysics() override;
-	float _duration;
 
 	// Animation
-	cocos2d::ActionInterval* _jumpAnimation;
+	cocos2d::ActionInterval* _hittedAnimation;
 	cocos2d::ActionInterval* _dieAnimation;
-
+	float _scaleMushroom;
 
 };
 
 
 
-#endif // !__ENEMY_HOPPER_H__
+#endif // !__ENEMY_MUSHROOM_H__

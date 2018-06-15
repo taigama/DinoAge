@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="204" height="30" tilewidth="32" tileheight="32" infinite="0" nextobjectid="258">
+<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="204" height="30" tilewidth="32" tileheight="32" infinite="0" nextobjectid="355">
  <tileset firstgid="1" source="tileset_mapLv1.tsx"/>
  <tileset firstgid="1153" source="background.tsx"/>
  <layer name="Background" width="204" height="30">
@@ -14,7 +14,7 @@
  </layer>
  <layer name="Foreground" width="204" height="30">
   <data encoding="base64" compression="zlib">
-   eJztl8lOVEEUhjv3xhnnAVpwRhHojaAow8bEjaKJW4QXAHkBh43oxmEjuFHYKL6AwgsgvIDDCwi+gMMD+LkzJ4ZK3epuTsf/S77Fn5y+darSVakqlYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEKksDMrlbbjDtyTbXQ3QvimzB45jK3Ypv0iGow/5/0u3F2n876TMbqwGyvaL6LBOMJ/9igew+N1+P/2M8YADuKQ9ouIZNtf9/mmLD4/xif4FJ8V+L0971P7CeUHzHkKH+KjyPlfwXLOfQ5bsQ0vB+r34j7cjwey9eurnWP79ZZv/qP/1Hwjcv0s9j4fm1/iK5zFuQK/t+d9aj+h/Jw5T+MMvigw/07WvAu7sZKH60/gSTyF7XWYX2q/3rLtPzXHjm+x53tsfs033uA8vi3wPXvep/ZT6377WfMBHMShPFx/DnuwF8/XYD7V7tdbtv2n5tjxLfZ8j83v+MZ7XMDFAt+z531qP7Xu9yprfg2H8Xoert+Em3ELbq3BfKrdr7ds+0/NseNblvADLuOKcjDb9Q/V2/3ivV9vudr7JXZ8y0f8hJ/xi3Iwj7Dmt3AUx/Jw/UH2yCFsxpbMf7/esu0/NceOb/mKq7iG35SDeZw1n8DbOJmH60+zR85gB57N/PfrLdv+U3Ps+Jbv+AN/4i/lYL7Dmt/Fe3g/D9dfYI/04UW8lPnv11u2/afm2PEtG30/bbSs94veL57uq96z3i96v3i6r3rPer/o/eLpvuo96/3yf75ffgMGO2lA
+   eJztl0duVEEURVv1RTAZE41Njg4TMg4TJCYOSEwdNuCwAYcJYUKYECaECWEDhA0QNkDYAGEDhAVwmKEn2qX61d28tu+RzuB+VXe9qv+rVFWpCCGEEEIIIYQQQgghhBBCCCGEEEIIIcTyYTBUKkM4jCOh+rOy7YVYSozyfY/hOE6E6s/KthdiKTHJ9z2F0zgTqj8r2174Zz3vbA2uxU16f4syy/zM4TwuhOrPyrYX/mnjne3CduzQ+xNNxp/9fgNubNB+30kfXdiNPVovosnYzTe7B/fivgZ8v7300Yf9OKD1IhJp+es8vy6k5+t4A2/irRK/t/t9bj2xfJkxX8GreC1x/BewreA8h+3Ygecj7TdjK27BrWHx9rXOqfV6y5f+UX9uvpg4fxZ7nk/N9/EBPsRHJX5v9/vcemL5NmO+g3fxXonxdzLnXdiNPUW8/X48gAfxUAPGl1uvt2zrz82p/Vvs/p6aH/MfT/ApPivxf3a/z62n3vX2Mud92I8DRbz9cTyBJ/FUHcZT63q9ZVt/bk7t32L399T8nP94gS/xVYn/s/t9bj31rneQOR/CYRwp4u1X4EpchavrMJ5a1+st2/pzc2r/ltf4Bt/iO+VotvMfa2/Xi/d6veVar5fU/i3v8QN+xE/K0TzKnI/hOE4U8fbbWCPbcQfuDP7r9ZZt/bk5tX/LZ/yCX/GbcjRPMudTOI0zRbz9YdbIETyKx4L/er1lW39uTu3f8h1/4E/8pRzNs8z5HM7jQhFvf5o1cgbP4rngv15v2dafm1P7t/zv82mzZd1fdH/xdF71nnV/0f3F03nVe9b9RfcXT+dV71n3l+V5f/kNLcuCYA==
   </data>
  </layer>
  <objectgroup name="TutorialText"/>
@@ -53,7 +53,7 @@
     <property name="zone_type" type="int" value="5"/>
    </properties>
   </object>
-  <object id="54" type="Zone" x="4160" y="222" width="1598" height="420">
+  <object id="54" type="Zone" x="4057" y="222" width="1701" height="420">
    <properties>
     <property name="zone_ID" type="int" value="3"/>
     <property name="zone_type" type="int" value="5"/>
@@ -73,15 +73,33 @@
     <property name="zone_type" type="int" value="6"/>
    </properties>
   </object>
-  <object id="251" type="Zone" x="287" y="509" width="64" height="64">
+  <object id="251" type="Zone" x="287" y="255" width="30" height="318">
    <properties>
     <property name="file_name" value="intro_welcome"/>
     <property name="zone_type" type="int" value="7"/>
    </properties>
   </object>
-  <object id="257" type="Zone" x="1880.12" y="510.424" width="64" height="64">
+  <object id="257" type="Zone" x="976.12" y="260.424" width="34" height="314">
    <properties>
     <property name="file_name" value="intro_attack"/>
+    <property name="zone_type" type="int" value="7"/>
+   </properties>
+  </object>
+  <object id="258" type="Zone" x="737.09" y="161" width="772.82" height="414">
+   <properties>
+    <property name="zone_ID" type="int" value="2"/>
+    <property name="zone_type" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="271" type="Zone" x="3245" y="256" width="30" height="318">
+   <properties>
+    <property name="file_name" value="intro_cast_skill"/>
+    <property name="zone_type" type="int" value="7"/>
+   </properties>
+  </object>
+  <object id="275" type="Zone" x="4625" y="258" width="30" height="318">
+   <properties>
+    <property name="file_name" value="intro_cast_ulti"/>
     <property name="zone_type" type="int" value="7"/>
    </properties>
   </object>
@@ -137,7 +155,7 @@
     <property name="block_type" type="int" value="1"/>
    </properties>
   </object>
-  <object id="56" type="Block" x="5408" y="512" width="128" height="32">
+  <object id="56" type="Block" x="5376" y="512" width="128" height="32">
    <properties>
     <property name="block_type" type="int" value="2"/>
     <property name="isOneWay" type="bool" value="true"/>
@@ -153,51 +171,53 @@
     <property name="block_type" type="int" value="1"/>
    </properties>
   </object>
+  <object id="280" type="Block" x="4384.33" y="352.667" width="126" height="64">
+   <properties>
+    <property name="block_type" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="281" type="Block" x="4544.33" y="352.667" width="126" height="64">
+   <properties>
+    <property name="block_type" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="282" type="Block" x="4769" y="352.667" width="126" height="64">
+   <properties>
+    <property name="block_type" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="283" type="Block" x="4928.33" y="352" width="126" height="64">
+   <properties>
+    <property name="block_type" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="316" type="Block" x="4695.33" y="384.667" width="48" height="24">
+   <properties>
+    <property name="block_type" type="int" value="7"/>
+    <property name="isOneWay" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="317" type="Block" x="4695" y="448.333" width="48" height="24">
+   <properties>
+    <property name="block_type" type="int" value="7"/>
+    <property name="isOneWay" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="318" type="Block" x="4695.33" y="511.667" width="48" height="24">
+   <properties>
+    <property name="block_type" type="int" value="7"/>
+    <property name="isOneWay" type="bool" value="true"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Enemies">
-  <object id="4" type="Enemy" x="3198" y="576">
+  <object id="4" type="Enemy" x="3391" y="573">
    <properties>
     <property name="character_type" type="int" value="7"/>
     <property name="direction" type="int" value="-1"/>
     <property name="feederSize" type="int" value="1"/>
     <property name="feederType" type="int" value="1"/>
     <property name="zone_ID" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="7" type="Enemy" x="3841.33" y="576">
-   <properties>
-    <property name="character_type" type="int" value="7"/>
-    <property name="direction" type="int" value="-1"/>
-    <property name="feederSize" type="int" value="1"/>
-    <property name="feederType" type="int" value="1"/>
-    <property name="zone_ID" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="26" type="Enemy" x="4832" y="576">
-   <properties>
-    <property name="character_type" type="int" value="7"/>
-    <property name="direction" type="int" value="-1"/>
-    <property name="feederSize" type="int" value="1"/>
-    <property name="feederType" type="int" value="2"/>
-    <property name="zone_ID" type="int" value="3"/>
-   </properties>
-  </object>
-  <object id="27" type="Enemy" x="4896" y="576">
-   <properties>
-    <property name="character_type" type="int" value="7"/>
-    <property name="direction" type="int" value="-1"/>
-    <property name="feederSize" type="int" value="1"/>
-    <property name="feederType" type="int" value="2"/>
-    <property name="zone_ID" type="int" value="3"/>
-   </properties>
-  </object>
-  <object id="28" type="Enemy" x="4960" y="576">
-   <properties>
-    <property name="character_type" type="int" value="7"/>
-    <property name="direction" type="int" value="-1"/>
-    <property name="feederSize" type="int" value="1"/>
-    <property name="feederType" type="int" value="2"/>
-    <property name="zone_ID" type="int" value="3"/>
    </properties>
   </object>
   <object id="252" type="Enemy" x="2129.18" y="566.545">
@@ -206,9 +226,430 @@
     <property name="zone_ID" type="int" value="1"/>
    </properties>
   </object>
+  <object id="259" type="Enemy" x="1194.33" y="489">
+   <properties>
+    <property name="character_type" type="int" value="10"/>
+    <property name="scale" type="float" value="1.8"/>
+    <property name="zone_ID" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="260" type="Enemy" x="3427" y="574">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="261" type="Enemy" x="3462" y="571">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="262" type="Enemy" x="3490" y="572">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="263" type="Enemy" x="3523" y="572">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="264" type="Enemy" x="3556" y="574">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="265" type="Enemy" x="3411" y="572">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="266" type="Enemy" x="3448" y="573">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="267" type="Enemy" x="3476" y="576">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="268" type="Enemy" x="3508" y="571">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="269" type="Enemy" x="3541" y="570">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="319" type="Enemy" x="4394.33" y="341.667">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="320" type="Enemy" x="4415.67" y="342">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="321" type="Enemy" x="4436.67" y="342">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="322" type="Enemy" x="4457.67" y="341.667">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="323" type="Enemy" x="4479" y="341.333">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="324" type="Enemy" x="4499.67" y="342">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="325" type="Enemy" x="4554.99" y="340">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="326" type="Enemy" x="4576.33" y="340.333">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="327" type="Enemy" x="4597.33" y="340.333">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="328" type="Enemy" x="4618.33" y="340">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="329" type="Enemy" x="4639.66" y="339.666">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="330" type="Enemy" x="4660.33" y="340.333">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="331" type="Enemy" x="4779.33" y="340.667">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="332" type="Enemy" x="4800.67" y="341">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="333" type="Enemy" x="4821.67" y="341">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="334" type="Enemy" x="4842.67" y="340.667">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="335" type="Enemy" x="4864" y="340.333">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="336" type="Enemy" x="4884.67" y="341">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="337" type="Enemy" x="4935.66" y="341">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="338" type="Enemy" x="4957" y="341.333">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="339" type="Enemy" x="4978" y="341.333">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="340" type="Enemy" x="4999" y="341">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="341" type="Enemy" x="5020.33" y="340.666">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="342" type="Enemy" x="5041" y="341.333">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="343" type="Enemy" x="4776.66" y="563.667">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="344" type="Enemy" x="4798" y="564">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="345" type="Enemy" x="4819" y="564">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="346" type="Enemy" x="4840" y="563.667">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="347" type="Enemy" x="4861.33" y="563.333">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="348" type="Enemy" x="4882" y="564">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="349" type="Enemy" x="4906.66" y="563.667">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="350" type="Enemy" x="4928" y="564">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="351" type="Enemy" x="4949" y="564">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="352" type="Enemy" x="4970" y="563.667">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="353" type="Enemy" x="4991.33" y="563.333">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="354" type="Enemy" x="5012" y="564">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="1"/>
+    <property name="zone_ID" type="int" value="3"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Items">
-  <object id="2" type="Item" x="1151.67" y="484.17">
+  <object id="2" type="Item" x="1110.22" y="485.806">
    <properties>
     <property name="item_type" type="int" value="2"/>
    </properties>
@@ -218,12 +659,67 @@
     <property name="item_type" type="int" value="2"/>
    </properties>
   </object>
-  <object id="31" type="Item" x="3391.75" y="558.17">
+  <object id="17" type="Item" x="6144" y="544.33">
    <properties>
-    <property name="item_type" type="int" value="1"/>
+    <property name="item_type" type="int" value="3"/>
    </properties>
   </object>
-  <object id="17" type="Item" x="6144" y="544.33">
+  <object id="270" type="Item" x="3291.25" y="557.5">
+   <properties>
+    <property name="item_type" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="272" type="Item" x="3312" y="557.667">
+   <properties>
+    <property name="item_type" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="273" type="Item" x="3332.96" y="557.5">
+   <properties>
+    <property name="item_type" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="274" type="Item" x="3353.67" y="557.458">
+   <properties>
+    <property name="item_type" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="305" type="Item" x="4659.58" y="565.042">
+   <properties>
+    <property name="item_type" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="306" type="Item" x="4659.66" y="542.876">
+   <properties>
+    <property name="item_type" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="307" type="Item" x="4659.62" y="521.042">
+   <properties>
+    <property name="item_type" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="308" type="Item" x="4659.67" y="499.333">
+   <properties>
+    <property name="item_type" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="309" type="Item" x="4659.67" y="477.333">
+   <properties>
+    <property name="item_type" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="310" type="Item" x="4720" y="499">
+   <properties>
+    <property name="item_type" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="311" type="Item" x="4720" y="436">
+   <properties>
+    <property name="item_type" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="312" type="Item" x="4720" y="372">
    <properties>
     <property name="item_type" type="int" value="3"/>
    </properties>

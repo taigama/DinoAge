@@ -19,7 +19,7 @@ public:
 		ENEMY_FEEDER = 7,			// Temporary
 		DARK_PORTAL = 8,
 		ENEMY_HOPPER = 9,
-		WALL = 10
+		ENEMY_MUSHROOM = 10
 	};
 	enum class DIRECTION
 	{

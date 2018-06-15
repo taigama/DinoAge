@@ -17,6 +17,7 @@
 #include "EnemyRamus.h"
 #include "EnemyWerewolf.h"
 #include "EnemyFeeder.h"
+#include "EnemyMushroom.h"
 
 #include "AudioEngine.h"
 #define AUDIO experimental::AudioEngine
@@ -99,6 +100,7 @@ void ResourceManager::loadSprites()
 	spriteCache->addSpriteFramesWithFile("ramus.plist");
 	spriteCache->addSpriteFramesWithFile("werewolf.plist");
 	spriteCache->addSpriteFramesWithFile("feeder.plist");
+	spriteCache->addSpriteFramesWithFile("mushroom.plist");
 
 	// UI
 	spriteCache->addSpriteFramesWithFile("skills_icons.plist");
@@ -667,13 +669,15 @@ void ResourceManager::loadEnemies()
 			enemyWerewolf->setPivotPosition(startPosition, direction);
 		}
 
-		// DARK PORTAL
-
-		else if ((Character::CHARACTER_TYPE)type == Character::CHARACTER_TYPE::DARK_PORTAL)
+		// ENEMY mushroom
+		else if ((Character::CHARACTER_TYPE)type == Character::CHARACTER_TYPE::ENEMY_MUSHROOM)
 		{
+			auto mushroom = (EnemyMushroom*)enemy;
+			mushroom->setScaleMushroom(valueMap["scale"].asFloat());
+
 			enemy->setPosition(startPosition);
 		}
-		else if ((Character::CHARACTER_TYPE)type == Character::CHARACTER_TYPE::ENEMY_HOPPER)
+		else if (enemy != nullptr)
 		{
 			enemy->setPosition(startPosition);
 		}

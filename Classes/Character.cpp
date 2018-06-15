@@ -9,6 +9,7 @@
 #include "EnemyRamus.h"
 #include "EnemyFeeder.h"
 #include "EnemyHopper.h"
+#include "EnemyMushroom.h"
 
 
 #include "DarkPortal.h"
@@ -122,6 +123,9 @@ Character* Character::createCharacter(CHARACTER_TYPE type, int team)
 		break;
 	case CHARACTER_TYPE::ENEMY_HOPPER:
 		result = EnemyHopper::create();
+		break;
+	case CHARACTER_TYPE::ENEMY_MUSHROOM:
+		result = EnemyMushroom::create();
 		break;
 
 	case CHARACTER_TYPE::DARK_PORTAL:

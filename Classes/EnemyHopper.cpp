@@ -6,8 +6,6 @@
 
 #define HP 10
 
-#define SMALL_SPEED 40.0f
-#define LARGE_SPEED 40.0f
 
 #define JUMP_SPEED 400.0f// as same as player
 
@@ -58,6 +56,7 @@ bool EnemyHopper::init()
 	_team = 2;			// enemy team
 
 	_direction = Character::DIRECTION::RIGHT;
+	this->setScaleX((int)_direction);
 
 	_hurtTime = HURTING_TIME;
 
@@ -65,6 +64,8 @@ bool EnemyHopper::init()
 
 	_numLegacy = 1;
 
+	// Sets dying time
+	_dieTime = _dieAnimation->getDuration() * 0.8f;
 
 	// Anchor point
 	this->setAnchorPoint(Vec2(0.5, 0));
@@ -232,6 +233,8 @@ void EnemyHopper::onDie()
 	}
 	_action = _dieAnimation;
 	_sprite->runAction(_action);
+
+	this->unscheduleUpdate();
 
 	// Sets this object into in-active state
 	scheduleOnce([&](float delta) {

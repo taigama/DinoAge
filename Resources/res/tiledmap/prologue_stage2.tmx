@@ -17,26 +17,7 @@
    eJztmTeX3FQYhi+aWa8NNjhtIOOwgYwDmYbQAia0ZFoyLZmGYDChIceGaNIfIDTk2JBjQ44NoeAZDjqj/VZXd66kO1fa8z3nPMW7Gmvk0Q3zaoxRFEVRFEVRFEVRFEVRFEVRFEVRFEVRFEVRFEVRFEVRFEVRFCUWyxJjdsSdcCkuyeTlSeyrU5RmsStzYjfcHfdI5ueqbOUct+CtuA1vwBvxJrw50eN6vH+8Devzvlzjfrg/HpDMz1W5j3Pcjw/gg3gX3o334L2JHtfjc483nSO5xqPwaDwmmZ9P5DUn4cm4rcT5n+IcT+N2fAYfw8fxCXwy0eN6fO7xshT1irz8Kr6Gr+MbBVlyDV6L1+H1OfkMPBPPwrPL/3cUJSiuXiHzh/gRfoyfFGTJbXg73oF35uQL8EK8CC821febpnEsHmfs64UtH48nRLheJR9Xr5D5W/wOv8cfCrLkIXwYH8FHc/IVeCVehVebhbffnIKnGvt6Ycun4ekRrlfJx9UrZP4T/8K/8Z+CLHkWn8Pn8YWcnN1Ptpj5+02PZV1jdsZdcHk37OdSN+fguXieyV8vbLn3+vMjXK8vI9yPRR1jRnExvskYeAvfTtp3r4aB7DESOR9klvuJ3G967Mnnvhfujfu07B5cgpfiZSZ/vSjKl0e4Xl/GmCPjOIGT+Clj4DP8HL/w6Ne9NTGdZ+/gSCczD1t2z4uQPUYi54PMRf1ly//nOJDP6yA8GA/JfHb/rW042m3fZzpIn2lDf5liPE/jDM7ij4yBn/Bn/MVjvsh5JufhsNlq5vboQXtnmss+H5PzQeYq/WWMOTKOEzjZsvmi/WUucp7JeThs5DgctHemuezzMTkfZB6kv9iYYo5M4wzOZuaLre+E2I+WdPvrxtKcc2b7S7aPxOovHcZeF3fApNPPrvUw+/qF2Euy+0neOBy0d6a57POxOvqLL7a+E2I/cn0fzfaXbB+J1V9WMd5X4wpc2eln13ooX+9DG54JuMahT+/s5bLPx+roL77Y+o5tP6qCXDdCYVuPfFnHeF2Pa3Btp59d66F8vQ91PROoE9d+IsfhQugvTUCuG6HfpyqbGK+bcQNu7PSzaz2Ur/ehrmcCdeLaTxZif6mDbP8oWgdCZBs+65Evtr4i+4yr37Qd137S1v6ygnOuxFW4Oqk/D7oOhMi2a/NZj3yx9RXZT1z9JvR9CZ1d+0lb+ssazrEW1+H6JHwedB0IkW3X5rMe+WLrK7KfuPrNsO9T3dm1n7Slv2zgHBtxE25OwudB14FQOV23y65Hvtj6iuwnrn4z7PtUd25rfxnh3yzCUVycDD+7vreHzum6Hfp9XH3F5/eX3utj37equan9ZYy/jeMETibNy67v7aFzum6Hfh9XX/H9/SX2fauam9pfpvjbNM7gbNK87PreHjqn63bo93H1Fd/fX2Lft6q5qf3lUP52GB6ORyTNy67v7aFzum6Hfh9XX/H9/SX2fauam9pfYvcDzWFy7P5RNb/I2HwJX8ZXTP25bH+J3Q80h8mx+0fV/C5j8z18Hz8w9eey/SV2P9AcJsfuH1Xzl4zNr/Br/MbUn8v2l9j9QHOYHLt/VM2/MjZ/w9/xD1N/9u0v/wJzLVs1
   </data>
  </layer>
- <objectgroup name="TutorialText">
-  <object id="192" name="..." x="290.834" y="314" width="68.333" height="32">
-   <text fontfamily="Times New Roman" pixelsize="24" wrap="1" bold="1" halign="center" valign="center">...</text>
-  </object>
-  <object id="193" name="...." x="418.834" y="218" width="68.333" height="32">
-   <text fontfamily="Times New Roman" pixelsize="24" wrap="1" bold="1" halign="center" valign="center">....</text>
-  </object>
-  <object id="194" name="do you wanna fire at here?" x="152.834" y="149" width="149.333" height="57">
-   <text fontfamily="Times New Roman" pixelsize="24" wrap="1" bold="1" halign="center" valign="center">do you wanna fire at here?</text>
-  </object>
-  <object id="195" name="Do you know the way to perform an ultimate? Spend all your enegies (if you unlocked the skill):" x="962.333" y="372.5" width="572.333" height="71">
-   <text fontfamily="Times New Roman" pixelsize="24" wrap="1" bold="1" halign="center" valign="center">Do you know the way to perform an ultimate? Spend all your enegies (if you unlocked the skill):</text>
-  </object>
-  <object id="202" name="=&gt;" x="1129.83" y="455.5" width="43.333" height="37">
-   <text fontfamily="Times New Roman" pixelsize="24" wrap="1" bold="1" halign="center" valign="center">=&gt;</text>
-  </object>
-  <object id="203" name="=&gt;" x="1234.33" y="456.5" width="43.333" height="37">
-   <text fontfamily="Times New Roman" pixelsize="24" wrap="1" bold="1" halign="center" valign="center">=&gt;</text>
-  </object>
- </objectgroup>
+ <objectgroup name="TutorialText"/>
  <objectgroup name="Zones">
   <object id="33" type="Zone" x="1342" y="640" width="484.666" height="380">
    <properties>
@@ -105,13 +86,13 @@
   <object id="40" type="Block" x="626.832" y="895.664" width="96" height="48">
    <properties>
     <property name="block_type" type="int" value="7"/>
-    <property name="isOneWay" type="bool" value="false"/>
+    <property name="isOneWay" type="bool" value="true"/>
    </properties>
   </object>
   <object id="44" type="Block" x="817.332" y="927.914" width="96" height="48">
    <properties>
     <property name="block_type" type="int" value="7"/>
-    <property name="isOneWay" type="bool" value="false"/>
+    <property name="isOneWay" type="bool" value="true"/>
    </properties>
   </object>
   <object id="32" type="Block" x="2240" y="896" width="64" height="64">
@@ -522,21 +503,6 @@
   <object id="173" type="Illusion" x="6240" y="688" width="96" height="96">
    <properties>
     <property name="path" value="disguiseBlock1.png"/>
-   </properties>
-  </object>
-  <object id="199" type="Illusion" x="1071.5" y="449.5" width="48" height="48">
-   <properties>
-    <property name="path" value="jumpButton.png"/>
-   </properties>
-  </object>
-  <object id="200" type="Illusion" x="1181.5" y="449.5" width="48" height="48">
-   <properties>
-    <property name="path" value="jumpButton.png"/>
-   </properties>
-  </object>
-  <object id="201" type="Illusion" x="1283" y="449" width="48" height="48">
-   <properties>
-    <property name="path" value="physicalAttack.png"/>
    </properties>
   </object>
  </objectgroup>

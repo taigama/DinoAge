@@ -171,6 +171,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\EnemyFeeder.cpp" />
     <ClCompile Include="..\Classes\EnemyHopper.cpp" />
     <ClCompile Include="..\Classes\EnemyRamus.cpp" />
+    <ClCompile Include="..\Classes\EnemyMushroom.cpp" />
     <ClCompile Include="..\Classes\EnemyWerewolf.cpp" />
     <ClCompile Include="..\Classes\EnergyBar.cpp" />
     <ClCompile Include="..\Classes\EnergyOrb.cpp" />
@@ -248,6 +249,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\EnemyFeeder.h" />
     <ClInclude Include="..\Classes\EnemyHopper.h" />
     <ClInclude Include="..\Classes\EnemyRamus.h" />
+    <ClInclude Include="..\Classes\EnemyMushroom.h" />
     <ClInclude Include="..\Classes\EnemyWerewolf.h" />
     <ClInclude Include="..\Classes\EnergyBar.h" />
     <ClInclude Include="..\Classes\EnergyOrb.h" />

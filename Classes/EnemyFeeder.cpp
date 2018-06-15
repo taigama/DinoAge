@@ -269,6 +269,8 @@ void EnemyFeeder::onDie()
 
 	}, _dieTime, "enemy_dies");
 
+	_body->setCategoryBitmask(0);
+	_body->setContactTestBitmask(0);
 
 	// Drops Legacy
 	dropLegacy();

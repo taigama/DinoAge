@@ -288,6 +288,9 @@
     <ClCompile Include="..\Classes\EnemyHopper.cpp">
       <Filter>src\Character\Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\EnemyMushroom.cpp">
+      <Filter>src\Character\Enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -513,6 +516,9 @@
       <Filter>src\Zone</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\EnemyHopper.h">
+      <Filter>src\Character\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\EnemyMushroom.h">
       <Filter>src\Character\Enemy</Filter>
     </ClInclude>
   </ItemGroup>
