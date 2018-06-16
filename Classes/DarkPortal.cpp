@@ -168,7 +168,7 @@ void DarkPortal::update(float delta)
 		EnemyApeDino* creep = (EnemyApeDino*)Character::createCharacter(Character::CHARACTER_TYPE::ENEMY_APE_DINO, _team);
 		creep->setPosition(_position + m_posSpawn);
 		Vec2 vecPatrolMax = Vec2(300, 0);
-		creep->setPatrolArea(_position - vecPatrolMax, _position + vecPatrolMax / 3);
+		creep->setPatrolArea(_position - vecPatrolMax, _position + vecPatrolMax / 10);
 		creep->moveToPatrolArea();
 		this->getParent()->addChild(creep, World::WORLD_LAYER::OBJECT);
 	}

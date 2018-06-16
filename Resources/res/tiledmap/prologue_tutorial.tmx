@@ -97,7 +97,7 @@
     <property name="zone_type" type="int" value="7"/>
    </properties>
   </object>
-  <object id="275" type="Zone" x="4625" y="258" width="30" height="318">
+  <object id="275" type="Zone" x="4513" y="258" width="30" height="318">
    <properties>
     <property name="file_name" value="intro_cast_ulti"/>
     <property name="zone_type" type="int" value="7"/>

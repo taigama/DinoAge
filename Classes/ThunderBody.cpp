@@ -62,6 +62,7 @@ parameter: x, y, direct, team
 void ThunderBody::reset(float params[10])
 {
 	this->setActive(true);
+	this->scheduleUpdate();
 	_timer = ATTACK_TIME;
 
 	this->setPosition(/* _host->convertToNodeSpace(Vec2(*/params[0], params[1]/*))*/);
