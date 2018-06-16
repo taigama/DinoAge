@@ -12,7 +12,7 @@ USING_NS_CC;
 
 
 
-#define DRAGON_DAMAGE 25
+#define DRAGON_DAMAGE 30
 #define DRAGON_SPEED 400
 
 #define DRAGON_LIFE_TIME 0.5f

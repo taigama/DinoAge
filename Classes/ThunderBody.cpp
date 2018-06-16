@@ -10,7 +10,7 @@
 USING_NS_CC;
 
 #define ATTACK_TIME 0.1f
-#define DAMAGE 5
+#define DAMAGE 9
 #define SIZE_WIDTH 280
 
 #define LIGHTNING_HEIGHT 178.0f

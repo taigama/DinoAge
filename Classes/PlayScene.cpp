@@ -99,7 +99,6 @@ bool PlayScene::init()
 	{
 		return false;
 	}
-	this->scheduleUpdate();
 
 
 	// First map (for new game) => Level: Prologue - Stage: Tutorial

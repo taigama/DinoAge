@@ -2,7 +2,7 @@
 
 #include "WorldScene.h"
 
-#define HP 50.0f
+#define HP 30.0f
 #define SPEED 50.0f
 #define JUMP_SPEED 400.0f
 #define HURTING_TIME 0.2f
@@ -850,7 +850,13 @@ void EnemyWerewolf::onEnable()
 		| (int)OBJECT_TYPE::ZONE
 	);
 
-	resetStartAction();
+	_startAction = true;
+	_isReturning = false;
+	_numTurns = 0;
+	setTurnAroundScheduler(false);
+	_foundPlayer = false;
+	_isAttack = false;
+	_state = STATE::IDLE;
 
 	this->scheduleUpdate();
 }

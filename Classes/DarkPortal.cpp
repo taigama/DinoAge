@@ -15,7 +15,7 @@ USING_NS_CC;
 #define SCALE 0.5f
 
 
-#define MAX_HEALTH 2000.0f
+#define MAX_HEALTH 1500.0f
 #define RAGE_HEALTH_FACTOR 0.3f
 #define TEAM_ENEMY 2
 
@@ -141,7 +141,6 @@ void DarkPortal::update(float delta)
 		}
 		else
 		{
-			creep->setActive(true);
 			creep->setHP(creep->getMaxHP());
 		}
 		 
@@ -154,6 +153,7 @@ void DarkPortal::update(float delta)
 		creep->setPosition(_position.x + m_posSpawn.x, _position.y + m_posSpawn.y);
 		creep->startAction();
 		this->getParent()->addChild(creep, World::WORLD_LAYER::OBJECT);
+		creep->setActive(true);
 	}
 
 	if (m_timerSpawnWerewolf <= 0)
@@ -170,13 +170,15 @@ void DarkPortal::update(float delta)
 		}
 		else
 		{
-			creep->setActive(true);
 			creep->setHP(creep->getMaxHP());
 		}
 		
 		creep->setPivotPosition(_position + m_posSpawn + Vec2(0,-20), (Character::DIRECTION)-1);
 		creep->setPosition(_position + m_posSpawn);
 		this->getParent()->addChild(creep, World::WORLD_LAYER::OBJECT);
+		creep->setActive(true);
+		creep->turnAround();
+		creep->turnAround();
 	}
 
 	if (!m_isRage)
@@ -198,7 +200,6 @@ void DarkPortal::update(float delta)
 		}
 		else
 		{
-			creep->setActive(true);
 			creep->setHP(creep->getMaxHP());
 		}
 
@@ -208,6 +209,7 @@ void DarkPortal::update(float delta)
 		creep->setPatrolArea(_position - vecPatrolMax, _position + vecPatrolMax / 10);
 		creep->moveToPatrolArea();
 		this->getParent()->addChild(creep, World::WORLD_LAYER::OBJECT);
+		creep->setActive(true);
 	}
 }
 

@@ -3,7 +3,7 @@
 USING_NS_CC;
 
 
-#define FLASH_TIME 0.2f
+#define FLASH_TIME 0.7f
 
 #define SPRITE_OFFSET_Y -5.0f
 

@@ -271,6 +271,7 @@ void EnemyFeeder::onDie()
 
 	_body->setCategoryBitmask(0);
 	_body->setContactTestBitmask(0);
+	_body->setCollisionBitmask(0);
 
 	// Drops Legacy
 	dropLegacy();

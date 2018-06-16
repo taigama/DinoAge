@@ -12,7 +12,7 @@ USING_NS_CC;
 
 
 
-#define TOTEM_DAMAGE 25.0f
+#define TOTEM_DAMAGE 40.0f
 #define TOTEM_LIFE_TIME 0.1f
 
 #define SIZE_WIDTH 50.0f

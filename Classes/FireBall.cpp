@@ -11,7 +11,7 @@
 USING_NS_CC;
 
 
-#define FIRE_DAMAGE 5.0f
+#define FIRE_DAMAGE 6.0f
 #define FIRE_FALL_SPEED -500.0f
 
 #define SPRITE_OFFSET_Y 5.0f

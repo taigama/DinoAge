@@ -280,6 +280,8 @@ void Enemy::dropLegacy()
 	float offset = 30 / scaleFactor;
 	int sign = +1;
 
+	double randResult = RandomHelper::random_real(0.0, 1000.0);
+
 	for (int i = 0; i < _numLegacy; ++i)
 	{
 		// Creates alternate sprite for Gold -> FOR animation
@@ -296,7 +298,7 @@ void Enemy::dropLegacy()
 		legacySprite->setPosition(Vec2(this->getPosition().x, destination.y));
 
 		// Name for sprite
-		sprintf(name_s, "enemy_%d_%d_%d", (int)_charType, i, RandomHelper::random_int(0, 1000));
+		sprintf(name_s, "enemy_%d_%d_%lf", (int)_charType, i, randResult);
 		name = name_s;
 		legacySprite->setName(name);
 

@@ -11,7 +11,7 @@ USING_NS_CC;
 #define LIGHTNING_SIZE_BASE_WIDTH 30
 #define LIGHTNING_OFFSET_BASE_Y -40
 
-#define LIGHTNING_DAMAGE 30.0f
+#define LIGHTNING_DAMAGE 25.0f
 #define LIGHTNING_TIMER 0.3f
 
 LightningStrike::~LightningStrike() {}

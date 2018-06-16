@@ -59,11 +59,6 @@ public:
 
 	virtual bool init();
 
-	void update(float delta)
-	{ 
-		auto a = this;
-	};
-
 	// Selected character (chosen by Player on previous scene)
 	// Note: value stored as int, but the actual meaning is valuated as CharacterSelectionScene::SELECTION
 	static CharacterSelectionScene::SELECTION _playerSelection;
