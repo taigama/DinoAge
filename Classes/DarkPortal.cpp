@@ -132,7 +132,19 @@ void DarkPortal::update(float delta)
 		m_timerSpawn += TIME_CYCLE_SPAWN;
 
 		// spawn creep
-		EnemyFeeder* creep = (EnemyFeeder*) Character::createCharacter(Character::CHARACTER_TYPE::ENEMY_FEEDER, _team);
+		EnemyFeeder* creep = (EnemyFeeder*) MyPoolManager::getInstance()->getInactiveFromPool(MyPoolManager::POOL_TYPE::CHARACTER, (int)Character::CHARACTER_TYPE::ENEMY_FEEDER);
+
+		if (creep == nullptr)
+		{
+			creep = (EnemyFeeder*)Character::createCharacter(Character::CHARACTER_TYPE::ENEMY_FEEDER, _team);
+			MyPoolManager::getInstance()->addToPool(creep);
+		}
+		else
+		{
+			creep->setActive(true);
+			creep->setHP(creep->getMaxHP());
+		}
+		 
 		creep->setInitialDirection(Character::DIRECTION::LEFT);
 
 		// Sets type and size for EnemyFeeder
@@ -149,7 +161,19 @@ void DarkPortal::update(float delta)
 		m_timerSpawnWerewolf += TIME_CYCLE_WEREWOLF;
 
 		// spawn creep
-		EnemyWerewolf* creep = (EnemyWerewolf*)Character::createCharacter(Character::CHARACTER_TYPE::ENEMY_WEREWOLF, _team);
+		EnemyWerewolf* creep = (EnemyWerewolf*)MyPoolManager::getInstance()->getInactiveFromPool(MyPoolManager::POOL_TYPE::CHARACTER, (int)Character::CHARACTER_TYPE::ENEMY_WEREWOLF);
+
+		if (creep == nullptr)
+		{
+			creep = (EnemyWerewolf*)Character::createCharacter(Character::CHARACTER_TYPE::ENEMY_WEREWOLF, _team);
+			MyPoolManager::getInstance()->addToPool(creep);
+		}
+		else
+		{
+			creep->setActive(true);
+			creep->setHP(creep->getMaxHP());
+		}
+		
 		creep->setPivotPosition(_position + m_posSpawn + Vec2(0,-20), (Character::DIRECTION)-1);
 		creep->setPosition(_position + m_posSpawn);
 		this->getParent()->addChild(creep, World::WORLD_LAYER::OBJECT);
@@ -165,7 +189,20 @@ void DarkPortal::update(float delta)
 		m_timerSpawnApe += TIME_CYCLE_APE;
 
 		// spawn creep
-		EnemyApeDino* creep = (EnemyApeDino*)Character::createCharacter(Character::CHARACTER_TYPE::ENEMY_APE_DINO, _team);
+		EnemyApeDino* creep = (EnemyApeDino*)MyPoolManager::getInstance()->getInactiveFromPool(MyPoolManager::POOL_TYPE::CHARACTER, (int)Character::CHARACTER_TYPE::ENEMY_APE_DINO);
+
+		if (creep == nullptr)
+		{
+			creep = (EnemyApeDino*)Character::createCharacter(Character::CHARACTER_TYPE::ENEMY_APE_DINO, _team);
+			MyPoolManager::getInstance()->addToPool(creep);
+		}
+		else
+		{
+			creep->setActive(true);
+			creep->setHP(creep->getMaxHP());
+		}
+
+		
 		creep->setPosition(_position + m_posSpawn);
 		Vec2 vecPatrolMax = Vec2(300, 0);
 		creep->setPatrolArea(_position - vecPatrolMax, _position + vecPatrolMax / 10);

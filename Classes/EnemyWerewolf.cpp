@@ -833,3 +833,24 @@ void EnemyWerewolf::onHit(float dmg, DIRECTION dir, float force)
 		setReturningState(false);
 	}
 }
+
+void EnemyWerewolf::onEnable()
+{
+	_body->setCategoryBitmask((int)OBJECT_TYPE::CHARACTER);	// character
+
+	_body->setCollisionBitmask(
+		(int)OBJECT_TYPE::CHARACTER
+		| (int)OBJECT_TYPE::BLOCK
+	);
+	_body->setContactTestBitmask(
+		(int)OBJECT_TYPE::CHARACTER
+		| (int)OBJECT_TYPE::PROJECTILE
+		| (int)OBJECT_TYPE::BLOCK
+		| (int)OBJECT_TYPE::ITEM
+		| (int)OBJECT_TYPE::ZONE
+	);
+
+	resetStartAction();
+
+	this->scheduleUpdate();
+}

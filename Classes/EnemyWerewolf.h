@@ -82,6 +82,9 @@ public:
 
 protected:
 
+	// Runs on active
+	virtual void onEnable() override;
+
 	// Helper init() functions
 	void initSprites() override;
 	void initPhysics() override;

@@ -383,3 +383,24 @@ bool EnemyFeeder::onContactBegin(const cocos2d::PhysicsContact &contact)
 
 	return true;
 }
+
+void EnemyFeeder::onEnable()
+{
+	_body->setCategoryBitmask((int)OBJECT_TYPE::CHARACTER);	// character
+
+	_body->setCollisionBitmask(
+		(int)OBJECT_TYPE::CHARACTER
+		| (int)OBJECT_TYPE::BLOCK
+	);
+	_body->setContactTestBitmask(
+		(int)OBJECT_TYPE::CHARACTER
+		| (int)OBJECT_TYPE::PROJECTILE
+		| (int)OBJECT_TYPE::BLOCK
+		| (int)OBJECT_TYPE::ITEM
+		| (int)OBJECT_TYPE::ZONE
+	);
+
+	setBlockCollision(false);
+	setExplodingState(false);
+	this->scheduleUpdate();
+}
