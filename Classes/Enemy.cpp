@@ -320,7 +320,23 @@ void Enemy::dropLegacy()
 			// Spawns Item
 			//SPAWN_ITEM(Item::ITEM_TYPE::GOLD, destination.x, destination.y, World::WORLD_LAYER::OBJECT);
 
-			World::getCurrent()->addChild(MyPoolManager::getInstance()->makeItem(Item::ITEM_TYPE::GOLD, destination.x, destination.y), World::WORLD_LAYER::OBJECT);
+
+			int random = RandomHelper::random_int(0, 100);
+
+			if (random > 90)//10%
+			{
+				World::getCurrent()->addChild(MyPoolManager::getInstance()->makeItem(Item::ITEM_TYPE::MEAT, destination.x, destination.y), World::WORLD_LAYER::OBJECT);
+			}
+			else if (random > 60)//30%
+			{
+				World::getCurrent()->addChild(MyPoolManager::getInstance()->makeItem(Item::ITEM_TYPE::ENERGY_ORB, destination.x, destination.y), World::WORLD_LAYER::OBJECT);
+			}
+			else// 60 %
+			{
+				World::getCurrent()->addChild(MyPoolManager::getInstance()->makeItem(Item::ITEM_TYPE::GOLD, destination.x, destination.y), World::WORLD_LAYER::OBJECT);
+			}
+
+			
 
 		}, DROP_LEGACY_ANIMATION_DURATION, name);
 	}

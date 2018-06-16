@@ -171,9 +171,11 @@ void ResourceManager::loadSounds()
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
 	AUDIO::preload("the-only-friend.mp3");
 	AUDIO::preload("digimon-rumble-arena_mid_stress.mp3");
+	AUDIO::preload("Optic_Line.mp3");
 #else// for android
 	AUDIO::preload("the-only-friend.ogg");
 	AUDIO::preload("digimon-rumble-arena_mid_stress.ogg");
+	AUDIO::preload("Optic_Line.ogg");
 #endif
 }
 
@@ -184,6 +186,16 @@ bool ResourceManager::loadTiledMap(std::string name, Node* layer)
 	{
 		unloadTiledMap();
 	}
+
+
+#if ((CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX))
+	backgroundSongID = AUDIO::play2d("the-only-friend.mp3", true);
+#else
+	backgroundSongID = AUDIO::play2d("the-only-friend.ogg", true);
+#endif
+
+
+
 
 	// =======================================================================================
 	m_map = TMXTiledMap::create(name);
@@ -405,15 +417,6 @@ bool ResourceManager::loadTiledMap(std::string name, Node* layer)
 	// -----------------------------------
 
 
-
-#if ((CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX))
-	backgroundSongID = AUDIO::play2d("the-only-friend.mp3", true);
-#else
-	backgroundSongID = AUDIO::play2d("the-only-friend.ogg", true);
-#endif
-
-
-	
 
 	return true;
 }

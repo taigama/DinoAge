@@ -12,7 +12,7 @@
 USING_NS_CC;
 
 
-#define BLADE_DAMAGE 10.0f
+#define BLADE_DAMAGE 12.0f
 #define BLADE_FALL_SPEED -300.0f
 
 #define SPRITE_OFFSET_Y 5.0f

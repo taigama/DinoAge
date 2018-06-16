@@ -2,7 +2,7 @@
 
 #include "WorldScene.h"
 
-#define HP 30.0f
+#define HP 50.0f
 #define SPEED 50.0f
 #define JUMP_SPEED 400.0f
 #define HURTING_TIME 0.2f

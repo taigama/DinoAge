@@ -144,22 +144,32 @@ bool CastLavaTotem::raycastCallback(cocos2d::PhysicsWorld& world, const cocos2d:
 
 
 	auto contactBody = info.shape->getBody();
-	if (contactBody->getCategoryBitmask() == (int)GameObject::OBJECT_TYPE::BLOCK)
+	
+
+	if (contactBody->getCategoryBitmask() != (int)GameObject::OBJECT_TYPE::BLOCK)
+		return true;
+
+	Size* boxSize = (Size*) contactBody->getTag();
+	Vec2 targetPosition = contactBody->getPosition();
+
+	if ((info.contact.y + 2) < (targetPosition.y + boxSize->height / 2.0f))
+		return true;
+	
+	// prevent inside the land when initilized
+	if (info.contact.distance( Vec2(m_posX, m_posY)) > 0.01f)
 	{
-		// prevent inside the land when initilized
-		if (info.contact.distance( Vec2(m_posX, m_posY)) > 0.01f)
-		{
-			AUDIO::play2d("ST0_1_1_00007.ogg");
-			SPAWN_PROJECTILE(Projectile::PROJECTILE_TYPE::LAVA_TOTEM,
-				info.contact.x, // X
-				info.contact.y + (50.0f / Director::getInstance()->getContentScaleFactor()), // Y
-				_direction, // direction
-				_team,
-				World::WORLD_LAYER::OBJECT);
+		AUDIO::play2d("ST0_1_1_00007.ogg");
+		SPAWN_PROJECTILE(Projectile::PROJECTILE_TYPE::LAVA_TOTEM,
+			info.contact.x, // X
+			info.contact.y + (50.0f / Director::getInstance()->getContentScaleFactor()), // Y
+			_direction, // direction
+			_team,
+			World::WORLD_LAYER::OBJECT);
 			
-			*((bool*)data) = true;
-		}
+		*((bool*)data) = true;
+		return false;
 	}
+	
 
 	return true;
 }

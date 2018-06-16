@@ -8,19 +8,22 @@
 #include "MyPoolManager.h"
 #include "EnemyFeeder.h"
 #include "EnemyWerewolf.h"
+#include "EnemyApeDino.h"
 
 USING_NS_CC;
 
 #define SCALE 0.5f
 
 
-#define MAX_HEALTH 200.0f
+#define MAX_HEALTH 2000.0f
 #define RAGE_HEALTH_FACTOR 0.3f
 #define TEAM_ENEMY 2
 
 
 #define TIME_CYCLE_CAST 5.0f
 #define TIME_CYCLE_SPAWN 2.0f
+#define TIME_CYCLE_WEREWOLF 5.0f
+#define TIME_CYCLE_APE 3.0f
 
 #define SPAWN_OFFSET_Y -100.0f
 
@@ -72,6 +75,17 @@ bool DarkPortal::init()
 
 	_charType = Character::CHARACTER_TYPE::DARK_PORTAL;
 
+	int bossBackgroundSongId = ResourceManager::getInstance()->backgroundSongID;
+	if (bossBackgroundSongId != AUDIO::INVALID_AUDIO_ID)
+	{
+		AUDIO::stop(bossBackgroundSongId);
+#if ((CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX))
+		ResourceManager::getInstance()->backgroundSongID = AUDIO::play2d("Optic_Line.mp3", true);
+#else
+		ResourceManager::getInstance()->backgroundSongID = AUDIO::play2d("Optic_Line.ogg", true);
+#endif
+	}
+
 	return true;
 }
 
@@ -111,6 +125,7 @@ void DarkPortal::initPhysics()
 void DarkPortal::update(float delta)
 {
 	m_timerSpawn -= delta;
+	m_timerSpawnWerewolf -= delta;
 
 	if (m_timerSpawn <= 0)
 	{
@@ -128,6 +143,35 @@ void DarkPortal::update(float delta)
 		creep->startAction();
 		this->getParent()->addChild(creep, World::WORLD_LAYER::OBJECT);
 	}
+
+	if (m_timerSpawnWerewolf <= 0)
+	{
+		m_timerSpawnWerewolf += TIME_CYCLE_WEREWOLF;
+
+		// spawn creep
+		EnemyWerewolf* creep = (EnemyWerewolf*)Character::createCharacter(Character::CHARACTER_TYPE::ENEMY_WEREWOLF, _team);
+		creep->setPivotPosition(_position + m_posSpawn + Vec2(0,-20), (Character::DIRECTION)-1);
+		creep->setPosition(_position + m_posSpawn);
+		this->getParent()->addChild(creep, World::WORLD_LAYER::OBJECT);
+	}
+
+	if (!m_isRage)
+		return;
+	m_timerSpawn = 9999;// never spawn feeder
+	m_timerSpawnWerewolf -= delta / 2.0f;// nodifier double speed
+	m_timerSpawnApe -= delta;
+	if (m_timerSpawnApe <= 0)
+	{
+		m_timerSpawnApe += TIME_CYCLE_APE;
+
+		// spawn creep
+		EnemyApeDino* creep = (EnemyApeDino*)Character::createCharacter(Character::CHARACTER_TYPE::ENEMY_APE_DINO, _team);
+		creep->setPosition(_position + m_posSpawn);
+		Vec2 vecPatrolMax = Vec2(300, 0);
+		creep->setPatrolArea(_position - vecPatrolMax, _position + vecPatrolMax / 3);
+		creep->moveToPatrolArea();
+		this->getParent()->addChild(creep, World::WORLD_LAYER::OBJECT);
+	}
 }
 
 void DarkPortal::onHit(float dmg, DIRECTION dir, float force)
@@ -135,16 +179,20 @@ void DarkPortal::onHit(float dmg, DIRECTION dir, float force)
 	// Calls super version
 	Enemy::onHit(dmg, dir, force);
 
-	if ((!m_isRage) && (_hp <= _maxHP / RAGE_HEALTH_FACTOR))
+	if ((!m_isRage) && (_hp <= _maxHP * RAGE_HEALTH_FACTOR))
 	{
 		m_isRage = true;
 
+		_sprite->setColor(Color3B(255, 150, 150));
 		// not implemented yet
 	}
 }
 
 void DarkPortal::onDie()
 {
+	clearCreeps();
+	unscheduleUpdate();
+
 	m_timerSpawn = INFINITY;
 	m_timerCast = INFINITY;
 
@@ -268,4 +316,19 @@ void DarkPortal::endGame() {
 		}
 
 	}, 1.0f, "AfterDarkPortalDie");	
+}
+
+void DarkPortal::clearCreeps()
+{
+	auto world = World::getCurrent();
+	auto children = world->getChildren();
+	
+	for (auto iter = children.begin(); iter != children.end(); iter++)
+	{
+		Enemy* tmp = dynamic_cast<Enemy*>(*iter);
+		if (tmp != nullptr)
+		{
+			tmp->onHit(999, DIRECTION::TOP, 1);
+		}
+	}
 }

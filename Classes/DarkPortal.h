@@ -37,14 +37,18 @@ private:
 
 	void endGame();
 
-	// Timer to spawn Enemy (Feeder / Werewolf)
+	// Timer to spawn Enemy (Feeder)
 	float m_timerSpawn;
+	float m_timerSpawnWerewolf;
+	float m_timerSpawnApe;
 
 	// Timer to cast (NOT implemented)
 	float m_timerCast;
 
 	// NOT implemented
 	bool m_isRage;
+
+	void clearCreeps();
 
 	cocos2d::Vec2 m_posSpawn;
 };

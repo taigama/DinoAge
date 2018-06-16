@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="2017.07.25" orientation="orthogonal" renderorder="right-up" width="112" height="62" tilewidth="32" tileheight="32" nextobjectid="56">
+<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-up" width="112" height="62" tilewidth="32" tileheight="32" infinite="0" nextobjectid="78">
  <tileset firstgid="1" source="tileset_mapLv1.tsx"/>
  <layer name="Foreground" width="112" height="62">
   <data encoding="base64" compression="zlib">
@@ -45,6 +45,12 @@
    <properties>
     <property name="zone_ID" type="int" value="2"/>
     <property name="zone_type" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="76" type="Zone" x="162" y="2" width="30" height="348">
+   <properties>
+    <property name="file_name" value="boss_fight"/>
+    <property name="zone_type" type="int" value="7"/>
    </properties>
   </object>
  </objectgroup>
@@ -227,7 +233,7 @@
     <property name="item_type" type="int" value="2"/>
    </properties>
   </object>
-  <object id="38" type="Item" x="608.121" y="336.576">
+  <object id="38" type="Item" x="478.121" y="397.576">
    <properties>
     <property name="item_type" type="int" value="3"/>
    </properties>
@@ -262,11 +268,6 @@
     <property name="item_type" type="int" value="2"/>
    </properties>
   </object>
-  <object id="45" type="Item" x="1727.18" y="1098.03">
-   <properties>
-    <property name="item_type" type="int" value="2"/>
-   </properties>
-  </object>
   <object id="46" type="Item" x="1553.94" y="1200.82">
    <properties>
     <property name="item_type" type="int" value="3"/>
@@ -288,6 +289,106 @@
    </properties>
   </object>
   <object id="50" type="Item" x="207.5" y="1489">
+   <properties>
+    <property name="item_type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="56" type="Item" x="336" y="429">
+   <properties>
+    <property name="item_type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="57" type="Item" x="337" y="463">
+   <properties>
+    <property name="item_type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="58" type="Item" x="337" y="496">
+   <properties>
+    <property name="item_type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="59" type="Item" x="336" y="527">
+   <properties>
+    <property name="item_type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="60" type="Item" x="337" y="561">
+   <properties>
+    <property name="item_type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="61" type="Item" x="798" y="529">
+   <properties>
+    <property name="item_type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="62" type="Item" x="799" y="563">
+   <properties>
+    <property name="item_type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="63" type="Item" x="799" y="596">
+   <properties>
+    <property name="item_type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="64" type="Item" x="798" y="627">
+   <properties>
+    <property name="item_type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="65" type="Item" x="799" y="661">
+   <properties>
+    <property name="item_type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="66" type="Item" x="1634" y="1290">
+   <properties>
+    <property name="item_type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="67" type="Item" x="1635" y="1324">
+   <properties>
+    <property name="item_type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="68" type="Item" x="1635" y="1357">
+   <properties>
+    <property name="item_type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="69" type="Item" x="1634" y="1388">
+   <properties>
+    <property name="item_type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="70" type="Item" x="1635" y="1422">
+   <properties>
+    <property name="item_type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="71" type="Item" x="1248" y="852">
+   <properties>
+    <property name="item_type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="72" type="Item" x="1249" y="886">
+   <properties>
+    <property name="item_type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="73" type="Item" x="1249" y="919">
+   <properties>
+    <property name="item_type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="74" type="Item" x="1248" y="950">
+   <properties>
+    <property name="item_type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="75" type="Item" x="1249" y="984">
    <properties>
     <property name="item_type" type="int" value="2"/>
    </properties>

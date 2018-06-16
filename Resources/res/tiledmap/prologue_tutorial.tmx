@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="204" height="30" tilewidth="32" tileheight="32" infinite="0" nextobjectid="355">
+<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="204" height="30" tilewidth="32" tileheight="32" infinite="0" nextobjectid="360">
  <tileset firstgid="1" source="tileset_mapLv1.tsx"/>
  <tileset firstgid="1153" source="background.tsx"/>
  <layer name="Background" width="204" height="30">
@@ -53,7 +53,7 @@
     <property name="zone_type" type="int" value="5"/>
    </properties>
   </object>
-  <object id="54" type="Zone" x="4057" y="222" width="1701" height="420">
+  <object id="54" type="Zone" x="3899" y="222" width="1859" height="420">
    <properties>
     <property name="zone_ID" type="int" value="3"/>
     <property name="zone_type" type="int" value="5"/>
@@ -191,19 +191,13 @@
     <property name="block_type" type="int" value="1"/>
    </properties>
   </object>
-  <object id="316" type="Block" x="4695.33" y="384.667" width="48" height="24">
+  <object id="317" type="Block" x="4683.33" y="383.666" width="72" height="36">
    <properties>
     <property name="block_type" type="int" value="7"/>
     <property name="isOneWay" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="317" type="Block" x="4695" y="448.333" width="48" height="24">
-   <properties>
-    <property name="block_type" type="int" value="7"/>
-    <property name="isOneWay" type="bool" value="true"/>
-   </properties>
-  </object>
-  <object id="318" type="Block" x="4695.33" y="511.667" width="48" height="24">
+  <object id="318" type="Block" x="4684" y="480" width="72" height="36">
    <properties>
     <property name="block_type" type="int" value="7"/>
     <property name="isOneWay" type="bool" value="true"/>
@@ -647,6 +641,37 @@
     <property name="zone_ID" type="int" value="3"/>
    </properties>
   </object>
+  <object id="355" type="Enemy" x="2212.67" y="540">
+   <properties>
+    <property name="character_type" type="int" value="9"/>
+    <property name="zone_ID" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="356" type="Enemy" x="2279.33" y="532">
+   <properties>
+    <property name="character_type" type="int" value="9"/>
+    <property name="zone_ID" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="357" type="Enemy" x="2354.67" y="532">
+   <properties>
+    <property name="character_type" type="int" value="9"/>
+    <property name="zone_ID" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="358" type="Enemy" x="2760" y="528.667">
+   <properties>
+    <property name="character_type" type="int" value="9"/>
+    <property name="zone_ID" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="359" type="Enemy" x="2466" y="557.333">
+   <properties>
+    <property name="character_type" type="int" value="10"/>
+    <property name="scale" type="float" value="3"/>
+    <property name="zone_ID" type="int" value="2"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Items">
   <object id="2" type="Item" x="1110.22" y="485.806">
@@ -709,17 +734,12 @@
     <property name="item_type" type="int" value="3"/>
    </properties>
   </object>
-  <object id="310" type="Item" x="4720" y="499">
+  <object id="310" type="Item" x="4720" y="464">
    <properties>
     <property name="item_type" type="int" value="3"/>
    </properties>
   </object>
-  <object id="311" type="Item" x="4720" y="436">
-   <properties>
-    <property name="item_type" type="int" value="3"/>
-   </properties>
-  </object>
-  <object id="312" type="Item" x="4720" y="372">
+  <object id="312" type="Item" x="4720" y="369">
    <properties>
     <property name="item_type" type="int" value="3"/>
    </properties>

@@ -10,7 +10,7 @@ USING_NS_CC;
 
 
 
-#define ICE_DAMAGE 10.0f
+#define ICE_DAMAGE 8.0f
 #define BLADE_LIFE_TIME 0.1f
 
 #define SIZE_WIDTH 50.0f

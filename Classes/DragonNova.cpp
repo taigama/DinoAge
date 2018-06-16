@@ -7,7 +7,7 @@
 USING_NS_CC;
 
 #define ATTACK_TIME 0.1f
-#define DAMAGE 50.0f
+#define DAMAGE 100.0f
 
 #define SIZE_WIDTH 854.0f
 #define SIZE_HEIGHT 480.0f

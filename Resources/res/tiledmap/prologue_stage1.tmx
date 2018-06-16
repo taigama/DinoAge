@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="204" height="40" tilewidth="32" tileheight="32" infinite="0" nextobjectid="108">
+<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="204" height="40" tilewidth="32" tileheight="32" infinite="0" nextobjectid="127">
  <tileset firstgid="1" source="tileset_mapLv1.tsx"/>
  <tileset firstgid="1153" source="background.tsx"/>
  <layer name="Background" width="204" height="40" visible="0">
@@ -9,12 +9,12 @@
  </layer>
  <layer name="Underground" width="204" height="40">
   <data encoding="base64" compression="zlib">
-   eJzt1zdOAEEQRFHufys8KZ4UT4onpBKSljZZaaWe4T2pgj8n6NnZAQAAAAAAAAAAAAAAAAAAAAAAAP6bw+woO85O9Oqu793tZnvZfnagF7u6zK6y6+xGr+763t1pdpadZxd6savH7Cl7zl706q7v3d1md9l99qAXu/rMvrLv7Eev7vre3Wv2lr1nH3qxqy73/+jt/zJnV13u/9Hb/2XOrrrc/6O3/8ucXXW5/0dv/5c5u+py/4/e/i9zdtXl/h+9/V/m7KrL/T96+7/M2VWX+3/09n+Zs6su978es7v8M7bqqsv9r8fsLv+Mrbrqcv/rMbvLP2Orrrrc/3rM7vLP2Kr//AKFbCsI
+   eJzt1zdOBUEQRVG2gtn/HvCkeFI8KZ6Ql5CUNMmXvqhunSO94I40edfGBgAAAAAAAAAAAAAAAAAAAACdbWZb2Xa28w//AwAwp8PsKDvOTvTKXb93t5vtZfvZgV7s6jK7yq6zG71y1+/dnWZn2Xl2oRe7esyesufsRa/c9Xt3t9lddp896MWuPrOv7Dv70St3/d7da/aWvWcferGrLu//0dv9MmdXXd7/o7f7Zc6uurz/R2/3y5xddXn/j97ulzm76vL+H73dL3N21eX9P3q7X+bsqsv7f/R2v8zZVZf3/+jtfpmzqy7vfz1md7kz1tVVl/e/HrO73Bnr6qrL+1+P2V3ujHV11eX9r8fsLnfGuvrPL4uqLBw=
   </data>
  </layer>
  <layer name="Foreground" width="204" height="40">
   <data encoding="base64" compression="zlib">
-   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
+   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
   </data>
  </layer>
  <objectgroup name="TutorialText"/>
@@ -157,7 +157,7 @@
     <property name="isOneWay" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="60" type="Block" x="4864" y="544" width="128" height="67">
+  <object id="60" type="Block" x="4864" y="576" width="128" height="71">
    <properties>
     <property name="block_type" type="int" value="1"/>
    </properties>
@@ -215,7 +215,7 @@
     <property name="block_type" type="int" value="1"/>
    </properties>
   </object>
-  <object id="22" type="Block" x="5376" y="544" width="128" height="67">
+  <object id="22" type="Block" x="5376" y="575" width="128" height="71">
    <properties>
     <property name="block_type" type="int" value="1"/>
    </properties>
@@ -278,7 +278,7 @@
     <property name="isHidden" type="bool" value="true"/>
    </properties>
   </object>
-  <object id="88" type="Block" x="3680" y="128" width="96" height="48">
+  <object id="88" type="Block" x="3680" y="130" width="96" height="48">
    <properties>
     <property name="block_type" type="int" value="4"/>
     <property name="isHidden" type="bool" value="true"/>
@@ -289,7 +289,7 @@
     <property name="block_type" type="int" value="1"/>
    </properties>
   </object>
-  <object id="94" type="Block" x="320" y="512" width="48" height="24">
+  <object id="94" type="Block" x="619.667" y="543.333" width="72" height="36">
    <properties>
     <property name="block_type" type="int" value="7"/>
     <property name="isOneWay" type="bool" value="true"/>
@@ -315,6 +315,43 @@
     <property name="x2" type="float" value="3024"/>
     <property name="y1" type="float" value="512"/>
     <property name="y2" type="float" value="832"/>
+   </properties>
+  </object>
+  <object id="108" type="Block" x="847.5" y="543.5" width="72" height="36">
+   <properties>
+    <property name="block_type" type="int" value="7"/>
+    <property name="isOneWay" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="116" type="Block" x="3087" y="417" width="48" height="24">
+   <properties>
+    <property name="block_type" type="int" value="7"/>
+    <property name="isOneWay" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="121" type="Block" x="3008.33" y="1013.38" width="54.5417" height="7.625">
+   <properties>
+    <property name="block_type" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="122" type="Block" x="3008.23" y="1002.81" width="25.6667" height="10">
+   <properties>
+    <property name="block_type" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="123" type="Block" x="3007.85" y="996.25" width="6.9167" height="6.375">
+   <properties>
+    <property name="block_type" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="124" type="Block" x="3850.26" y="1014.09" width="53.4849" height="6.90909">
+   <properties>
+    <property name="block_type" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="125" type="Block" x="3878.44" y="1003.55" width="25.6667" height="10">
+   <properties>
+    <property name="block_type" type="int" value="1"/>
    </properties>
   </object>
  </objectgroup>
@@ -412,6 +449,42 @@
     <property name="zone_ID" type="int" value="2"/>
    </properties>
   </object>
+  <object id="118" type="Enemy" x="1316" y="641">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="2"/>
+    <property name="zone_ID" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="119" type="Enemy" x="1376" y="641">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="2"/>
+    <property name="zone_ID" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="120" type="Enemy" x="1250" y="642">
+   <properties>
+    <property name="character_type" type="int" value="7"/>
+    <property name="direction" type="int" value="-1"/>
+    <property name="feederSize" type="int" value="1"/>
+    <property name="feederType" type="int" value="2"/>
+    <property name="zone_ID" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="126" type="Enemy" x="3449.67" y="1015.67">
+   <properties>
+    <property name="character_type" type="int" value="5"/>
+    <property name="direction" type="int" value="1"/>
+    <property name="endX" type="float" value="3712"/>
+    <property name="endY" type="float" value="957"/>
+    <property name="zone_ID" type="int" value="4"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Items">
   <object id="81" type="Item" x="3360.2" y="864.95">
@@ -439,7 +512,7 @@
     <property name="item_type" type="int" value="1"/>
    </properties>
   </object>
-  <object id="57" type="Item" x="767" y="613">
+  <object id="57" type="Item" x="656" y="496">
    <properties>
     <property name="item_type" type="int" value="3"/>
    </properties>
@@ -479,7 +552,7 @@
     <property name="item_type" type="int" value="2"/>
    </properties>
   </object>
-  <object id="30" type="Item" x="4032" y="624">
+  <object id="30" type="Item" x="4080" y="481">
    <properties>
     <property name="item_type" type="int" value="1"/>
    </properties>
@@ -514,17 +587,12 @@
     <property name="item_type" type="int" value="3"/>
    </properties>
   </object>
-  <object id="89" type="Item" x="3744.5" y="75.167">
+  <object id="89" type="Item" x="3729.5" y="113.167">
    <properties>
     <property name="item_type" type="int" value="2"/>
    </properties>
   </object>
-  <object id="90" type="Item" x="3808" y="75">
-   <properties>
-    <property name="item_type" type="int" value="2"/>
-   </properties>
-  </object>
-  <object id="91" type="Item" x="3872.5" y="74">
+  <object id="91" type="Item" x="3887.5" y="112">
    <properties>
     <property name="item_type" type="int" value="2"/>
    </properties>
@@ -532,6 +600,36 @@
   <object id="98" type="Item" x="2943.67" y="586.334">
    <properties>
     <property name="item_type" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="109" type="Item" x="882.5" y="494.5">
+   <properties>
+    <property name="item_type" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="110" type="Item" x="3120" y="369">
+   <properties>
+    <property name="item_type" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="112" type="Item" x="4435" y="151">
+   <properties>
+    <property name="item_type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="113" type="Item" x="4242" y="181">
+   <properties>
+    <property name="item_type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="114" type="Item" x="4113" y="182">
+   <properties>
+    <property name="item_type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="115" type="Item" x="3857" y="385">
+   <properties>
+    <property name="item_type" type="int" value="2"/>
    </properties>
   </object>
  </objectgroup>

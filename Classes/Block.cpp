@@ -120,6 +120,8 @@ Block* Block::createBlock(
 			result->setColliderBitMask();
 
 			result->setPhysicsBody(result->_body);
+
+			result->_body->setTag((int)(&(result->size)));
 		}
 
 	}
